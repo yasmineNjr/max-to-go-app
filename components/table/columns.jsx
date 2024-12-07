@@ -9,7 +9,6 @@ import { FiSend } from "react-icons/fi";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import Badge from "../Badge";
-// import BookModal from "../BookModal"
 
 export const columns = [
 
@@ -26,11 +25,9 @@ export const columns = [
         header: "Delete account",
         cell: ({ row }) => {
             return (
-              <div className="min-w-[60px] flex justify-center text-center">
-                <Badge  text='delete' 
-                        icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
-                        style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} />
-              </div>
+              <Badge  text='delete' 
+                      icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
+                      style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} />
             );
           },
     },
@@ -39,11 +36,9 @@ export const columns = [
       header: "Pause",
       cell: ({ row }) => {
         return (
-          <div className="min-w-[60px] flex justify-center text-center">
-            <Badge  text='pause' 
-                    icon={<FaRegCirclePause color={row.original.pause === true ? 'white' : '#EB7C44'}/>} 
-                    style={row.original.pause === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} />
-          </div>
+          <Badge  text='pause' 
+                  icon={<FaRegCirclePause color={row.original.pause === true ? 'white' : '#EB7C44'}/>} 
+                  style={row.original.pause === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} />
         );
       },
     },
@@ -52,11 +47,9 @@ export const columns = [
         header: "Change password",
         cell: ({ row }) => {
             return (
-              <div className="min-w-[60px] flex justify-center text-center">
-                <Badge  text='change' 
-                        icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
-                        style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} />
-              </div>
+              <Badge  text='change' 
+                      icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
+                      style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} />
             );
           },
     },
@@ -65,11 +58,9 @@ export const columns = [
         header: "Messaging",
         cell: ({ row }) => {
             return (
-              <div className="min-w-[60px] flex justify-center text-center">
-                <Badge  text='send' 
-                        icon={<FiSend color={row.original.messaging === true ? 'white' : '#07A2FB'}/>} 
-                        style={row.original.messaging === true ? 'bg-blue-200 boreder-2 border-blue-200' : 'bg-transparent border-2 border-blue-200'} />
-              </div>
+              <Badge  text='send' 
+                      icon={<FiSend color={row.original.messaging === true ? 'white' : '#07A2FB'}/>} 
+                      style={row.original.messaging === true ? 'bg-blue-200 boreder-2 border-blue-200' : 'bg-transparent border-2 border-blue-200'} />
             );
           },
     },
@@ -78,11 +69,9 @@ export const columns = [
         header: "User invoices with history",
         cell: ({ row }) => {
             return (
-              <div className="min-w-[60px] flex justify-center text-center">
-                <Badge  text='Invoices' 
-                        icon={<FaFileInvoiceDollar color={row.original.invoices === true ? 'white' : '#121EFF'}/>} 
-                        style={row.original.invoices === true ? 'bg-blue-600 boreder-2 border-blue-600' : 'bg-transparent border-2 border-blue-600'} />
-              </div>
+              <Badge  text='Invoices' 
+                      icon={<FaFileInvoiceDollar color={row.original.invoices === true ? 'white' : '#121EFF'}/>} 
+                      style={row.original.invoices === true ? 'bg-blue-600 boreder-2 border-blue-600' : 'bg-transparent border-2 border-blue-600'} />
             );
           },
     },
@@ -91,11 +80,9 @@ export const columns = [
         header: "Give free purchases",
         cell: ({ row }) => {
             return (
-              <div className="min-w-[60px] flex justify-center text-center">
-                <Badge  text='Free' 
-                        icon={<BiSolidPurchaseTag color={row.original.purchases === true ? 'white' : '#14C004'}/>} 
-                        style={row.original.purchases === true ? 'bg-green boreder-2 border-green' : 'bg-transparent border-2 border-green'} />
-              </div>
+              <Badge  text='Free' 
+                      icon={<BiSolidPurchaseTag color={row.original.purchases === true ? 'white' : '#14C004'}/>} 
+                      style={row.original.purchases === true ? 'bg-green boreder-2 border-green' : 'bg-transparent border-2 border-green'} />
             );
           },
     },
