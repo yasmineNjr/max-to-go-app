@@ -14,7 +14,7 @@ const Users = async() => {
   return (
     <div className={`${styles.mainSection}`}>
       <Title text='Users'/>
-      <Command icon={<IoMdNotificationsOutline color='#FFFFFF'/>} text='Account creation notices'/>
+      <Command icon={<IoMdNotificationsOutline color='#FECC02'/>} text='Account creation notices'/>
       <DataTable data={data} columns={columns}/>
     </div>
   )

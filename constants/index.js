@@ -1,3 +1,4 @@
+import { user } from "@/public/assets"
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 
 export const sidebarItems = [
@@ -194,6 +195,61 @@ export async function getUserData() {
       messaging: false,
       invoices: true,
       purchases: false,
+     },
+          // ...
+   ]
+ }
+
+ export async function getNotificationsData() {
+   // Fetch data from your API here.
+   return [
+     {
+      name: 'Tanbir Ahmed',
+      img: user,
+      text: 'Placed a new order',
+      date: '20 min ago',
+     },
+     {
+      name: 'Salim Smith',
+      img: user,
+      text: 'left a 5 star review',
+      date: '20 min ago',
+     },
+     {
+      name: 'Royal Bengol',
+      img: user,
+      text: 'agreed to cancel',
+      date: '20 min ago',
+     },
+     {
+      name: 'Pabel Vuiya',
+      img: user,
+      text: 'Placed a new order',
+      date: '20 min ago',
+     },
+     {
+      name: 'Tanbir Ahmed',
+      img: user,
+      text: 'Placed a new order',
+      date: '20 min ago',
+     },
+     {
+      name: 'Salim Smith',
+      img: user,
+      text: 'left a 5 star review',
+      date: '20 min ago',
+     },
+     {
+      name: 'Royal Bengol',
+      img: user,
+      text: 'agreed to cancel',
+      date: '20 min ago',
+     },
+     {
+      name: 'Pabel Vuiya',
+      img: user,
+      text: 'Placed a new order',
+      date: '20 min ago',
      },
           // ...
    ]
