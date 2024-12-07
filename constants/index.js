@@ -1,6 +1,16 @@
 import { user } from "@/public/assets"
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 
+export const FormFieldType = {
+   INPUT: 'input',
+   TEXTAREA: 'textarea',
+   PHONE_INPUT: 'phoneInput',
+   CHECKBOX: 'checkbox',
+   DATE_PICKER: 'datePicker',
+   SELECT: 'select',
+   SKELETON: 'skeleton',
+ };
+
 export const sidebarItems = [
     {
       title: "Tasks",
@@ -54,7 +64,7 @@ export const sidebarItems = [
     },
   ]
 
-  export const sidebarSubItems = [
+export const sidebarSubItems = [
     {
       title: "Unsold assignments",
       url: "#",
@@ -82,6 +92,25 @@ export const sidebarItems = [
    {
       title: "Pricing of selling tasks",
       url: "#",
+   },
+]
+
+export const users = [
+   {
+      name: 'Tanbir Ahmed',
+      img: user,
+   },
+   {
+      name: 'Salim Smith',
+      img: user,
+   },
+   {
+      name: 'Royal Bengol',
+      img: user,
+   },
+   {
+      name: 'Pabel Vuiya',
+      img: user,
    },
 ]
 
@@ -198,11 +227,9 @@ export async function getUserData() {
      },
           // ...
    ]
- }
+}
 
- export async function getNotificationsData() {
-   // Fetch data from your API here.
-   return [
+ export const notifications = [
      {
       name: 'Tanbir Ahmed',
       img: user,
@@ -252,6 +279,5 @@ export async function getUserData() {
       date: '20 min ago',
      },
           // ...
-   ]
- }
+]
 

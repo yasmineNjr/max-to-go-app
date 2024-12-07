@@ -28,7 +28,7 @@
   /* =====  SHADCN OVERRIDES */
 
   .shad-error {
-    @apply text-red-400 !important;
+    @apply text-red !important;
   }
 
   .shad-table {
@@ -43,6 +43,17 @@
     @apply border-b border-textPrimary text-textDefault font-semibold !important;
   }
 
+  .shad-select-trigger {
+    @apply bg-transparent placeholder:text-secondaryColor border-none h-11 focus:ring-0 focus:ring-offset-0 !important;
+  }
+
+  .shad-select-content {
+    @apply bg-black border-secondaryColor !important;
+  }
+
+  .shad-textArea {
+    @apply bg-transparent placeholder:text-textSecondary border-secondaryColor rounded-xl h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+  }
 }
 
 /* 
