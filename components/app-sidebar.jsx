@@ -43,8 +43,8 @@ export function AppSidebar() {
   }
 
   return (
-    <Sidebar >
-      <SidebarHeader  className='bg-primaryColor flex flex-row justify-center items-center gap-6 h-[50px]'>
+    <Sidebar className=''>
+      <SidebarHeader  className='z-25 bg-primaryColor flex flex-row justify-center items-center gap-6 h-[50px]'>
         <Image src={menu} alt='menu' className='w-5'/>
         <h3 className='text-textDefault'>Main Menu</h3>
       </SidebarHeader>
