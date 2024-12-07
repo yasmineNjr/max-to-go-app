@@ -15,7 +15,7 @@ export const columns = [
     {
       accessorKey: "owner",
       header: "Owner",
-      cell: ({ row }) => <div className="flex flex-row items-center justify-between gap-2 min-w-[120px]  ">
+      cell: ({ row }) => <div className="flex flex-row items-center justify-between gap-2 min-w-[120px] ">
             <Image src={user} alt='user' className='h-[30px] w-[30px] rounded-full'/>
             <p className="w-full text-left text-textDefault font-light">{row.original.owner}</p>
         </div>,
@@ -25,9 +25,11 @@ export const columns = [
         header: "Delete account",
         cell: ({ row }) => {
             return (
-              <Badge  text='delete' 
+              <div className="flex items-center justify-center">
+                <Badge  text='delete' 
                       icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
                       style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} />
+              </div>
             );
           },
     },
@@ -36,9 +38,11 @@ export const columns = [
       header: "Pause",
       cell: ({ row }) => {
         return (
-          <Badge  text='pause' 
+          <div className="flex items-center justify-center">
+            <Badge  text='pause' 
                   icon={<FaRegCirclePause color={row.original.pause === true ? 'white' : '#EB7C44'}/>} 
                   style={row.original.pause === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} />
+          </div>
         );
       },
     },
@@ -47,9 +51,11 @@ export const columns = [
         header: "Change password",
         cell: ({ row }) => {
             return (
-              <Badge  text='change' 
+              <div className="flex items-center justify-center">
+                <Badge  text='change' 
                       icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
                       style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} />
+              </div>
             );
           },
     },
@@ -58,9 +64,11 @@ export const columns = [
         header: "Messaging",
         cell: ({ row }) => {
             return (
-              <Badge  text='send' 
+              <div className="flex items-center justify-center">
+                <Badge  text='send' 
                       icon={<FiSend color={row.original.messaging === true ? 'white' : '#07A2FB'}/>} 
                       style={row.original.messaging === true ? 'bg-blue-200 boreder-2 border-blue-200' : 'bg-transparent border-2 border-blue-200'} />
+              </div>
             );
           },
     },
@@ -69,9 +77,11 @@ export const columns = [
         header: "User invoices with history",
         cell: ({ row }) => {
             return (
-              <Badge  text='Invoices' 
+              <div className="flex items-center justify-center">
+                <Badge  text='Invoices' 
                       icon={<FaFileInvoiceDollar color={row.original.invoices === true ? 'white' : '#121EFF'}/>} 
                       style={row.original.invoices === true ? 'bg-blue-600 boreder-2 border-blue-600' : 'bg-transparent border-2 border-blue-600'} />
+              </div>
             );
           },
     },
@@ -80,9 +90,11 @@ export const columns = [
         header: "Give free purchases",
         cell: ({ row }) => {
             return (
-              <Badge  text='Free' 
+              <div className="flex items-center justify-center">
+                <Badge  text='Free' 
                       icon={<BiSolidPurchaseTag color={row.original.purchases === true ? 'white' : '#14C004'}/>} 
                       style={row.original.purchases === true ? 'bg-green boreder-2 border-green' : 'bg-transparent border-2 border-green'} />
+              </div>
             );
           },
     },

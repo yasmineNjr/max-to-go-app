@@ -7,11 +7,6 @@ const Button = ({ styles, title, onClickHandler, icon }) => (
         {icon}
         <h2>{title}</h2>
     </div>
-    // <button 
-    //   type="button" 
-    // >
-    //   
-    // </button>
 );
 
 export default Button

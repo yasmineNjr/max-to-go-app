@@ -1,0 +1,12 @@
+const CommandButton = ({ styles, title, onClickHandler, icon }) => (
+  
+    <div
+      className={` flex flex-row items-center justify-center gap-2 py-4 px-6 h-[25px] w-fit bg-black font-bold text-[14px] text-secondaryColor border border-secondaryColor outline-none ${styles} rounded-xl `}
+      onClick={onClickHandler}
+    >
+        {icon}
+        <h2>{title}</h2>
+    </div>
+);
+
+export default CommandButton
