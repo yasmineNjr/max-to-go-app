@@ -1,5 +1,3 @@
-"use client"
-
 import { user } from "@/public/assets"
 import Image from "next/image"
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -9,15 +7,16 @@ import { FiSend } from "react-icons/fi";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import Badge from "../Badge";
+import UserComponent from "../UserComponent";
 
 export const columns = [
 
     {
       accessorKey: "owner",
       header: "Owner",
-      cell: ({ row }) => <div className="flex flex-row items-center justify-between gap-2 min-w-[120px] ">
-            <Image src={user} alt='user' className='h-[30px] w-[30px] rounded-full'/>
-            <p className="w-full text-left text-textDefault font-light">{row.original.owner}</p>
+      cell: ({ row }) => 
+        <div className="min-w-[120px]" >
+          <UserComponent img={user} name={row.original.owner}/>
         </div>,
     },
     {

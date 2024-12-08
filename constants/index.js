@@ -112,11 +112,13 @@ export const users = [
       name: 'Pabel Vuiya',
       img: user,
    },
+   {
+      name: 'Mhmd',
+      img: user,
+   },
 ]
 
-export async function getUserData() {
-   // Fetch data from your API here.
-   return [
+export const usersInfo = [
      {
       owner: 'Mhmd',
       delete: true,
@@ -226,8 +228,7 @@ export async function getUserData() {
       purchases: false,
      },
           // ...
-   ]
-}
+]
 
  export const notifications = [
      {
