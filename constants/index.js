@@ -97,38 +97,18 @@ export const sidebarSubItems = [
 
 export const users = [
    {
-      name: 'Tanbir Ahmed',
-      img: user,
-   },
-   {
-      name: 'Salim Smith',
-      img: user,
-   },
-   {
-      name: 'Royal Bengol',
-      img: user,
-   },
-   {
-      name: 'Pabel Vuiya',
-      img: user,
-   },
-   {
       name: 'Mhmd',
+      owner: 'Mhmd',
+      delete: true,
+      pause: false,
+      password: true,
+      messaging: false,
+      invoices: true,
+      purchases: false,
       img: user,
    },
-]
-
-export const usersInfo = [
-     {
-      owner: 'Mhmd',
-      delete: true,
-      pause: false,
-      password: true,
-      messaging: false,
-      invoices: true,
-      purchases: false,
-     },
-     {
+   {
+      name: 'Ali',
       owner: 'Ali',
       delete: false,
       pause: true,
@@ -136,8 +116,10 @@ export const usersInfo = [
       messaging: true,
       invoices: true,
       purchases: false,
-     },
-     {
+      img: user,
+   },
+   {
+      name: 'Ahmad',
       owner: 'Ahmad',
       delete: true,
       pause: true,
@@ -145,8 +127,10 @@ export const usersInfo = [
       messaging: true,
       invoices: false,
       purchases: true,
-     },
-     {
+      img: user,
+   },
+   {
+      name: 'Nour',
       owner: 'Nour',
       delete: false,
       pause: true,
@@ -154,8 +138,10 @@ export const usersInfo = [
       messaging: true,
       invoices: false,
       purchases: true,
-     },
-     {
+      img: user,
+   },
+   {
+      name: 'Ehab',
       owner: 'Ehab',
       delete: true,
       pause: false,
@@ -163,8 +149,10 @@ export const usersInfo = [
       messaging: false,
       invoices: false,
       purchases: true,
-     },
-     {
+      img: user,
+   },
+   {
+      name: 'Ghaith',
       owner: 'Ghaith',
       delete: false,
       pause: false,
@@ -172,62 +160,8 @@ export const usersInfo = [
       messaging: false,
       invoices: true,
       purchases: false,
-     },
-     {
-      owner: 'Mhmd',
-      delete: true,
-      pause: false,
-      password: true,
-      messaging: false,
-      invoices: true,
-      purchases: false,
-     },
-     {
-      owner: 'Ali',
-      delete: false,
-      pause: true,
-      password: true,
-      messaging: true,
-      invoices: true,
-      purchases: false,
-     },
-     {
-      owner: 'Ahmad',
-      delete: true,
-      pause: true,
-      password: false,
-      messaging: true,
-      invoices: false,
-      purchases: true,
-     },
-     {
-      owner: 'Nour',
-      delete: false,
-      pause: true,
-      password: false,
-      messaging: true,
-      invoices: false,
-      purchases: true,
-     },
-     {
-      owner: 'Ehab',
-      delete: true,
-      pause: false,
-      password: false,
-      messaging: false,
-      invoices: false,
-      purchases: true,
-     },
-     {
-      owner: 'Ghaith',
-      delete: false,
-      pause: false,
-      password: true,
-      messaging: false,
-      invoices: true,
-      purchases: false,
-     },
-          // ...
+      img: user,
+   },
 ]
 
  export const notifications = [

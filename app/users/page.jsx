@@ -7,13 +7,13 @@ import Command from '@/components/Command'
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { DataTable } from '@/components/table/DataTable';
 import { columns } from '@/components/table/columns';
-import { getUserData, usersInfo } from '@/constants';
+import { users } from '@/constants';
 import { useRouter } from 'next/navigation';
 
 const Users = () => {
 
   const router = useRouter()
-  const data = usersInfo;
+  const data = users;
 
   const createNoticesHandler = () => {
     router.push('/users/create-notices')

@@ -43,8 +43,8 @@ const UserInfoPage = ({ params }) => {
             <ContentComponent title='Brief Description of Your Company :' value='This text can be installed on any design without a problem. It
                 will not look like copied, unorganized, unformatted, or even incomprehensible'/>
           </div>
-        <div className="flex flex-1 justify-center items-center w-full mt-6">
-            <Button styles='w-[100%] lg:w-[50%] rounded-3xl h-[35px] py-2 text-[12px] lg:text-[14px] font-bold' title='Print PDF or JPEG' />
+        <div className="flex flex-1 justify-center items-center w-full mt-10">
+            <Button styles='w-[100%] lg:w-[50%] rounded-3xl py-2 text-[12px] font-bold' title='Print PDF or JPEG' />
         </div>
       </div>
     </div>

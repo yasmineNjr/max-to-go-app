@@ -18,10 +18,10 @@ const NotificationItem = ({ img, name, text, date, isCommand}) => {
       {
         isCommand &&
         <div className='flex items-center flex-wrap justifiy-center gap-3 my-3 w-full'>
-          <CommandButton title='Delete' />
-          <CommandButton title='Consent' />
-          <CommandButton title='Email Correspondence' />
-      </div>
+          <CommandButton title='Delete' styles='bg-black '/>
+          <CommandButton title='Consent' styles='bg-black '/>
+          <CommandButton title='Email Correspondence' styles='bg-black '/>
+        </div>
       }
    </div>
   )

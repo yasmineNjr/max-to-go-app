@@ -12,6 +12,8 @@ const Badge = ({ icon, text, style, source, user }) => {
       router.push(`/users/${user}/change-password`)
     else if(source === 'message')
       router.push(`/users/${user}/send-message`)
+    else if(source === 'invoices')
+      router.push(`/users/${user}/invoices`)
   }
 
   return (

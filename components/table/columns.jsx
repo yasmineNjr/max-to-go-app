@@ -84,8 +84,11 @@ export const columns = [
         header: "User invoices with history",
         cell: ({ row }) => {
             return (
-              <div className="flex items-center justify-center">
-                <Badge  text='Invoices' 
+              <div className="flex items-center justify-center cursor-pointer">
+                <Badge  
+                      source='invoices'
+                      user={row.original.owner}
+                      text='Invoices' 
                       icon={<FaFileInvoiceDollar color={row.original.invoices === true ? 'white' : '#121EFF'}/>} 
                       style={row.original.invoices === true ? 'bg-blue-600 boreder-2 border-blue-600' : 'bg-transparent border-2 border-blue-600'} />
               </div>
@@ -98,7 +101,8 @@ export const columns = [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center">
-                <Badge  text='Free' 
+                <Badge  
+                      text='Free' 
                       icon={<BiSolidPurchaseTag color={row.original.purchases === true ? 'white' : '#14C004'}/>} 
                       style={row.original.purchases === true ? 'bg-green boreder-2 border-green' : 'bg-transparent border-2 border-green'} />
               </div>
