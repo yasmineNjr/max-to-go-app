@@ -10,7 +10,7 @@ const InvoicesPage = ({ params }) => {
     const user = users.find((user) => user.name === params.id);
   return (
     <div className={`${styles.mainSection}`}>
-    <div className='rounded-xl border-2 border-textPrimary bg-blue-200 w-full my-10 p-10'>
+    <div className='rounded-xl border-2 border-textPrimary bg-blue-200 w-full my-10 p-5 lg:p-10'>
       <div className='flex flex-row justify-center items-center w-full gap-5 text-textDefault'>
         <h3>Owner: </h3>
         <div className="flex flex-row items-center justify-between gap-2">
