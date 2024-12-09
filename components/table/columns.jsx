@@ -25,7 +25,8 @@ export const columns = [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center">
-                <Badge  text='delete' 
+                <Badge  
+                      text='delete' 
                       icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
                       style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} />
               </div>
@@ -38,7 +39,8 @@ export const columns = [
       cell: ({ row }) => {
         return (
           <div className="flex items-center justify-center">
-            <Badge  text='pause' 
+            <Badge  
+                  text='pause' 
                   icon={<FaRegCirclePause color={row.original.pause === true ? 'white' : '#EB7C44'}/>} 
                   style={row.original.pause === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} />
           </div>
@@ -50,8 +52,11 @@ export const columns = [
         header: "Change password",
         cell: ({ row }) => {
             return (
-              <div className="flex items-center justify-center">
-                <Badge  text='change' 
+              <div className="flex items-center justify-center cursor-pointer">
+                <Badge  
+                      text='change' 
+                      source='password'
+                      user={row.original.owner}
                       icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
                       style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} />
               </div>
@@ -63,8 +68,11 @@ export const columns = [
         header: "Messaging",
         cell: ({ row }) => {
             return (
-              <div className="flex items-center justify-center">
-                <Badge  text='send' 
+              <div className="flex items-center justify-center cursor-pointer">
+                <Badge  
+                      text='send' 
+                      source='message'
+                      user={row.original.owner}
                       icon={<FiSend color={row.original.messaging === true ? 'white' : '#07A2FB'}/>} 
                       style={row.original.messaging === true ? 'bg-blue-200 boreder-2 border-blue-200' : 'bg-transparent border-2 border-blue-200'} />
               </div>
