@@ -216,3 +216,24 @@ export const users = [
           // ...
 ]
 
+export const reviews = [
+   {
+      id: 'review-1',
+      user: 'Mhmd',
+      img: user,
+      text: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible text. Because it is still an alternative and temporary text.',
+   },
+   {
+      id: 'review-2',
+      user: 'Nour',
+      img: user,
+      text: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible text.'
+   },
+   {
+      id: 'review-3',
+      user: 'Ghaith',
+      img: user,
+      text: 'It will not look like copied, unorganized, unformatted, or even incomprehensible text.'
+   }
+]
+

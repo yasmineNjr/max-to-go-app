@@ -1,7 +1,6 @@
 import { logo } from '@/public/assets'
 import Image from 'next/image'
 import React from 'react'
-import ChangePasswordForm from './forms/ChangePasswordForm'
 
 const UserActionComponent = ({ title, form}) => {
   return (
