@@ -237,3 +237,30 @@ export const reviews = [
    }
 ]
 
+export const invoices  = [
+   {
+      id: '#22225454',
+      owner: 'Ehab',
+      price: 100,
+      quantity: 2,
+   },
+   {
+      id: '#22225455',
+      owner: 'Ghaith',
+      price: 70,
+      quantity: 3,
+   },
+   {
+      id: '#22225456',
+      owner: 'Ahmad',
+      price: 200,
+      quantity: 1,
+   },
+   {
+      id: '#22225457',
+      owner: 'Ali',
+      price: 500,
+      quantity: 5,
+   },
+]
+

@@ -1,16 +1,25 @@
 import styles from '@/app/styles';
 import CommandButton from '@/components/CommandButton';
 import ContentComponent from '@/components/ContentComponent';
-import { users } from '@/constants';
+import InvoiceItem from '@/components/InvoiceItem';
+import { invoices, users } from '@/constants';
 import Image from 'next/image';
 import React from 'react'
 
 const InvoicesPage = ({ params }) => {
 
     const user = users.find((user) => user.name === params.id);
+    const invoice = invoices.find((inv) => inv.owner === user.name)
+    
   return (
-    <div className={`${styles.mainSection}`}>
-    <div className='rounded-xl border-2 border-textPrimary bg-blue-200 w-full my-10 p-5 lg:p-10'>
+    <div className={`${styles.mainSection} items-center justify-center`}>
+      {
+        invoice ? 
+        <InvoiceItem owner={invoice.owner} id={invoice.id} price={invoice.price} quantity={invoice.quantity}/>
+        :
+        <div>No invoiced found for selected user!</div>
+      }
+    {/* <div className='rounded-xl border-2 border-textPrimary bg-blue-200 w-full my-10 p-5 lg:p-10'>
       <div className='flex flex-row justify-center items-center w-full gap-5 text-textDefault'>
         <h3>Owner: </h3>
         <div className="flex flex-row items-center justify-between gap-2">
@@ -42,7 +51,7 @@ const InvoicesPage = ({ params }) => {
         <CommandButton title='Send' styles='bg-transparent border-2'/>
         <CommandButton title='Export to PDF' styles='bg-transparent border-2'/>
     </div>
-    </div>
+    </div> */}
   </div>
   )
 }

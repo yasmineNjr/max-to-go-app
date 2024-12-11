@@ -5,7 +5,7 @@ import Title from '@/components/Title'
 import React from 'react'
 import styles from '../styles'
 import { FaPlus } from "react-icons/fa6";
-import { getNotificationsData, notifications } from '@/constants';
+import { notifications } from '@/constants';
 import NotificationItem from '@/components/NotificationItem';
 import { useRouter } from 'next/navigation';
 
