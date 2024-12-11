@@ -9,18 +9,9 @@ import {
     FormMessage,
   } from "@/components/ui/form"
 import { Input } from "./ui/input";
-import { Control } from "react-hook-form"
-
-import Image from "next/image";
-// import 'react-phone-number-input/style.css'
-// import PhoneInput from 'react-phone-number-input'
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-// import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 import { Textarea } from "./ui/textarea";
 import { FormFieldType } from "@/constants";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
-// import { Checkbox } from "./ui/checkbox";
 
 const RenderField= ({field, props}) => {
     
@@ -29,13 +20,13 @@ const RenderField= ({field, props}) => {
     switch(fieldType){
         case FormFieldType.INPUT:
             return(
-                <div className="flex rounded-xl border-2 border-secondaryColor bg-transparent items-center">
+                <div className="flex rounded-xl border-2 border-secondaryColor bg-transparent items-center overflow-hidden">
                     <div className="ml-5">{iconSrc}</div>
                     <FormControl>
                         <Input
                             placeholder={placeholder}
                             {...field}
-                            className="shad-input border-0 text-textPrimary"
+                            className="bg-transparent border-none text-textPrimary"
                         />
                     </FormControl>
                 </div>
@@ -89,7 +80,7 @@ const CustomFormField = ( props) => {
         render={({ field }) => (
         <FormItem className="flex-1">
            {fieldType !== FormFieldType.CHECKBOX && label &&(
-            <FormLabel className='text-primary font-normal text-sm lg:text-lg'>{label}</FormLabel>
+            <FormLabel className='text-textDefault font-normal text-sm lg:text-lg'>{label}</FormLabel>
            )}
 
            <RenderField field={field} props={props}/>

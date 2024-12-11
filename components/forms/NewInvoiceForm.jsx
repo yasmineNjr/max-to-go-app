@@ -1,5 +1,5 @@
-"use client"
- 
+'use client'
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -8,6 +8,8 @@ import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import { FormFieldType } from "@/constants"
 import Button from "../Button"
+import ConfirmationModal from "../ConfirmationModal"
+
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -15,13 +17,13 @@ const formSchema = z.object({
     }),
   })
 
-const ChangePasswordForm = () => {
+const NewInvoiceForm = () => {
 
     const form = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
-      };
+    }
 
   return (
     <Form {...form}>
@@ -29,27 +31,46 @@ const ChangePasswordForm = () => {
             <CustomFormField
                 fieldType={FormFieldType.INPUT}
                 control={form.control}
-                name="password"
-                label="New Password"
+                name="user"
+                label="Username"
                 placeholder=""
-                iconAlt="password"
+                iconAlt="user"
             />
             
             <CustomFormField
                 fieldType={FormFieldType.INPUT}
                 control={form.control}
-                name="confirm"
-                label="Confirm New Password"
+                name="price"
+                label="Price"
                 placeholder=""
-                iconAlt="confirm"
+                iconAlt="price"
+            />
+
+            <CustomFormField
+                fieldType={FormFieldType.INPUT}
+                control={form.control}
+                name="quantity"
+                label="Quantity"
+                placeholder=""
+                iconAlt="quantity"
+            />
+            
+            <CustomFormField
+                fieldType={FormFieldType.INPUT}
+                control={form.control}
+                name="total"
+                label="Total"
+                placeholder=""
+                iconAlt="total"
             />
                     
             <div className="flex flex-1 justify-center items-center w-full mt-6">
-                <Button styles='w-[100%] rounded-3xl' title='Change'/>
+                {/* <Button styles='w-[100%] rounded-3xl' title='Create'/> */}
+                <ConfirmationModal buttonText='Create' text='Your invoice has been created successfully'/>
             </div>
         </form>
     </Form>
   )
 }
 
-export default ChangePasswordForm
+export default NewInvoiceForm

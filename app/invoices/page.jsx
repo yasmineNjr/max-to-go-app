@@ -13,7 +13,7 @@ const Invoices = () => {
 
   const router = useRouter();
   const newInvoiceHandler = () => {
-    router.push('/notifications/create-new')
+    router.push('/invoices/create-new')
   }
   return (
     <div className={`${styles.mainSection}`}>
