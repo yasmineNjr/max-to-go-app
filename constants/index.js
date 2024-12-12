@@ -1,4 +1,4 @@
-import { user } from "@/public/assets"
+import { ad1, ad2, ad3, user } from "@/public/assets"
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 
 export const FormFieldType = {
@@ -262,5 +262,28 @@ export const invoices  = [
       price: 500,
       quantity: 5,
    },
+]
+
+export const advertisements = [
+   {
+      id: 'adver-1',
+      img: ad1
+   },
+   {
+      id: 'adver-2',
+      img: ad2
+   },
+   {
+      id: 'adver-3',
+      img: ad3
+   },
+   // {
+   //    id: 'adver-4',
+   //    img: ad4
+   // },
+   // {
+   //    id: 'adver-5',
+   //    img: ad5
+   // },
 ]
 

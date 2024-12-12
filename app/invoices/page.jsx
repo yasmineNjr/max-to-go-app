@@ -23,9 +23,6 @@ const Invoices = () => {
         text='Create new invoice'
         onClickHandler={newInvoiceHandler}
       />
-      {/* {
-       
-      } */}
       <div className='flex flex-wrap w-full gap-10 justify-center'>
      { 
       invoices.map((invoice) => (
