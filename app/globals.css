@@ -116,7 +116,7 @@
   }
 
   .shad-dialog {
-    @apply bg-blue-400 rounded-2xl sm:max-w-md flex items-center justify-center !important;
+    @apply bg-blue-400 rounded-2xl sm:max-w-sm sm:m-5 flex items-center justify-center !important;
   }
 }
 
