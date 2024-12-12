@@ -8,6 +8,7 @@ import ad2 from './ad2.jpg'
 import ad3 from './ad3.jpg'
 // import ad4 from './ad4.jpg'
 import ad5 from './ad5.jpg'
+import upload from './upload.svg'
 
 export {
     logo,
@@ -20,4 +21,5 @@ export {
     ad3,
     // ad4,
     ad5,
+    upload
 }

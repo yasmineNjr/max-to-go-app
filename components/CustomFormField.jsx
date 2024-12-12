@@ -69,6 +69,11 @@ const RenderField= ({field, props}) => {
                 </div>
             )
 
+        case FormFieldType.SKELETON:
+            return(
+                renderSkeleton ? renderSkeleton(field) : null
+            )
+
         default:
             break;
     }
