@@ -38,7 +38,6 @@ const CreateNotificationForm = () => {
                 placeholder="Select a user..."
                 iconSrc={<TiUserAddOutline color='#FECC02' size={24}/>}
                 >
-                    {/* users was undefiened */}
                 {users.map((user) => (
                 <SelectItem key={user.name} value={user.name}>
                     <div className="flex items-center gap-2 cursor-pointer">
