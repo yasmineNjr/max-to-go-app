@@ -27,7 +27,7 @@ const Tasks = () => {
       <h1 className="mt-5 font-bold text-[22px]">Reviews</h1>
       {
         reviews.map((review) => (
-          <ReviewComponent key={review.id} img={review.img} text={review.text}/>
+          <ReviewComponent id={review.id} img={review.img} text={review.text}/>
         ))
       }
     </div>
