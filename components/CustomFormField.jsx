@@ -15,7 +15,7 @@ import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 
 const RenderField= ({field, props}) => {
     
-    const { fieldType, iconSrc, iconAlt, placeholder, showTimeSelect, dateFormat, renderSkeleton } = props;
+    const { fieldType, iconSrc, iconAlt, placeholder, showTimeSelect, dateFormat, renderSkeleton, onChange, value, readOnly, type, min } = props;
     
     switch(fieldType){
         case FormFieldType.INPUT:
@@ -26,7 +26,12 @@ const RenderField= ({field, props}) => {
                         <Input
                             placeholder={placeholder}
                             {...field}
-                            className="bg-transparent border-none text-textPrimary"
+                            className="shad-input "
+                            onChange={onChange}
+                            value={value}
+                            readOnly={readOnly}
+                            type={type}
+                            min={min}
                         />
                     </FormControl>
                 </div>

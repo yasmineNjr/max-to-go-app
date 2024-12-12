@@ -7,8 +7,12 @@ import { z } from "zod"
 import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import { FormFieldType } from "@/constants"
-import Button from "../Button"
 import ConfirmationModal from "../ConfirmationModal"
+import { FaRegUser } from "react-icons/fa6";
+import { FaSackDollar } from "react-icons/fa6";
+import { MdOutlineNumbers } from "react-icons/md";
+import { HiCurrencyDollar } from "react-icons/hi2";
+import { useState } from "react"
 
 
 const formSchema = z.object({
@@ -24,6 +28,15 @@ const NewInvoiceForm = () => {
     const onSubmit = (data) => {
         console.log(data);
     }
+    const [value, setValue] = useState("");
+    const handleInputChange = (e) => {
+        const inputValue = e.target.value;
+    
+        // Allow only numbers and one decimal point
+        if (/^\d*\.?\d*$/.test(inputValue)) {
+          setValue(inputValue);
+        }
+      };
 
   return (
     <Form {...form}>
@@ -33,7 +46,8 @@ const NewInvoiceForm = () => {
                 control={form.control}
                 name="user"
                 label="Username"
-                placeholder=""
+                placeholder="Enter username"
+                iconSrc={<FaRegUser color="#FECC02"/>}
                 iconAlt="user"
             />
             
@@ -42,8 +56,11 @@ const NewInvoiceForm = () => {
                 control={form.control}
                 name="price"
                 label="Price"
-                placeholder=""
+                placeholder="Enter price"
+                iconSrc={<HiCurrencyDollar color="#FECC02"/>}
                 iconAlt="price"
+                onChange={handleInputChange}
+                value={value}
             />
 
             <CustomFormField
@@ -51,8 +68,11 @@ const NewInvoiceForm = () => {
                 control={form.control}
                 name="quantity"
                 label="Quantity"
-                placeholder=""
+                placeholder="1"
                 iconAlt="quantity"
+                iconSrc={<MdOutlineNumbers color="#FECC02"/>}
+                type='number'
+                min={1}
             />
             
             <CustomFormField
@@ -60,8 +80,10 @@ const NewInvoiceForm = () => {
                 control={form.control}
                 name="total"
                 label="Total"
-                placeholder=""
+                placeholder="0"
                 iconAlt="total"
+                iconSrc={<FaSackDollar color="#FECC02"/>}
+                readOnly={true}
             />
                     
             <div className="flex flex-1 justify-center items-center w-full mt-6">

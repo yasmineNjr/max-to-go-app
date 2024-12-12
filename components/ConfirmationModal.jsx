@@ -25,7 +25,7 @@ const ConfirmationModal = ({ buttonText, title, text}) => {
         </Button>
         </DialogTrigger>
        
-        <DialogContent className='bg-blue-400 rounded-2xl sm:max-w-md flex items-center justify-center'>
+        <DialogContent className='shad-dialog'>
             <DialogHeader className='mb-4 space-y-3'>
                 <DialogTitle className='capitalize text-center text-customSecondart'>
                     <Image src={logo} alt='logo' width={250} height={250} className='ml-10'/>
