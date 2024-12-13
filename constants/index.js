@@ -164,50 +164,58 @@ export const users = [
    },
 ]
 
- export const notifications = [
+export const notifications = [
      {
+      id: 'noti-1',
       name: 'Tanbir Ahmed',
       img: user,
       text: 'Placed a new order',
       date: '20 min ago',
      },
      {
+      id: 'noti-2',
       name: 'Salim Smith',
       img: user,
       text: 'left a 5 star review',
       date: '20 min ago',
      },
      {
+      id: 'noti-3',
       name: 'Royal Bengol',
       img: user,
       text: 'agreed to cancel',
       date: '20 min ago',
      },
      {
+      id: 'noti-4',
       name: 'Pabel Vuiya',
       img: user,
       text: 'Placed a new order',
       date: '20 min ago',
      },
      {
+      id: 'noti-5',
       name: 'Tanbir Ahmed',
       img: user,
       text: 'Placed a new order',
       date: '20 min ago',
      },
      {
+      id: 'noti-6',
       name: 'Salim Smith',
       img: user,
       text: 'left a 5 star review',
       date: '20 min ago',
      },
      {
+      id: 'noti-7',
       name: 'Royal Bengol',
       img: user,
       text: 'agreed to cancel',
       date: '20 min ago',
      },
      {
+      id: 'noti-8',
       name: 'Pabel Vuiya',
       img: user,
       text: 'Placed a new order',
@@ -287,3 +295,46 @@ export const advertisements = [
    // },
 ]
 
+export const conversations = [
+   {
+      id: 'con-1',
+      name: 'Tanbir Ahmed',
+      img: user,
+      message: 'sounds awesome!',
+      date: '19:37',
+      unread: 2
+   },
+   {
+      id: 'con-2',
+      name: 'Salim Smith',
+      img: user,
+      message: 'Ok, just hurry up a little bit...',
+      date: '22:37',
+      unread: 1
+   },
+   {
+      id: 'con-3',
+      name: 'Royal Bengol',
+      img: user,
+      message: 'Thank you dode.',
+      date: '12:37',
+      unread: 0
+   },
+   {
+      id: 'con-4',
+      name: 'Pabel Vuiya',
+      img: user,
+      message: 'How is it going..?',
+      date: '02:00',
+      unread: 0
+   },
+   {
+      id: 'con-5',
+      name: 'Tanbir Ahmed',
+      img: user,
+      message: 'Thank you for the awesome product man...!',
+      date: 'a day ago',
+      unread: 0
+   },
+        // ...
+]

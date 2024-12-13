@@ -27,7 +27,14 @@ const Notifications = () => {
       />
       {
         notifications.map((noti) => (
-          <NotificationItem img={noti.img} name={noti.name} text={noti.text} date={noti.date}/>
+          <NotificationItem id={noti.id} 
+                            img={noti.img} 
+                            name={noti.name} 
+                            text={noti.text} 
+                            date={noti.date}
+                            command1='Delete'
+                            command2='Consent'
+                            command3='Email Correspondence'/>
         ))
       }
     </div>

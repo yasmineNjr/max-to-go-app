@@ -2,9 +2,9 @@ import Image from 'next/image'
 import React from 'react'
 import CommandButton from './CommandButton'
 
-const NotificationItem = ({ img, name, text, date, isCommand}) => {
+const NotificationItem = ({ id, img, name, text, date, isCommand, command1, command2, command3}) => {
   return (
-    <div className='border-b-2 border-textDefault w-full'>
+    <div key={id} className='border-b-2 border-textDefault w-full'>
       <div key={name} className='flex flex-row items-center p-3 w-full '>
           <Image src={img} alt='user' className='h-[75px] w-[75px] lg:h-[60px] lg:w-[60px] rounded-full'/>
           <div className='flex flex-col ml-5'>
@@ -18,9 +18,9 @@ const NotificationItem = ({ img, name, text, date, isCommand}) => {
       {
         isCommand &&
         <div className='flex items-center flex-wrap justifiy-center gap-3 my-3 w-full'>
-          <CommandButton title='Delete' styles='bg-black '/>
-          <CommandButton title='Consent' styles='bg-black '/>
-          <CommandButton title='Email Correspondence' styles='bg-black '/>
+          <CommandButton title={command1} styles='bg-black '/>
+          <CommandButton title={command2} styles='bg-black '/>
+          <CommandButton title={command3} styles='bg-black '/>
         </div>
       }
    </div>
