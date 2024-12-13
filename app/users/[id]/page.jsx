@@ -5,7 +5,6 @@ import Title from '@/components/Title'
 import { users } from '@/constants';
 import Image from 'next/image';
 import React from 'react'
-import { FiSend } from "react-icons/fi";
 
 const UserInfoPage = ({ params }) => {
 

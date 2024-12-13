@@ -14,8 +14,8 @@ const ConversationItem = ({ id, img, name, message, date, isCommand, command1, c
             </div>
         </div>
         <div className=' flex flex-col w-35 p-3 items-center justify-center gap-2'>
-            <p className='w-full font-normal text-textPrimary'>{date}</p>
-            <div className='rounded-full bg-secondaryColor flex justify-center items-center h-[35px] w-[35px]'>{unread}</div>
+          <p className='w-full font-normal text-textPrimary'>{date}</p>
+          {unread !== 0 && <div className='rounded-full bg-secondaryColor flex justify-center items-center h-[35px] w-[35px]'>{unread}</div>}
         </div>
       </div>
       {
