@@ -1,6 +1,7 @@
 import { user } from '@/public/assets'
 import Image from 'next/image'
 import React from 'react'
+import { HiTruck } from "react-icons/hi2";
 
 const TaskItem = ({ id, owner, name, date, type, icon, city, price }) => {
   return (
@@ -33,7 +34,8 @@ const TaskItem = ({ id, owner, name, date, type, icon, city, price }) => {
                     <p className="w-fit text-left text-secondaryColor font-light">{type}</p>
                 </div>
                 <div className='flex flex-row w-full justify-center'>
-                    <Image src={icon} alt='task type' width={50}/>
+                    {/* <Image src={icon} alt='task type' width={50}/> */}
+                    <HiTruck color='#FECC02' size={35}/>
                 </div>
             </div>
             
