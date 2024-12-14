@@ -9,7 +9,7 @@ import ad3 from './ad3.jpg'
 // import ad4 from './ad4.jpg'
 import ad5 from './ad5.jpg'
 import upload from './upload.svg'
-import truck from './truck.png'
+import truck from './Truck.png'
 
 export {
     logo,
