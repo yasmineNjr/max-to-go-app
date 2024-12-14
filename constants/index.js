@@ -1,4 +1,4 @@
-import { ad1, ad2, ad3, user } from "@/public/assets"
+import { ad1, ad2, ad3, truck, user } from "@/public/assets"
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 
 export const FormFieldType = {
@@ -251,24 +251,28 @@ export const invoices  = [
       owner: 'Ehab',
       price: 100,
       quantity: 2,
+      isArchive: true
    },
    {
       id: '#22225455',
       owner: 'Ghaith',
       price: 70,
       quantity: 3,
+      isArchive: true
    },
    {
       id: '#22225456',
       owner: 'Ahmad',
       price: 200,
       quantity: 1,
+      isArchive: false
    },
    {
       id: '#22225457',
       owner: 'Ali',
       price: 500,
       quantity: 5,
+      isArchive: true
    },
 ]
 
@@ -337,4 +341,37 @@ export const conversations = [
       unread: 0
    },
         // ...
+]
+
+export const tasks  = [
+   {
+      id: 'task-1',
+      owner: 'Ehab',
+      name: 'Transfer form Gaza to rhfah',
+      date: '19-11-2024',
+      type: 'Transfer',
+      icon: truck,
+      price: 100,
+      city: 'Gaza',
+   },
+   {
+      id: 'task-2',
+      owner: 'Mhmd',
+      name: 'Transfer form Aleppo to Homs',
+      date: '01-12-2024',
+      type: 'Transfer',
+      icon: truck,
+      price: 200,
+      city: 'Aleppo',
+   },
+   {
+      id: 'task-1',
+      owner: 'Ahmad',
+      name: 'Transfer form Damascus to Hamah',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: truck,
+      price: 150,
+      city: 'Gaza',
+   },
 ]

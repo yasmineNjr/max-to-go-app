@@ -24,11 +24,11 @@ const Invoices = () => {
         onClickHandler={newInvoiceHandler}
       />
       <div className='flex flex-wrap w-full gap-10 justify-center'>
-     { 
-      invoices.map((invoice) => (
-          <InvoiceItem owner={invoice.owner} id={invoice.id} price={invoice.price} quantity={invoice.quantity}/>
-        ))
-      }
+      { 
+        invoices.map((invoice) => (
+            <InvoiceItem owner={invoice.owner} id={invoice.id} price={invoice.price} quantity={invoice.quantity}/>
+          ))
+        }
       </div>
     </div>
   )
