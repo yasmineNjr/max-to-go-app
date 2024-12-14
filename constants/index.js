@@ -1,5 +1,7 @@
-import { ad1, ad2, ad3, truck, user } from "@/public/assets"
+import { ad1, ad2, ad3, user } from "@/public/assets"
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { HiTruck } from "react-icons/hi2";
+
 
 export const FormFieldType = {
    INPUT: 'input',
@@ -350,7 +352,7 @@ export const tasks  = [
       name: 'Transfer form Gaza to rhfah',
       date: '19-11-2024',
       type: 'Transfer',
-      icon: truck,
+      icon: <HiTruck color='#FECC02' size={35}/>,
       price: 100,
       city: 'Gaza',
    },
@@ -360,7 +362,7 @@ export const tasks  = [
       name: 'Transfer form Aleppo to Homs',
       date: '01-12-2024',
       type: 'Transfer',
-      icon: truck,
+      icon:<HiTruck color='#FECC02' size={35}/>,
       price: 200,
       city: 'Aleppo',
    },
@@ -370,7 +372,7 @@ export const tasks  = [
       name: 'Transfer form Damascus to Hamah',
       date: '24-10-2024',
       type: 'Transfer',
-      icon: truck,
+      icon: <HiTruck color='#FECC02' size={35}/>,
       price: 150,
       city: 'Gaza',
    },

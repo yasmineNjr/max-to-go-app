@@ -16,7 +16,7 @@ const IncomingEmails = () => {
               <EmailsItem id={email.id} 
                           name={email.name} 
                           date={email.date} 
-                          text={email.text}
+                          message={email.message}
               />
             ))
           }

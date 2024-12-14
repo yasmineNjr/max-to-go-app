@@ -1,8 +1,10 @@
 import React from 'react'
 import { MdOutlineEmail } from "react-icons/md";
-import CommandButton from './CommandButton';
+import ConfirmationModal from './ConfirmationModal';
+import EmailModal from './EmailModal';
 
 const EmailsItem = ({ id, name, date, message }) => {
+    
   return (
     <div key={id} className='border-b-2 border-textDefault w-full flex flex-row justify-between '>
         <div key={name} className='flex flex-row items-center p-3 w-full '>
@@ -13,8 +15,8 @@ const EmailsItem = ({ id, name, date, message }) => {
             </div>
         </div>
         <div className='flex items-center justify-end flex-wrap gap-3 my-3 w-full'>
-            <CommandButton title='Delete' styles='bg-black '/>
-            <CommandButton title='View' styles='bg-black '/>
+            <ConfirmationModal command={true} buttonText='Delete' text='Are you sure you want to delete this email, knowing that a notification will be sent to the user?'/>
+            <EmailModal buttonText='View' name={name} text={message}/>
         </div>
    </div>
   )
