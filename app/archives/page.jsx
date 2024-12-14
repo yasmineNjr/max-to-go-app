@@ -5,7 +5,6 @@ import styles from '../styles'
 import Title from '@/components/Title'
 import Command from '@/components/Command'
 import Button from '@/components/Button'
-import { useRouter } from 'next/navigation'
 import { invoices, tasks } from '@/constants'
 import InvoiceItem from '@/components/InvoiceItem'
 import TaskItem from '@/components/TaskItem'
@@ -13,12 +12,9 @@ import TaskItem from '@/components/TaskItem'
 const Archives = () => {
 
   const [activeTab, setActiveTab] = useState('Invoices')
-  const rourter = useRouter();
 
   const changeStateHandler = (txt) => {
     setActiveTab(txt)
-    // const page = txt.toLowerCase();
-    // rourter.push(`/archives/${page}`)
   }
   
   return  (

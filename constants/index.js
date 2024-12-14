@@ -375,3 +375,24 @@ export const tasks  = [
       city: 'Gaza',
    },
 ]
+
+export const emails = [
+   {
+      id: 'e-1',
+      name: 'Mhmd',
+      date: '18 minutes ago',
+      message: 'Email text Email text Email text Email text Email text Email text'
+   },
+   {
+      id: 'e-2',
+      name: 'Ali',
+      date: '1 day',
+      message: 'Email text Email text Email text Email text Email text Email text'
+   },
+   {
+      id: 'e-3',
+      name: 'Ghaith',
+      date: '08-12-2024',
+      message: 'Email text Email text Email text Email text Email text Email text'
+   },
+]
