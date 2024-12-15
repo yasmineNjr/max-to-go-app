@@ -355,6 +355,7 @@ export const tasks  = [
       icon: <HiTruck color='#FECC02' size={35}/>,
       price: 100,
       city: 'Gaza',
+      isIndividual: true,
    },
    {
       id: 'task-2',
@@ -365,16 +366,18 @@ export const tasks  = [
       icon:<HiTruck color='#FECC02' size={35}/>,
       price: 200,
       city: 'Aleppo',
+      isIndividual: false,
    },
    {
-      id: 'task-1',
+      id: 'task-3',
       owner: 'Ahmad',
       name: 'Transfer form Damascus to Hamah',
       date: '24-10-2024',
       type: 'Transfer',
       icon: <HiTruck color='#FECC02' size={35}/>,
       price: 150,
-      city: 'Gaza',
+      city: 'Hamah',
+      isIndividual: true,
    },
 ]
 

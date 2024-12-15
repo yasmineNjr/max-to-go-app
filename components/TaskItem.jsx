@@ -1,11 +1,12 @@
 import { user } from '@/public/assets'
 import Image from 'next/image'
 import React from 'react'
+import CommandButton from './CommandButton'
 
-const TaskItem = ({ id, owner, name, date, type, icon, city, price }) => {
+const TaskItem = ({ id, owner, name, date, type, icon, city, price, source }) => {
   return (
     <div key={id}
-         className='rounded-xl border-2 border-textPrimary bg-blue-400 w-full my-10 p-5'
+         className='rounded-xl border-2 border-textPrimary bg-blue-400 w-full my-5 p-5'
     >
         <div className='flex flex-row items-center w-full gap-5 text-textDefault'>
             <h3 className='font-bold'>Owner: </h3>
@@ -15,21 +16,21 @@ const TaskItem = ({ id, owner, name, date, type, icon, city, price }) => {
             </div>
         </div>
 
-        <div className='flex flex-col lg:flex-row justify-between w-full pt-5'>
-            <div className='flex flex-col pt-5'>
+        <div className='flex flex-col lg:flex-row justify-between w-full pt-4'>
+            <div className='flex flex-col'>
                 <div className='flex flex-row w-full pt-1'>
-                    <h3 className='w-fit font-bold'>Name: </h3>
+                    <h3 className='w-fit font-bold mr-1'>Name: </h3>
                     <p className="w-fit text-left text-secondaryColor font-light">{name}</p>
                 </div>
                 <div className='flex flex-row w-full pt-1'>
-                    <h3 className='w-fit font-bold'>Date: </h3>
+                    <h3 className='w-fit font-bold mr-1'>Date: </h3>
                     <p className="w-fit text-left text-secondaryColor font-light">{date}</p>
                 </div>
             </div>
 
-            <div className='flex flex-col pt-5'>
+            <div className='flex flex-col'>
                 <div className='flex flex-row w-full pt-1'>
-                    <h3 className='w-fit font-bold'>Type: </h3>
+                    <h3 className='w-fit font-bold mr-1'>Type: </h3>
                     <p className="w-fit text-left text-secondaryColor font-light">{type}</p>
                 </div>
                 <div className='flex flex-row w-full justify-center'>
@@ -38,17 +39,26 @@ const TaskItem = ({ id, owner, name, date, type, icon, city, price }) => {
                 </div>
             </div>
             
-            <div className='flex flex-col pt-5'>
+            <div className='flex flex-col'>
                 <div className='flex flex-row w-full pt-1'>
-                    <h3 className='w-fit font-bold'>City: </h3>
+                    <h3 className='w-fit font-bold mr-1'>City: </h3>
                     <p className="w-fit text-left text-secondaryColor font-light">{city}</p>
                 </div>
                 <div className='flex flex-row w-full pt-1'>
-                    <h3 className='w-fit font-bold'>Price: </h3>
+                    <h3 className='w-fit font-bold mr-1'>Price: </h3>
                     <p className="w-fit text-left text-secondaryColor font-light">${price}</p>
                 </div>
             </div>
         </div>
+
+        {
+            source === 'individual' && 
+            <div className='flex flex-wrap items-center justify-center gap-3 mt-5'>
+                <CommandButton title='View'/>
+                <CommandButton title='Delete'/>
+                <CommandButton title='Convert to be a regular task'/>
+            </div>
+        }
     </div>
   )
 }
