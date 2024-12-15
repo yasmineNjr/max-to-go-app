@@ -398,3 +398,27 @@ export const emails = [
       message: 'Email text Email text Email text Email text Email text Email text'
    },
 ]
+
+export const jobApplications = [
+   {
+      id: 'job-1',
+      name: 'Mhmd',
+      city: 'Ghaza',
+      country: 'Palestine',
+      description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible text. Because it is still an alternative and temporary text.'
+   },
+   {
+      id: 'job-2',
+      name: 'Ali',
+      city: 'Aleppo',
+      country: 'Syria',
+      description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible text. Because it is still an alternative and temporary text.'
+   },
+   {
+      id: 'job-3',
+      name: 'Osama',
+      city: 'Hamah',
+      country: 'Syria',
+      description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible text. Because it is still an alternative and temporary text.'
+   },
+]
