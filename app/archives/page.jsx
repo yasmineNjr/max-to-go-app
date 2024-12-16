@@ -55,6 +55,7 @@ const Archives = () => {
                         icon={task.icon} 
                         city={task.city}
                         price={task.price}
+                        source='archive'
               />
             ))
           }

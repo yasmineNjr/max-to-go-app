@@ -69,23 +69,23 @@ export const sidebarItems = [
 export const sidebarSubItems = [
     {
       title: "Unsold assignments",
-      url: "#",
+      url: "/tasks/unsold-tasks",
    },
    {
       title: "Tasks to be sold",
-      url: "#",
+      url: "/tasks/sold-tasks",
    }, 
    {
       title: "You need to confirm completion",
-      url: "#",
+      url: "/tasks/confirm-tasks",
    },
    {
       title: "Expired",
-      url: "#",
+      url: "/tasks/expired-tasks",
    },
    {
       title: "Urgent",
-      url: "#",
+      url: "/tasks/urgent-tasks",
    },
    {
       title: "Create a task",
@@ -356,6 +356,7 @@ export const tasks  = [
       price: 100,
       city: 'Gaza',
       isIndividual: true,
+      status: 'unsold'
    },
    {
       id: 'task-2',
@@ -367,6 +368,7 @@ export const tasks  = [
       price: 200,
       city: 'Aleppo',
       isIndividual: false,
+      status: 'sold'
    },
    {
       id: 'task-3',
@@ -377,7 +379,116 @@ export const tasks  = [
       icon: <HiTruck color='#FECC02' size={35}/>,
       price: 150,
       city: 'Hamah',
+      isIndividual: false,
+      status: 'confirm'
+   },
+   {
+      id: 'task-4',
+      owner: 'Mhmd',
+      name: 'Transfer form Idlib to Hamah',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 200,
+      city: 'Idlib',
+      isIndividual: false,
+      status: 'expired'
+   },
+   {
+      id: 'task-5',
+      owner: 'Ali',
+      name: 'Transfer form Damascus to Idlib',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 300,
+      city: 'Damascus',
+      isIndividual: false,
+      status: 'urgent'
+   },
+   {
+      id: 'task-6',
+      owner: 'Ali',
+      name: 'Transfer form Damascus to Alraqa',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 250,
+      city: 'Damascus',
       isIndividual: true,
+      status: 'urgent'
+   },
+   {
+      id: 'task-7',
+      owner: 'Ghaith',
+      name: 'Transfer form Homs to Hamah',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 150,
+      city: 'Homs',
+      isIndividual: false,
+      status: 'expired'
+   },
+   {
+      id: 'task-8',
+      owner: 'Ghaith',
+      name: 'Transfer form Damascus to Aleppo',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 150,
+      city: 'Damascus',
+      isIndividual: false,
+      status: 'confirm'
+   },
+   {
+      id: 'task-9',
+      owner: 'Nour',
+      name: 'Transfer form Damascus to Homs',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 150,
+      city: 'Damascus',
+      isIndividual: false,
+      status: 'sold'
+   },
+   {
+      id: 'task-10',
+      owner: 'Nour',
+      name: 'Transfer form Aleppo to Hamah',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 250,
+      city: 'Aleppo',
+      isIndividual: true,
+      status: 'unsold'
+   },
+   {
+      id: 'task-11',
+      owner: 'Mhmd',
+      name: 'Transfer form Damascus to Homs',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 150,
+      city: 'Damascus',
+      isIndividual: false,
+      status: 'expired'
+   },
+   {
+      id: 'task-12',
+      owner: 'Ali',
+      name: 'Transfer form Aleppo to Hamah',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 250,
+      city: 'Aleppo',
+      isIndividual: false,
+      status: 'confirm'
    },
 ]
 

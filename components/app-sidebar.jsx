@@ -42,6 +42,10 @@ export function AppSidebar() {
    
   }
 
+  const taskItemNavigateHandler = (url) => {
+    router.push(url);
+  }
+
   return (
     <Sidebar className=''>
       <SidebarHeader  className='z-25 bg-primaryColor flex flex-row justify-center items-center gap-6 h-[50px]'>
@@ -74,7 +78,8 @@ export function AppSidebar() {
                   {
                     item.title === 'Tasks' && isOpenTasks && sidebarSubItems.map((sitem, idx) => (
                       <p  key={sitem.title} 
-                          className={`text-textDefault ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondaryColor mt-2 ml-3 mr-3`}>
+                          onClick={() => taskItemNavigateHandler(sitem.url)}
+                          className={`cursor-pointer text-textDefault ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondaryColor mt-2 ml-3 mr-3`}>
                         {sitem.title}
                       </p>
                     ))

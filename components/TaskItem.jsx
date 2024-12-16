@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import CommandButton from './CommandButton'
 
-const TaskItem = ({ id, owner, name, date, type, icon, city, price, source }) => {
+const TaskItem = ({ id, owner, name, date, type, icon, city, price, source, command1, command2, command3, command4, command5, command6 }) => {
   return (
     <div key={id}
          className='rounded-xl border-2 border-textPrimary bg-blue-400 w-full my-5 p-5'
@@ -52,11 +52,14 @@ const TaskItem = ({ id, owner, name, date, type, icon, city, price, source }) =>
         </div>
 
         {
-            source === 'individual' && 
+            source !== 'archive' && 
             <div className='flex flex-wrap items-center justify-center gap-3 mt-5'>
-                <CommandButton title='View'/>
-                <CommandButton title='Delete'/>
-                <CommandButton title='Convert to be a regular task'/>
+                <CommandButton title={command1}/>
+                <CommandButton title={command2}/>
+                <CommandButton title={command3}/>
+                {command4 !== undefined && <CommandButton title={command4}/>}
+                {command5 !== undefined && <CommandButton title={command5}/>}
+                {command6 !== undefined && <CommandButton title={command6}/>}
             </div>
         }
     </div>
