@@ -12,7 +12,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const Tasks = () => {
 
-
   return (
     <div className={`${styles.mainSection}`}>
       <div className="w-full flex flex-1 flex-col lg:flex-row lg:h-[370px]">

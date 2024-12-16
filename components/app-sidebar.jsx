@@ -26,6 +26,8 @@ export function AppSidebar() {
   const [activePath, setActivePath] = useState('/');
   const styleActive = 'bg-secondaryColor text-primaryColor';
   const styleInActive = 'bg-primaryColor text-secondaryColor';
+  const styleSubItemActive = 'text-secondaryColor';
+  const styleSubItemInActive = 'text-textDefault';
 
   const openTasksHandler = (e) => {
     e.preventDefault(); // Prevent the anchor tag's default behavior
@@ -43,6 +45,7 @@ export function AppSidebar() {
   }
 
   const taskItemNavigateHandler = (url) => {
+    setActivePath(url);
     router.push(url);
   }
 
@@ -79,7 +82,7 @@ export function AppSidebar() {
                     item.title === 'Tasks' && isOpenTasks && sidebarSubItems.map((sitem, idx) => (
                       <p  key={sitem.title} 
                           onClick={() => taskItemNavigateHandler(sitem.url)}
-                          className={`cursor-pointer text-textDefault ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondaryColor mt-2 ml-3 mr-3`}>
+                          className={`${activePath === sitem.url ? styleSubItemActive : styleSubItemInActive} cursor-pointer ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondaryColor mt-2 ml-3 mr-3`}>
                         {sitem.title}
                       </p>
                     ))

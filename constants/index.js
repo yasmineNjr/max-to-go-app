@@ -64,7 +64,7 @@ export const sidebarItems = [
        url: "/individual-tasks",
        icon: Settings,
     },
-  ]
+]
 
 export const sidebarSubItems = [
     {
@@ -89,7 +89,7 @@ export const sidebarSubItems = [
    },
    {
       title: "Create a task",
-      url: "#",
+      url: "/tasks/create-task",
    },
    {
       title: "Pricing of selling tasks",
@@ -535,4 +535,30 @@ export const jobApplications = [
       country: 'Syria',
       description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible text. Because it is still an alternative and temporary text.'
    },
+]
+
+export const types = [
+   {
+      id: 'type-1',
+      title: 'Transfer'
+   },
+   {
+      id: 'type-2',
+      title: 'Clean'
+   }
+]
+
+export const apartments = [
+   {
+      id: 'apartment-1',
+      title: 'Regular apartment'
+   },
+   {
+      id: 'apartment-2',
+      title: 'Villa'
+   },
+   {
+      id: 'apartment-3',
+      title: 'Rad house'
+   }
 ]

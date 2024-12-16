@@ -119,6 +119,10 @@
     @apply bg-blue-400 rounded-2xl sm:max-w-sm sm:m-5 flex items-center justify-center !important;
   }
 
+  .date-picker {
+    @apply overflow-hidden border-transparent bg-transparent w-full placeholder:text-textSecondary  h-11  rounded-md px-3 outline-none !important;
+  }
+
   /* ==== File Upload */
   .file-upload {
     @apply text-secondaryColor flex cursor-pointer flex-col items-center justify-center gap-3 border border-dashed rounded-xl border-secondaryColor bg-transparent p-5;

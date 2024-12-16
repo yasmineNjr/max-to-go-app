@@ -10,6 +10,9 @@ import {
   } from "@/components/ui/form"
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+// import { Checkbox } from "./ui/checkbox";
 import { FormFieldType } from "@/constants";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 
@@ -73,6 +76,39 @@ const RenderField= ({field, props}) => {
             return(
                 renderSkeleton ? renderSkeleton(field) : null
             )
+
+        case FormFieldType.DATE_PICKER:
+            return(
+                <div className="flex rounded-xl border-2 border-secondaryColor bg-transparent items-center overflow-hidden h-12">
+                    <div className="ml-5">{iconSrc}</div>
+                    <FormControl>
+                        <DatePicker selected={field.value} 
+                                    onChange={(date) => field.onChange(date)} 
+                                    dateFormat={dateFormat ?? 'MM/dd/yyyy'}
+                                    showTimeSelect={showTimeSelect ?? false}
+                                    timeInputLabel="Time:"
+                                    className='date-picker'
+                                    />
+                    </FormControl>
+                </div>
+            )
+
+        // case FormFieldType.CHECKBOX:
+        //     return (
+        //         <FormControl>
+        //         <div className="flex items-center gap-4">
+        //             <Checkbox
+        //             id={props.name}
+        //             checked={field.value}
+        //             onCheckedChange={field.onChange}
+        //             className="w-5 h-5 bg-transparent border-customSecondary hover:border-customSecondary focus:ring-2 focus:ring-customSecondary checked:bg-transparent checked:border-customSecondary"
+        //             />
+        //             <label htmlFor={props.name} className="checkbox-label text-customSecondary">
+        //             {props.label}
+        //             </label>
+        //         </div>
+        //         </FormControl>
+        //     );
 
         default:
             break;
