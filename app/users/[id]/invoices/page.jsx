@@ -17,7 +17,7 @@ const InvoicesPage = ({ params }) => {
         invoice ? 
         <InvoiceItem owner={invoice.owner} id={invoice.id} price={invoice.price} quantity={invoice.quantity}/>
         :
-        <div className='h-full flex items-center'>No invoiced found for selected user!</div>
+        <h2>No invoiced found for selected user!</h2>
       }
   </div>
   )
