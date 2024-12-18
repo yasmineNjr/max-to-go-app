@@ -55,8 +55,8 @@ const RenderField= ({field, props}) => {
           
         case FormFieldType.SELECT:
             return(
-                <div className="flex rounded-xl border-2 border-secondaryColor bg-transparent items-center">
-                    <div className="mx-5">{iconSrc}</div>
+                <div className="shad-select placeholder:text-red">
+                    <div className="ml-5">{iconSrc}</div>
                     <FormControl>
                         <Select
                             defaultValue={field.value}
@@ -80,7 +80,7 @@ const RenderField= ({field, props}) => {
 
         case FormFieldType.DATE_PICKER:
             return(
-                <div className="flex rounded-xl border-2 border-secondaryColor bg-transparent items-center overflow-hidden h-12">
+                <div className="font-normal text-sm lg:text-lg flex rounded-xl border-2 border-secondaryColor bg-transparent items-center overflow-hidden h-12">
                     <div className="ml-5">{iconSrc}</div>
                     <FormControl>
                         <DatePicker selected={field.value} 
@@ -104,7 +104,7 @@ const RenderField= ({field, props}) => {
                     onCheckedChange={field.onChange}
                     className="shad-checkbox"
                     />
-                    <label htmlFor={props.name} className="checkbox-label text-textDefault">
+                    <label htmlFor={props.name} className="checkbox-label text-textDefault font-normal text-sm lg:text-lg">
                     {props.label}
                     </label>
                 </div>

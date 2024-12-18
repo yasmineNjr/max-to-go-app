@@ -108,11 +108,15 @@
   }
 
   .shad-textArea {
-    @apply bg-transparent placeholder:text-textSecondary border-secondaryColor rounded-xl h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply font-normal text-sm lg:text-lg bg-transparent placeholder:text-textSecondary border-secondaryColor rounded-xl h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+  }
+
+  .shad-select {
+    @apply font-normal text-sm lg:text-lg flex rounded-xl border-2 border-secondaryColor bg-transparent items-center !important
   }
 
   .shad-input {
-    @apply bg-transparent text-textPrimary placeholder:text-textSecondary border-transparent h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply font-normal text-sm lg:text-lg bg-transparent text-textPrimary placeholder:text-textSecondary border-transparent h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
   .shad-dialog {
@@ -120,11 +124,11 @@
   }
 
   .date-picker {
-    @apply overflow-hidden border-transparent bg-transparent w-full placeholder:text-textSecondary  h-11  rounded-md px-3 outline-none !important;
+    @apply font-normal text-sm lg:text-lg overflow-hidden border-transparent bg-transparent w-full placeholder:text-textSecondary  h-11  rounded-md px-3 outline-none !important;
   }
 
   .shad-checkbox {
-    @apply w-5 h-5 bg-blue-400 border-secondaryColor hover:border-secondaryColor focus:ring-1 focus:ring-secondaryColor checked:bg-blue-400 checked:border-secondaryColor !important
+    @apply font-normal text-sm lg:text-lg w-5 h-5 bg-blue-400 border-secondaryColor hover:border-secondaryColor focus:ring-1 focus:ring-secondaryColor checked:bg-blue-400 checked:border-secondaryColor !important
   }
 
   /* ==== File Upload */
