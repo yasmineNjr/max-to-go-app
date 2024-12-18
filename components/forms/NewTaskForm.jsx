@@ -13,6 +13,7 @@ import { FaCalendarDays } from "react-icons/fa6";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react"
+import ConfirmationModal from "../ConfirmationModal"
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -102,8 +103,8 @@ const NewTaskForm = () => {
             />
 
             <div className="flex flex-1 justify-center items-center w-full mt-6">
-                <Button styles='w-[100%] rounded-3xl' title='Create'/>
-                {/* <ConfirmationModal buttonText='Create' text='Your invoice has been created successfully'/> */}
+                {/* <Button styles='w-[100%] rounded-3xl' title='Create'/> */}
+                <ConfirmationModal buttonText='Create' text='Your task has been created successfully'/>
             </div>
         </form>
     </Form>
