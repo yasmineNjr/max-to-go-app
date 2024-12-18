@@ -7,13 +7,13 @@ import { z } from "zod"
 import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import { apartments, FormFieldType, types } from "@/constants"
-import Button from "../Button"
 import { SelectItem } from "../ui/select"
 import { FaCalendarDays } from "react-icons/fa6";
-import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react"
 import ConfirmationModal from "../ConfirmationModal"
+import { LuFileType } from "react-icons/lu";
+import { PiBuildingApartmentFill } from "react-icons/pi";
+import { SiTask } from "react-icons/si";
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -24,7 +24,6 @@ const formSchema = z.object({
 const NewTaskForm = () => {
 
     const form = useForm();
-    const [date, setDate] = useState(new Date())
 
     const onSubmit = (data) => {
         console.log(data);
@@ -39,7 +38,7 @@ const NewTaskForm = () => {
                 name="taskType"
                 label="Task type"
                 placeholder="Select a type..."
-                // iconSrc={<TiUserAddOutline color='#FECC02' size={24}/>}
+                iconSrc={<LuFileType color='#FECC02' size={20}/>}
                 >
                 {types.map((type) => (
                 <SelectItem key={type.id} value={type.title}>
@@ -56,7 +55,7 @@ const NewTaskForm = () => {
                 name="name"
                 label="Task name"
                 placeholder="Enter task name..."
-                // iconSrc={<FaRegUser color="#FECC02"/>}
+                iconSrc={<SiTask color="#FECC02" size={20}/>}
                 iconAlt="task"
             />
             
@@ -74,7 +73,7 @@ const NewTaskForm = () => {
                 name="apartmentType"
                 label="Apartment type"
                 placeholder="Select the apartment type..."
-                // iconSrc={<TiUserAddOutline color='#FECC02' size={24}/>}
+                iconSrc={<PiBuildingApartmentFill color='#FECC02' size={20}/>}
                 >
                 {apartments.map((apartment) => (
                 <SelectItem key={apartment.id} value={apartment.title}>
@@ -99,7 +98,7 @@ const NewTaskForm = () => {
               label="Task date"
               showTimeSelect
               dateFormat="MM/dd/yyyy  -  h:mm aa"
-              iconSrc={<FaCalendarDays color='#FECC02' size={20}/>}
+              iconSrc={<FaCalendarDays color='#FECC02' size={18}/>}
             />
 
             <div className="flex flex-1 justify-center items-center w-full mt-6">

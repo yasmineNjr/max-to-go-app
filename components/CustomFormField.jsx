@@ -15,6 +15,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { Checkbox } from "./ui/checkbox";
 import { FormFieldType } from "@/constants";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
+import { Checkbox } from "./ui/checkbox";
 
 const RenderField= ({field, props}) => {
     
@@ -93,22 +94,22 @@ const RenderField= ({field, props}) => {
                 </div>
             )
 
-        // case FormFieldType.CHECKBOX:
-        //     return (
-        //         <FormControl>
-        //         <div className="flex items-center gap-4">
-        //             <Checkbox
-        //             id={props.name}
-        //             checked={field.value}
-        //             onCheckedChange={field.onChange}
-        //             className="w-5 h-5 bg-transparent border-customSecondary hover:border-customSecondary focus:ring-2 focus:ring-customSecondary checked:bg-transparent checked:border-customSecondary"
-        //             />
-        //             <label htmlFor={props.name} className="checkbox-label text-customSecondary">
-        //             {props.label}
-        //             </label>
-        //         </div>
-        //         </FormControl>
-        //     );
+        case FormFieldType.CHECKBOX:
+            return (
+                <FormControl>
+                <div className="flex items-center gap-4">
+                    <Checkbox
+                    id={props.name}
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="shad-checkbox"
+                    />
+                    <label htmlFor={props.name} className="checkbox-label text-textDefault">
+                    {props.label}
+                    </label>
+                </div>
+                </FormControl>
+            );
 
         default:
             break;
