@@ -64,7 +64,7 @@ const RenderField= ({field, props}) => {
                         >
                             <FormControl>
                             <SelectTrigger className="shad-select-trigger text-customSecondary">
-                                <SelectValue placeholder={placeholder}/>
+                                <SelectValue placeholder={placeholder} className="placehoder:text-textSecondary"/>
                             </SelectTrigger> 
                             </FormControl>
                             <SelectContent className="shad-select-content ">{props.children}</SelectContent>
