@@ -12,7 +12,7 @@ const InvoicesPage = ({ params }) => {
     const invoice = invoices.find((inv) => inv.owner === user.name)
     
   return (
-    <div className={`${styles.mainSection} items-center justify-center`}>
+    <div className={`${styles.mainSection} items-center justify-center h-full`}>
       {
         invoice ? 
         <InvoiceItem owner={invoice.owner} id={invoice.id} price={invoice.price} quantity={invoice.quantity}/>
