@@ -1,7 +1,16 @@
 import { ad1, ad2, ad3, user } from "@/public/assets"
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 import { HiTruck } from "react-icons/hi2";
-
+import { FaTasks } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa6";
+import { FaFileInvoiceDollar } from "react-icons/fa6";
+import { MdNotificationsActive } from "react-icons/md";
+import { RiAdvertisementFill } from "react-icons/ri";
+import { BiSolidConversation } from "react-icons/bi";
+import { FaFileArchive } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { MdWork } from "react-icons/md";
+import { MdTask } from "react-icons/md";
 
 export const FormFieldType = {
    INPUT: 'input',
@@ -17,52 +26,52 @@ export const sidebarItems = [
     {
       title: "Tasks",
       url: "/",
-      icon: Home,
+      icon: <FaTasks/>,
     },
     {
       title: "Users",
       url: "/users",
-      icon: Inbox,
+      icon: <FaUsers/>,
     },
     {
       title: "Invoices",
       url: "/invoices",
-      icon: Calendar,
+      icon: <FaFileInvoiceDollar />,
     },
     {
       title: "Notifications",
       url: "/notifications",
-      icon: Search,
+      icon: <MdNotificationsActive/>,
     },
     {
       title: "Advertisements",
       url: "/advertisements",
-      icon: Settings,
+      icon: <RiAdvertisementFill/>,
     },
     {
        title: "Conversations",
        url: "/conversations",
-       icon: Settings,
+      icon: <BiSolidConversation/>,
     },
     {
        title: "Archives",
        url: "/archives",
-       icon: Settings,
+      icon: <FaFileArchive/>,
     },
     {
        title: "Incoming emails",
        url: "/incoming-emails",
-       icon: Settings,
+      icon: <MdEmail/>,
     },
     {
        title: "Job applications",
        url: "/job-applications",
-       icon: Settings,
+      icon: <MdWork/>,
     },
     {
        title: "Individual tasks",
        url: "/individual-tasks",
-       icon: Settings,
+      icon: <MdTask/>,
     },
 ]
 

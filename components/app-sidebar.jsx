@@ -67,7 +67,8 @@ export function AppSidebar() {
                         // href={item.url} 
                         >
                       <div className='flex flex-row items-center justify-center gap-1'>
-                        <item.icon className="w-4 h-4"/>
+                        {/* <item.icon className="w-4 h-4"/> */}
+                        {item.icon}
                         <span>{item.title}</span>
                       </div>
                       {
