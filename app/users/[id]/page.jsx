@@ -13,7 +13,7 @@ const UserInfoPage = ({ params }) => {
   return (
     <div className={`${styles.mainSection}`}>
       <Title text='User Information'/>
-      <div className='rounded-xl border-2 border-textPrimary bg-blue-200 w-full my-10 p-5 lg:p-10'>
+      <div className='rounded-xl border-2 border-textPrimary bg-blue-400 w-full my-10 p-5 lg:p-10'>
         <div className='flex flex-row justify-center items-center w-full gap-5 text-textDefault'>
           <h3>User: </h3>
           <div 

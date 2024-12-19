@@ -25,7 +25,7 @@ const SendMessageForm = () => {
 
   return (
     <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="font-bold space-y-6 flex flex-1 flex-col  w-[75%] mb-5">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="font-bold space-y-6 flex flex-1 flex-col w-[95%] lg:w-[75%] mb-5">
            
             <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
