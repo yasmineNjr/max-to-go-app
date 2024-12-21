@@ -1,14 +1,37 @@
+'use client'
+
 import styles from '@/app/styles'
 import Button from '@/components/Button';
 import ContentComponent from '@/components/ContentComponent';
 import Title from '@/components/Title'
 import { users } from '@/constants';
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDFDocument from '@/components/PDFDocument';
 
 const UserInfoPage = ({ params }) => {
 
   const user = users.find((user) => user.name === params.id);
+  // const [formData, setFormData] = useState({ name: "xxx", email: "xxx@mail.com" });
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
+  
+  const data = {
+    name: user.name,
+    img: user.img,
+    company : 'AL-Rahma Company',
+    number: '#987800255',
+    responsiblePerson: user.name,
+    address : 'Transfer form Gaza to rhfah',
+    business :'Transfer form Gaza to rhfah',
+    email : `${user.name}@gmail.com`,
+    phone : '+978487485785',
+    description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible'
+  }
 
   return (
     <div className={`${styles.mainSection}`}>
@@ -25,26 +48,44 @@ const UserInfoPage = ({ params }) => {
         </div>
 
         <div className='flex flex-col lg:flex-row justify-start items-start w-full gap-5 text-textDefault my-5'>
-          <div className='w-[100%] lg:w-[50%]'>
+        {/* lg:w-[50%] */}
+          <div className='w-[100%] '>
             <ContentComponent title='Company Name: ' value='AL-Rahma Company'/>
             <ContentComponent title='Organization Number: ' value='#987800255'/>
-            <ContentComponent title='Name of responsible person: ' value='Mohammed'/>
+            <ContentComponent title='Name of responsible person: ' value={user.name}/>
             <ContentComponent title='Address : ' value='Transfer form Gaza to rhfah'/>
             <ContentComponent title='Type Of Business :' value=' Transfer form Gaza to rhfah'/>
-            <ContentComponent title='Email : ' value='Mohammed@gmail.com'/>
-          </div>
-          <div className='w-[100%] lg:w-[50%]'>
+            <ContentComponent title='Email : ' value={`${user.name}@gmail.com`}/>
             <ContentComponent title='Phone Numer : ' value='+978487485785'/>
-            <ContentComponent title='PassWord : ' value='2211122211'/>
           </div>
+          {/* <div className='w-[100%] lg:w-[50%]'>
+            <ContentComponent title='Phone Numer : ' value='+978487485785'/>
+            <ContentComponent title='Password : ' value='**********'/>
+          </div> */}
         </div>
         <div className='w-[100%]'>
             <ContentComponent title='Brief Description of Your Company :' value='This text can be installed on any design without a problem. It
                 will not look like copied, unorganized, unformatted, or even incomprehensible'/>
           </div>
         <div className="flex flex-1 justify-center items-center w-full mt-10">
-            <Button styles='w-[100%] lg:w-[50%] rounded-3xl py-2 text-[12px] font-bold' title='Print PDF or JPEG' />
+            {/* <Button styles='w-[100%] lg:w-[50%] rounded-3xl py-2 text-[12px] font-bold' 
+                    title='Export as PDF'
+                    // onClickHandler={generatePDF} 
+            /> */}
+            <PDFDownloadLink
+              document={<PDFDocument data={data} />}
+              fileName={`${user.name}.pdf`}
+              className="w-[100%] lg:w-[50%] rounded-3xl py-2 text-[14px] font-bold cursor-pointer flex flex-row items-center justify-center gap-2 px-6 bg-secondaryColor h-[35px] text-primaryColor outline-none"
+            >
+              {({ loading }) =>
+                loading ? "Generating PDF..." : "Download PDF"
+              }
+            </PDFDownloadLink>
         </div>
+
+        
+
+
       </div>
     </div>
   )
