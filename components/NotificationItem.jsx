@@ -1,10 +1,21 @@
 import Image from 'next/image'
 import React from 'react'
 import CommandButton from './CommandButton'
+import { useRouter } from 'next/navigation'
 
 const NotificationItem = ({ id, img, name, text, date, isCommand, command1, command2, command3}) => {
+
+  const router = useRouter();
+  const onClickHandler = () => {
+    if(text === 'create account'){
+      router.push(`/users/${name}?source=notification`)
+    }
+  }
+
   return (
-    <div key={id} className='border-b-2 border-textDefault w-full'>
+    <div key={id} 
+         className='border-b-2 border-textDefault w-full cursor-pointer'
+         onClick={onClickHandler}>
       <div key={name} className='flex flex-row items-center p-3 w-full '>
           <Image src={img} alt='user' className='h-[75px] w-[75px] lg:h-[60px] lg:w-[60px] rounded-full'/>
           <div className='flex flex-col ml-5'>

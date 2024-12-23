@@ -9,10 +9,15 @@ import Image from 'next/image';
 import React, { useState } from 'react'
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFDocument from '@/components/PDFDocument';
+import { useSearchParams } from 'next/navigation';
 
 const UserInfoPage = ({ params }) => {
 
   const user = users.find((user) => user.name === params.id);
+
+  const searchParams = useSearchParams();
+  const source = searchParams.get("source");
+
   // const [formData, setFormData] = useState({ name: "xxx", email: "xxx@mail.com" });
 
   // const handleChange = (e) => {
@@ -67,11 +72,13 @@ const UserInfoPage = ({ params }) => {
             <ContentComponent title='Brief Description of Your Company :' value='This text can be installed on any design without a problem. It
                 will not look like copied, unorganized, unformatted, or even incomprehensible'/>
           </div>
-        <div className="flex flex-1 justify-center items-center w-full mt-10">
-            {/* <Button styles='w-[100%] lg:w-[50%] rounded-3xl py-2 text-[12px] font-bold' 
-                    title='Export as PDF'
+        <div className="flex flex-col md:flex-row flex-1 justify-center items-center w-full mt-10 gap-3">
+            { source === 'notification' && 
+                <Button styles='w-[100%] lg:w-[50%] rounded-3xl py-2 text-[14px] font-bold' 
+                    title='Accept'
                     // onClickHandler={generatePDF} 
-            /> */}
+                />
+            }
             <PDFDownloadLink
               document={<PDFDocument data={data} />}
               fileName={`${user.name}.pdf`}
@@ -82,13 +89,11 @@ const UserInfoPage = ({ params }) => {
               }
             </PDFDownloadLink>
         </div>
-
-        
-
-
       </div>
     </div>
   )
 }
 
 export default UserInfoPage
+
+
