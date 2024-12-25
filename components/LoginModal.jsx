@@ -19,6 +19,7 @@ import LoginForm from './forms/LoginForm'
 const LoginModal = ({ form, text }) => {
 
     const [open, setOpen] = useState(true)
+    
   return (
     <Dialog open={open} >
         <DialogTrigger asChild>

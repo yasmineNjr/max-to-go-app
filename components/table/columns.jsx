@@ -8,6 +8,7 @@ import { FaFileInvoiceDollar } from "react-icons/fa";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import Badge from "../Badge";
 import UserComponent from "../UserComponent";
+import DeleteModal from "../DeleteModal";
 
 export const columns = [
 
@@ -24,11 +25,17 @@ export const columns = [
         header: "Delete account",
         cell: ({ row }) => {
             return (
-              <div className="flex items-center justify-center">
-                <Badge  
+              <div className="flex items-center justify-center cursor-pointer">
+                {/* <Badge  
                       text='delete' 
+                      source='delete'
                       icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
-                      style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} />
+                      style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} /> */}
+                    <DeleteModal  buttonTxt='delete' 
+                                  text='Are you sure you wan to delete the user?' 
+                                  icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>}  
+                                  style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
+                                  user={row.original.owner}/>
               </div>
             );
           },

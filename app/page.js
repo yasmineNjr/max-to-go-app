@@ -30,7 +30,7 @@ const Tasks = () => {
           <ReviewComponent id={review.id} img={review.img} text={review.text}/>
         ))
       }
-      <LoginModal text='ant txt'/>
+      <LoginModal/>
     </div>
   )
 }

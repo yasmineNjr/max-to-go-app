@@ -9,6 +9,8 @@ import { DataTable } from '@/components/table/DataTable';
 import { columns } from '@/components/table/columns';
 import { users } from '@/constants';
 import { useRouter } from 'next/navigation';
+import axios from 'axios'
+import Button from '@/components/Button'
 
 const Users = () => {
 
@@ -19,6 +21,22 @@ const Users = () => {
     router.push('/users/create-notices')
   }
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://api.max-togo.com/api/admin/getall', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+      if (error.response) {
+        console.error('Error details:', error.response.data);
+      }
+    }
+  };
+
   return (
     <div className={`${styles.mainSection}`}>
       <Title text='Users'/>
@@ -26,6 +44,7 @@ const Users = () => {
                 text='Account creation notices'
                 onClickHandler={createNoticesHandler}/>
       <DataTable data={data} columns={columns}/>
+      <Button title='get users' onClickHandler={fetchData}/>
     </div>
   )
 }

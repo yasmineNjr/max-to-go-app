@@ -11,6 +11,7 @@ import Button from "../Button"
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useState } from "react"
+import axios from "axios"
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -38,13 +39,36 @@ const LoginForm = ({ setOpen }) => {
         if(email !== 'admin@mail.com'){
             setError('Invalid email')
             //setOpen(false)
-        }else if (password !== '123456'){
+        }else if (password !== 'a123456Z'){
             setError('Incorrect password')
         }else {
             setError('')
             setOpen(false)
+            handleLogin();
         }
     }
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post('https://api.max-togo.com/api/admin/login', {
+              email: email,
+              password: password,
+            });
+            console.log('Login Success:', response.data);
+          } catch (error) {
+            if (error.response) {
+              // Response with error status
+              console.error('Server Error:', error.response.data);
+            } else if (error.request) {
+              // No response received
+              console.error('Network Error:', error.message);
+            } else {
+              // Error during request setup
+              console.error('Error:', error.message);
+            }
+          }
+        
+      };
 
   return (
     //onSubmit={form.handleSubmit(onSubmit)} 
