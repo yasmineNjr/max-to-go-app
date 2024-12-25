@@ -28,6 +28,11 @@ export const sidebarItems = [
       url: "/",
       icon: <FaTasks/>,
     },
+   //  {
+   //    title: "Login",
+   //    url: "/login",
+   //    icon: <FaUsers/>,
+   //  },
     {
       title: "Users",
       url: "/users",

@@ -19,7 +19,7 @@ import { Checkbox } from "./ui/checkbox";
 
 const RenderField= ({field, props}) => {
     
-    const { fieldType, iconSrc, iconAlt, placeholder, showTimeSelect, dateFormat, renderSkeleton, onChange, value, readOnly, type, min } = props;
+    const { fieldType, iconSrc, iconAlt, placeholder, showTimeSelect, dateFormat, renderSkeleton, onChange, id, value, readOnly, type, min, required } = props;
     
     switch(fieldType){
         case FormFieldType.INPUT:
@@ -30,12 +30,14 @@ const RenderField= ({field, props}) => {
                         <Input
                             placeholder={placeholder}
                             {...field}
-                            className="shad-input "
+                            className="shad-input bg-transparent"
                             onChange={onChange}
                             value={value}
                             readOnly={readOnly}
+                            id={id}
                             type={type}
                             min={min}
+                            required={required}
                         />
                     </FormControl>
                 </div>

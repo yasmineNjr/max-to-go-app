@@ -8,6 +8,7 @@ import Image from "next/image"
 import { reviews } from "@/constants"
 import ReviewComponent from "@/components/ReviewComponent"
 import "react-datepicker/dist/react-datepicker.css";
+import LoginModal from "@/components/LoginModal"
 
 
 const Tasks = () => {
@@ -29,6 +30,7 @@ const Tasks = () => {
           <ReviewComponent id={review.id} img={review.img} text={review.text}/>
         ))
       }
+      <LoginModal text='ant txt'/>
     </div>
   )
 }
