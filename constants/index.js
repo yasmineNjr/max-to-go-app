@@ -23,16 +23,16 @@ export const FormFieldType = {
  };
 
 export const sidebarItems = [
-    {
-      title: "Tasks",
-      url: "/",
-      icon: <FaTasks/>,
-    },
-   //  {
+   //   {
    //    title: "Login",
-   //    url: "/login",
+   //    url: "/",
    //    icon: <FaUsers/>,
    //  },
+    {
+      title: "Tasks",
+      url: "/main",
+      icon: <FaTasks/>,
+    },
     {
       title: "Users",
       url: "/users",

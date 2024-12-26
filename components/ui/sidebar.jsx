@@ -17,6 +17,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { usePathname } from "next/navigation";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -219,22 +220,31 @@ Sidebar.displayName = "Sidebar"
 
 const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) => {
   const { toggleSidebar } = useSidebar()
+  const pathname = usePathname();
+  const isFirstPage = pathname === '/';
 
   return (
-    (<Button
-      ref={ref}
-      data-sidebar="trigger"
-      variant="ghost"
-      size="icon"
-      className={cn("h-7 w-7", className)}
-      onClick={(event) => {
-        onClick?.(event)
-        toggleSidebar()
-      }}
-      {...props}>
-      <PanelLeft />
-      <span className="sr-only">Toggle Sidebar</span>
-    </Button>)
+    <div>
+      {
+         !isFirstPage &&
+          <Button
+            ref={ref}
+            data-sidebar="trigger"
+            variant="ghost"
+            size="icon"
+            className={cn("h-7 w-7", className)}
+            onClick={(event) => {
+              onClick?.(event)
+              toggleSidebar()
+            }}
+            {...props}>
+            <PanelLeft />
+            <span className="sr-only">Toggle Sidebar</span>
+        </Button>
+      }
+      
+    </div>
+    
   );
 })
 SidebarTrigger.displayName = "SidebarTrigger"

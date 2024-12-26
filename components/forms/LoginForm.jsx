@@ -12,6 +12,7 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useState } from "react"
 import axios from "axios"
+import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -21,6 +22,7 @@ const formSchema = z.object({
 
 const LoginForm = ({ setOpen }) => {
 
+    const router = useRouter();
     const form = useForm();
 
     const [email, setEmail] = useState('');
@@ -45,7 +47,8 @@ const LoginForm = ({ setOpen }) => {
         //     setOpen(false)
         //     handleLogin();
         // }
-        setOpen(false)
+        // setOpen(false)
+        router.push('/main');
     }
 
     const handleLogin = async () => {
