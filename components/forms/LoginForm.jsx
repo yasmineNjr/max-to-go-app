@@ -20,7 +20,7 @@ const formSchema = z.object({
     }),
   })
 
-const LoginForm = ({ setOpen }) => {
+const LoginForm = () => {
 
     const router = useRouter();
     const form = useForm();
@@ -38,16 +38,15 @@ const LoginForm = ({ setOpen }) => {
 
     const onClickButton = (e) => {
         e.preventDefault();
-        // if(email !== 'admin@mail.com'){
-        //     setError('Invalid email')
-        // }else if (password !== 'a123456Z'){
-        //     setError('Incorrect password')
-        // }else {
-        //     setError('')
-        //     setOpen(false)
-        //     handleLogin();
-        // }
-        // setOpen(false)
+        if(email !== 'admin@domain.com'){
+            setError('Invalid email')
+        }else if (password !== 'Aa@112233!'){
+            setError('Incorrect password')
+        }else {
+            setError('')
+            // setOpen(false)
+            handleLogin();
+        }
         router.push('/main');
     }
 

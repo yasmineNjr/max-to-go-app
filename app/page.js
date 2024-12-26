@@ -3,7 +3,8 @@
 import React from 'react'
 import styles from './styles'
 import LoginForm from '@/components/forms/LoginForm'
-import Button from '@/components/Button'
+import Image from 'next/image'
+import { logo } from '@/public/assets'
 
 const LoginPage = () => {
   
@@ -11,6 +12,7 @@ const LoginPage = () => {
     <div className={`${styles.mainSection} items-center justify-center h-full mt-15`}>
         <div className='bg-black text-black h-[100px] sm:h-fit '>xxxx</div>
       <div className='p-10 bg-blue-400 rounded-2xl flex flex-col items-center justify-center w-[95%] lg:w-[75%] mb-25'>
+        <Image src={logo} alt='logo' width={250} height={250} className='ml-5'/>
         <LoginForm/>
       </div>
     </div>
