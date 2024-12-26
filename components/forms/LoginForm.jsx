@@ -36,16 +36,16 @@ const LoginForm = ({ setOpen }) => {
 
     const onClickButton = (e) => {
         e.preventDefault();
-        if(email !== 'admin@mail.com'){
-            setError('Invalid email')
-            //setOpen(false)
-        }else if (password !== 'a123456Z'){
-            setError('Incorrect password')
-        }else {
-            setError('')
-            setOpen(false)
-            handleLogin();
-        }
+        // if(email !== 'admin@mail.com'){
+        //     setError('Invalid email')
+        // }else if (password !== 'a123456Z'){
+        //     setError('Incorrect password')
+        // }else {
+        //     setError('')
+        //     setOpen(false)
+        //     handleLogin();
+        // }
+        setOpen(false)
     }
 
     const handleLogin = async () => {

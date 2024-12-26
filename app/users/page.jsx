@@ -44,7 +44,7 @@ const Users = () => {
                 text='Account creation notices'
                 onClickHandler={createNoticesHandler}/>
       <DataTable data={data} columns={columns}/>
-      <Button title='get users' onClickHandler={fetchData}/>
+      {/* <Button title='get users' onClickHandler={fetchData}/> */}
     </div>
   )
 }
