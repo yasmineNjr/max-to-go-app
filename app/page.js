@@ -8,7 +8,6 @@ const LoginPage = () => {
   
   return (
     <div className={`${styles.mainSection} items-center justify-center h-full`}>
-      {/* <Button title='login' onClickHandler={loginHandler}/> */}
       <div className='p-10 bg-blue-400 rounded-2xl flex flex-col items-center justify-center w-[95%] lg:w-[75%] mb-25'>
         <LoginForm/>
       </div>

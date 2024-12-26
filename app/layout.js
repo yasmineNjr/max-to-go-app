@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body >
+      <body>
         <SidebarProvider>
           <AppSidebar />
           <main className="w-full bg-black text-textDefault">
