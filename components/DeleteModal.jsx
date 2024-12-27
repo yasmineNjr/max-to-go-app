@@ -12,29 +12,22 @@ import {
 import { Button } from './ui/button'
 import Image from 'next/image'
 import { logo } from '@/public/assets'
-import axios from 'axios'
+import { deleteCompany } from '@/app/api/delete/route'
 
 const DeleteModal = ({ buttonTxt, text, icon, style, user}) => {
 
-    const onDeleteHandler = async (companyId) => {
+    const [open, setOpen] = useState(false)
+
+    const onDeleteHandler = async () => {
         setOpen(false)
         try {
-            const response = await axios.delete(`https://api.max-togo.com/api/admin/deletecompany`, {
-            headers: {
-                'Authorization': 'Bearer YOUR_API_KEY_OR_TOKEN', // Replace with actual token if needed
-            },
-            params: {
-                companyId: user, //???? Pass companyId as query parameter
-            },
-            });
-    
-            console.log('Company deleted successfully:', response.data); // Handle the API response
+            const data = await deleteCompany(user);
+            console.log('Company deleted successfully:', data);
         } catch (error) {
             console.error('Error deleting company:', error.message);
         }
     }
-
-    const [open, setOpen] = useState(false)
+    
   return (
     <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>

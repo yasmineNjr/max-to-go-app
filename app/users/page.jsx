@@ -11,11 +11,14 @@ import { users } from '@/constants';
 import { useRouter } from 'next/navigation';
 import axios from 'axios'
 import Button from '@/components/Button'
+// import { useAppContext } from '@/context/AppContext'
 
 const Users = () => {
 
   const router = useRouter()
   const data = users;
+  // const { token } = useAppContext();
+  // console.log(token)
 
   const createNoticesHandler = () => {
     router.push('/users/create-notices')
@@ -50,11 +53,12 @@ const Users = () => {
   const fetchDataProxy = async () => {
     try {
       const response = await axios.get('/api/proxy');
-      console.log('Data:', response.data);
+      // console.log('Data:', response.data);
     } catch (error) {
-      console.error('Error:', error.response?.data || error.message);
+      // console.error('Error:', error.response?.data || error.message);
     }
   };
+
   return (
     <div className={`${styles.mainSection}`}>
       <Title text='Users'/>
@@ -62,7 +66,7 @@ const Users = () => {
                 text='Account creation notices'
                 onClickHandler={createNoticesHandler}/>
       <DataTable data={data} columns={columns}/>
-      {/* <Button title='get users' onClickHandler={fetchDataProxy}/> */}
+      <Button title='get users' onClickHandler={fetchDataProxy}/>
     </div>
   )
 }

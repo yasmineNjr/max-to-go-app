@@ -1,17 +1,53 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles'
 import LoginForm from '@/components/forms/LoginForm'
 import Image from 'next/image'
 import { logo } from '@/public/assets'
+import { useAppContext } from '@/context/AppContext'
+import { useRouter } from 'next/navigation'
 
 const LoginPage = () => {
+
+  const { token } = useAppContext();
+  const router = useRouter();
+  // const [isLoading, setIsLoading] = useState(true);
+
+  // useEffect(() => {
+  //   if (token) {
+  //     // If the token exists, redirect to the dashboard
+  //     router.replace('/main');
+  //   } else {
+  //     // If there's no token, stop the loading state
+  //     setIsLoading(false);
+  //   }
+  // }, [token, router]);
+
+  // if (isLoading) {
+  //   // Show a blank screen or loading spinner while checking the token
+  //   <div className='text-white'>Loading...</div>
+  //   return null;
+  // }
+
+  
+  // useEffect(() => {
+  //   if (token) {
+  //     // Redirect to the dashboard if the user is logged in
+  //     router.push('/main'); // Adjust to your logged-in landing page
+  //   }
+  // }, [token, router]);
+
+  if (token) {
+    // Redirect programmatically without rendering unnecessary HTML
+    router.replace('/main');
+    return null; // Prevent rendering anything while redirecting
+  }
   
   return (
     <div className={`${styles.mainSection} items-center justify-center h-full mt-15`}>
-        <div className='bg-black text-black h-[100px] sm:h-fit '>xxxx</div>
-      <div className='p-10 bg-blue-400 rounded-2xl flex flex-col items-center justify-center w-[95%] lg:w-[75%] mb-25'>
+      <div className='bg-black text-black h-[100px] sm:h-fit '>xxxx</div>
+      <div className='p-5 md:p-10 bg-blue-400 rounded-2xl flex flex-col items-center justify-center w-[100%] lg:w-[50%] mb-25'>
         <Image src={logo} alt='logo' width={250} height={250} className='ml-5'/>
         <LoginForm/>
       </div>

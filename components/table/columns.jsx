@@ -9,6 +9,7 @@ import { BiSolidPurchaseTag } from "react-icons/bi";
 import Badge from "../Badge";
 import UserComponent from "../UserComponent";
 import DeleteModal from "../DeleteModal";
+import ChangePasswordModal from "../ChangePasswordModal";
 
 export const columns = [
 
@@ -60,13 +61,19 @@ export const columns = [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
-                <Badge  
+                {/* <Badge  
                       text='change' 
                       source='password'
                       user={row.original.owner}
                       icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
-                      style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} />
-              </div>
+                      style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} /> */}
+                <ChangePasswordModal  
+                              buttonTxt='password' 
+                              text='Are you sure you wan to delete the user?' 
+                              icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
+                              style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'}
+                              user={row.original.owner}/>
+               </div>
             );
           },
     },

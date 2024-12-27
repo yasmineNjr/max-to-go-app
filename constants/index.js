@@ -59,7 +59,7 @@ export const sidebarItems = [
       icon: <BiSolidConversation/>,
     },
     {
-       title: "Archives",
+       title: "Archive",
        url: "/archives",
       icon: <FaFileArchive/>,
     },

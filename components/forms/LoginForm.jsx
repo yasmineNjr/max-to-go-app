@@ -13,6 +13,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { useState } from "react"
 import axios from "axios"
 import { useRouter } from 'next/navigation'
+import { useAppContext } from "@/context/AppContext"
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -27,7 +28,10 @@ const LoginForm = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [result, setResult] = useState('test');
+    const [style, setStyle] = useState('text-[#003553]');
+    const [loading, setLoading] = useState(false);
+    const { setToken, setUser } = useAppContext();
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -39,18 +43,18 @@ const LoginForm = () => {
     const onClickButton = (e) => {
         e.preventDefault();
         if(email !== 'admin@domain.com'){
-            setError('Invalid email')
+            setResult('Invalid email')
+            setStyle('text-red')
         }else if (password !== 'Aa@112233!'){
-            setError('Incorrect password')
+            setResult('Incorrect password')
+            setStyle('text-red')
         }else {
-            setError('')
-            // setOpen(false)
-            handleLogin();
+            setResult('')
+            handleLoginProxy();
         }
-        router.push('/main');
     }
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
         try {
             const response = await axios.post('https://api.max-togo.com/api/admin/login', {
               email: email,
@@ -71,6 +75,29 @@ const LoginForm = () => {
           }
         
       };
+
+    const handleLoginProxy = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.post('/api/login', {
+          email,
+          password,
+        });
+  
+        console.log('Login Response:', response.data.data.token);
+        setToken(response.data.data.token)
+        localStorage.setItem('token', response.data.data.token);
+        setResult('Login successful!');
+        setStyle('text-green')
+        router.push('/main');
+      } catch (error) {
+        console.error('Login Error:', error.response?.data || error.message);
+        setResult('Login failed. Try again.');
+        setStyle('text-orange')
+      } finally {
+        setLoading(false); // Hide spinner
+      }
+    }
 
   return (
     //onSubmit={form.handleSubmit(onSubmit)} 
@@ -97,7 +124,7 @@ const LoginForm = () => {
                 name="password"
                 id="password"
                 label="Password"
-                placeholder=""
+                placeholder="Your password..."
                 iconAlt="password"
                 iconSrc={<RiLockPasswordFill size={20} color='#FECC02'/>}
                 type='password'
@@ -105,8 +132,12 @@ const LoginForm = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-
-            {error !== '' && <p className="text-red">{error}</p>}
+            {loading ? (
+              // Spinner
+              <div className="w-5 h-5 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+            ) : (
+              <p className={`${style} font-light`}>{result}</p>
+            )}
             <div className="flex flex-1 justify-center items-center w-full mt-6">
                 <Button styles='w-[100%] rounded-3xl text-[16px]' title='Login' onClickHandler={onClickButton}/>
             </div>

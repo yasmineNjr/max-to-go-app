@@ -24,15 +24,15 @@ const UserInfoPage = ({ params }) => {
   //   const { name, value } = e.target;
   //   setFormData({ ...formData, [name]: value });
   // };
-  
+  // I need route.js file for the 'https://api.max-togo.com/api/admin/deletecompany' method with companyId parameter and token
   const data = {
     name: user.name,
     img: user.img,
     company : 'AL-Rahma Company',
     number: '#987800255',
     responsiblePerson: user.name,
-    address : 'Transfer form Gaza to rhfah',
-    business :'Transfer form Gaza to rhfah',
+    address : 'Transfer form Gaza to rafah',
+    business :'Transfer form Gaza to rafah',
     email : `${user.name}@gmail.com`,
     phone : '+978487485785',
     description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible'
