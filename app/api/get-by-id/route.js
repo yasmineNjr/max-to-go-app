@@ -15,11 +15,22 @@ export async function GET(req) {
     );
   }
 
-  // Log token for debugging
-  // console.log('Server received token:', token);
+  const urlParams = new URL(req.url).searchParams; // Get query parameters from the request URL
+  const companyId = urlParams.get('companyId'); // Extract companyId
+
+  if (!companyId) {
+    return NextResponse.json(
+      {
+        message: 'No companyId provided',
+        success: false,
+        statusCode: 400,
+      },
+      { status: 400 }
+    );
+  }
 
   try {
-    const apiUrl = 'https://api.max-togo.com/api/admin/getall';
+    const apiUrl = `https://api.max-togo.com/api/admin/getcompanybyid?companyId=${companyId}`;
     const response = await axios.get(apiUrl, {
       headers: {
         Authorization: `Bearer ${token}`,

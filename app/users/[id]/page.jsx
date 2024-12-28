@@ -6,17 +6,24 @@ import ContentComponent from '@/components/ContentComponent';
 import Title from '@/components/Title'
 import { users } from '@/constants';
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFDocument from '@/components/PDFDocument';
 import { useSearchParams } from 'next/navigation';
+import { user } from '@/public/assets';
+import { useAppContext } from '@/context/AppContext';
+import axios from 'axios';
 
 const UserInfoPage = ({ params }) => {
 
-  const user = users.find((user) => user.name === params.id);
-
+  // const user = users.find((user) => user.name === params.id);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { token } = useAppContext();
   const searchParams = useSearchParams();
   const source = searchParams.get("source");
+  const companyId = params.id;
 
   // const [formData, setFormData] = useState({ name: "xxx", email: "xxx@mail.com" });
 
@@ -24,19 +31,52 @@ const UserInfoPage = ({ params }) => {
   //   const { name, value } = e.target;
   //   setFormData({ ...formData, [name]: value });
   // };
-  // I need route.js file for the 'https://api.max-togo.com/api/admin/deletecompany' method with companyId parameter and token
-  const data = {
-    name: user.name,
-    img: user.img,
-    company : 'AL-Rahma Company',
-    number: '#987800255',
-    responsiblePerson: user.name,
-    address : 'Transfer form Gaza to rafah',
-    business :'Transfer form Gaza to rafah',
-    email : `${user.name}@gmail.com`,
-    phone : '+978487485785',
-    description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible'
-  }
+  
+  // const data1 = {
+  //   name: 'user.companyName',
+  //   img: 'user.img',
+  //   company : 'AL-Rahma Company',
+  //   number: '#987800255',
+  //   responsiblePerson: 'user.name',
+  //   address : 'Transfer form Gaza to rafah',
+  //   business :'Transfer form Gaza to rafah',
+  //   email : `${'user.name'}@gmail.com`,
+  //   phone : '+978487485785',
+  //   description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible'
+  // }
+
+  useEffect(() => {
+    const fetchCompanyById = async () => {
+      try {
+        if (!token) {
+          console.error('No token available');
+          return;
+        }
+    
+        const response = await axios.get('/api/get-by-id', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          params: {
+            companyId, // Pass companyId as a query parameter
+          },
+        });
+    
+        console.log('Company Data:', response.data.data);
+        setData(response.data.data);
+        return response.data; // Process the data as needed
+      } catch (error) {
+        console.error('Error fetching company by ID:', error.response?.data || error.message);
+        setError(error.response?.data || error.message)
+      } finally {
+        setLoading(false); // Set loading to false after fetching
+      }
+    };
+    fetchCompanyById();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Something went wrong!</p>;
 
   return (
     <div className={`${styles.mainSection}`}>
@@ -47,21 +87,21 @@ const UserInfoPage = ({ params }) => {
           <div 
               className="flex flex-row items-center justify-between gap-2"
           >
-            <Image src={user.img} alt='user' className='h-[30px] w-[30px] rounded-full'/>
-            <p className="w-full text-left text-textDefault font-light">{user.name}</p>
+            <Image src={user} alt='user' className='h-[30px] w-[30px] rounded-full'/>
+            <p className="w-full text-left text-textDefault font-light">{data.companyName}</p>
           </div>
         </div>
 
         <div className='flex flex-col lg:flex-row justify-start items-start w-full gap-5 text-textDefault my-5'>
         {/* lg:w-[50%] */}
           <div className='w-[100%] '>
-            <ContentComponent title='Company Name: ' value='AL-Rahma Company'/>
-            <ContentComponent title='Organization Number: ' value='#987800255'/>
-            <ContentComponent title='Name of responsible person: ' value={user.name}/>
-            <ContentComponent title='Address : ' value='Transfer form Gaza to rhfah'/>
-            <ContentComponent title='Type Of Business :' value=' Transfer form Gaza to rhfah'/>
-            <ContentComponent title='Email : ' value={`${user.name}@gmail.com`}/>
-            <ContentComponent title='Phone Numer : ' value='+978487485785'/>
+            <ContentComponent title='Company Name: ' value={data.companyName}/>
+            <ContentComponent title='Organization Number: ' value={data.organizationNumber}/>
+            <ContentComponent title='Name of responsible person: ' value={data.nameOfResponsiblePerson}/>
+            <ContentComponent title='Address : ' value={data.address}/>
+            <ContentComponent title='Type Of Business :' value={data.typeOfBusiness}/>
+            <ContentComponent title='Email : ' value={data.email}/>
+            <ContentComponent title='Phone Numer : ' value={data.phone}/>
           </div>
           {/* <div className='w-[100%] lg:w-[50%]'>
             <ContentComponent title='Phone Numer : ' value='+978487485785'/>
@@ -69,8 +109,7 @@ const UserInfoPage = ({ params }) => {
           </div> */}
         </div>
         <div className='w-[100%]'>
-            <ContentComponent title='Brief Description of Your Company :' value='This text can be installed on any design without a problem. It
-                will not look like copied, unorganized, unformatted, or even incomprehensible'/>
+            <ContentComponent title='Brief Description of Your Company :' value={data.description}/>
           </div>
         <div className="flex flex-col md:flex-row flex-1 justify-center items-center w-full mt-10 gap-3">
             { source === 'notification' && 
@@ -81,11 +120,11 @@ const UserInfoPage = ({ params }) => {
             }
             <PDFDownloadLink
               document={<PDFDocument data={data} />}
-              fileName={`${user.name}.pdf`}
+              fileName={`${data.companyName}.pdf`}
               className="w-[100%] lg:w-[50%] rounded-3xl py-2 text-[14px] font-bold cursor-pointer flex flex-row items-center justify-center gap-2 px-6 bg-secondaryColor h-[35px] text-primaryColor outline-none"
             >
-              {({ loading }) =>
-                loading ? "Generating PDF..." : "Download PDF"
+              {({ load }) =>
+                load ? "Generating PDF..." : "Download PDF"
               }
             </PDFDownloadLink>
         </div>

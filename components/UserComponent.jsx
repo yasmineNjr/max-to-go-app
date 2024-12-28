@@ -4,11 +4,11 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
-const UserComponent = ({img, name }) => {
+const UserComponent = ({ id, img, name }) => {
 
     const router = useRouter();
     const viewUserInfoHandler = () => {
-        router.push(`/users/${name}`)
+        router.push(`/users/${id}`)
     }
 
   return (

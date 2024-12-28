@@ -1,7 +1,7 @@
 'use client'
 
 import Title from '@/components/Title'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles'
 import Command from '@/components/Command'
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -11,53 +11,83 @@ import { users } from '@/constants';
 import { useRouter } from 'next/navigation';
 import axios from 'axios'
 import Button from '@/components/Button'
-// import { useAppContext } from '@/context/AppContext'
+import { useAppContext } from '@/context/AppContext'
+import { user } from '@/public/assets'
 
 const Users = () => {
 
   const router = useRouter()
-  const data = users;
-  // const { token } = useAppContext();
-  // console.log(token)
+  const data1 = users;
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { token } = useAppContext(); // Ensure token is accessible from context
 
   const createNoticesHandler = () => {
     router.push('/users/create-notices')
   }
 
-  const fetchData = async () => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjBkN2E3OTA5LTA2NzMtNGE3Zi01MzBlLTA4ZGQyMjY0MzU4NCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGRvbWFpbi5jb20iLCJFbWFpbENvbmZpcm1lZCI6IlRydWUiLCJJc0FwcHJvdmVkIjoiVHJ1ZSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzM1MjIxMDAzLCJpc3MiOiJodHRwczovL2FwaS5tYXgtdG9nby5jb20iLCJhdWQiOiJodHRwczovL21heC10b2dvLmNvbS8ifQ.bQ3st1FQNxXhPC7dbJmDrAqMTGKDSnbteCSyCw45W7k'; // Replace with your actual token
+  // const fetchData = async () => {
+  //   if (!token) {
+  //     console.log('No token available');
+  //     return;
+  //   }
+  
+  //   try {
+  //     const response = await axios.get('/api/proxy', {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`, // Check this value
+  //       },
+  //     });
+  
+  //     console.log('Data:', response.data.data.companies);
+  //   } catch (error) {
+  //     console.error('Error:', error.response?.data || error.message); // Log full error response
+  //   }
+  // };
 
-    try {
-      const response = await axios.get('https://api.max-togo.com/api/admin/getall', {
-        mode: 'no-cors',
-        headers: {
-          Authorization: `Bearer ${token}`, // Add the token here
-        },
-      });
-  
-      console.log('Response:', response.data);
-    } catch (error) {
-      if (error.response) {
-        // Server responded with a status other than 200 range
-        console.error('Error Response:', error.response.data);
-      } else if (error.request) {
-        // Request was made but no response received
-        console.error('Error Request:', error.request);
-      } else {
-        // Something else caused the error
-        console.error('Error Message:', error.message);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!token) {
+        console.log('No token available');
+        return;
       }
-  }
+    
+      try {
+        const response = await axios.get('/api/proxy', {
+          headers: {
+            Authorization: `Bearer ${token}`, // Check this value
+          },
+        });
+         // Modify the data here before saving it to state
+         const modifiedData = response.data.data.companies.map(item => ({
+          ...item,
+          owner: item.companyName,
+          delete: true,
+          pause: false,
+          password: true,
+          messaging: false,
+          invoices: true,
+          purchases: false,
+          img: {user}
+        }));
+
+        // console.log('Data:', response.data.data.companies);
+        // setData(response.data.data.companies)
+        setData(modifiedData)
+      } catch (error) {
+        console.error('Error:', error.response?.data || error.message); // Log full error response
+        setError(error.response?.data || error.message);
+      } finally {
+        setLoading(false); // Set loading to false after fetching
+      }
+    };
+
+    fetchData();
+  }, []);
   
-  };
-  const fetchDataProxy = async () => {
-    try {
-      const response = await axios.get('/api/proxy');
-      // console.log('Data:', response.data);
-    } catch (error) {
-      // console.error('Error:', error.response?.data || error.message);
-    }
-  };
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className={`${styles.mainSection}`}>
@@ -66,7 +96,8 @@ const Users = () => {
                 text='Account creation notices'
                 onClickHandler={createNoticesHandler}/>
       <DataTable data={data} columns={columns}/>
-      <Button title='get users' onClickHandler={fetchDataProxy}/>
+      {/* <Button title='get users' onClickHandler={fetchData}/> */}
+      {/* <p>{data[5].logo}</p> */}
     </div>
   )
 }

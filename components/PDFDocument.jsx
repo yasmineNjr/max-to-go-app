@@ -61,19 +61,19 @@ const PDFDocument = ({ data } ) => (
         </View> */}
         <View style={styles.container}>
             <Text style={styles.text}>User: </Text>
-            <Text style={styles.value}> {data.name}</Text>
+            <Text style={styles.value}> {data.companyName}</Text>
         </View>
         <View style={styles.container}>
             <Text style={styles.text}>Company Name: </Text>
-            <Text style={styles.value}> {data.company}</Text>
+            <Text style={styles.value}> {data.companyName}</Text>
         </View>
         <View style={styles.container}>
             <Text style={styles.text}>Organization Number: </Text>
-            <Text style={styles.value}> {data.number}</Text>
+            <Text style={styles.value}> {data.organizationNumber}</Text>
         </View>
         <View style={styles.container}>
             <Text style={styles.text}>Name of responsible person: </Text>
-            <Text style={styles.value}>{data.responsiblePerson}</Text>
+            <Text style={styles.value}>{data.nameOfResponsiblePerson}</Text>
         </View>
         <View style={styles.container}>
             <Text style={styles.text}>Address : </Text>
@@ -81,7 +81,7 @@ const PDFDocument = ({ data } ) => (
         </View>
         <View style={styles.container}>
             <Text style={styles.text}>Type Of Business : </Text>
-            <Text style={styles.value}> {data.business}</Text>
+            <Text style={styles.value}> {data.typeOfBusiness}</Text>
         </View>
         <View style={styles.container}>
             <Text style={styles.text}>Email : </Text>
