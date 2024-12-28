@@ -32,7 +32,7 @@ export const columns = [
                       source='delete'
                       icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
                       style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} /> */}
-                    <DeleteModal  buttonTxt='delete' 
+                    <DeleteModal  buttonTxt='Delete' 
                                   text={`Are you sure you wan to delete the company ${row.original.companyName}?`} 
                                   icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>}  
                                   style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
@@ -46,11 +46,14 @@ export const columns = [
       header: "Pause",
       cell: ({ row }) => {
         return (
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center cursor-pointer">
             <Badge  
-                  text='pause' 
-                  icon={<FaRegCirclePause color={row.original.pause === true ? 'white' : '#EB7C44'}/>} 
-                  style={row.original.pause === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} />
+                  text='Pause' 
+                  source='pause'
+                  isApproval={row.original.isApproval}
+                  companyId={row.original.id}
+                  icon={<FaRegCirclePause size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/>} 
+                  style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} />
           </div>
         );
       },
@@ -68,7 +71,7 @@ export const columns = [
                       icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
                       style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} /> */}
                 <ChangePasswordModal  
-                              buttonTxt='password' 
+                              buttonTxt='Password' 
                               text='Are you sure you wan to delete the user?' 
                               icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
                               style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'}
@@ -84,7 +87,7 @@ export const columns = [
             return (
               <div className="flex items-center justify-center cursor-pointer">
                 <Badge  
-                      text='send' 
+                      text='Send' 
                       source='message'
                       user={row.original.owner}
                       icon={<FiSend color={row.original.messaging === true ? 'white' : '#07A2FB'}/>} 

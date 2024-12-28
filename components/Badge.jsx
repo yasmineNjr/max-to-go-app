@@ -1,21 +1,50 @@
 'use client'
 
+import { useAppContext } from '@/context/AppContext';
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 
-const Badge = ({ icon, text, style, source, user }) => {
+const Badge = ({ icon, text, style, source, companyId, isApproval }) => {
     
   const router = useRouter();
-
+  const { token } = useAppContext(); // Ensure token is accessible from context
+  
   const onClickHandler = () => {
     if(source === 'password')
       router.push(`/users/${user}/change-password`)
+    else if(source === 'pause')
+      onApproveHandler();
     else if(source === 'message')
       router.push(`/users/${user}/send-message`)
     else if(source === 'invoices')
       router.push(`/users/${user}/invoices`)
     else if(source === 'delete')
       router.push(`/users/${user}/delete`)
+  }
+
+  const onApproveHandler = async() => {
+    try {
+      const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
+      if (!token) {
+        console.error('No token available');
+        return;
+      }
+  
+      const response = await axios.put('/api/approve', 
+        { companyId, isApproval }, // Pass companyId and isApproval in the body
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      console.log('Response from approval API:', response.data);
+      return response.data; // Handle the success response
+    } catch (error) {
+      console.error('Error in approval API:', error.response?.data || error.message);
+    }
   }
 
   return (
