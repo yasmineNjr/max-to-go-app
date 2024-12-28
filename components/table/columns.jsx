@@ -33,10 +33,10 @@ export const columns = [
                       icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
                       style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} /> */}
                     <DeleteModal  buttonTxt='delete' 
-                                  text='Are you sure you wan to delete the user?' 
+                                  text={`Are you sure you wan to delete the company ${row.original.companyName}?`} 
                                   icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>}  
                                   style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
-                                  user={row.original.owner}/>
+                                  companyId={row.original.id}/>
               </div>
             );
           },

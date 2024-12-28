@@ -17,7 +17,7 @@ import { user } from '@/public/assets'
 const Users = () => {
 
   const router = useRouter()
-  const data1 = users;
+  // const data1 = users;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
