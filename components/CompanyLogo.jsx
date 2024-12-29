@@ -41,7 +41,14 @@ const CompanyLogo = ({ logoUrl }) => {
     fetchLogo();
   }, [logoUrl]);
 
-  return logoSrc ? <Image src={logoSrc} alt="Company Logo" width={50} height={50} className='h-[50px] w-[50px] rounded-full'/> : <p>Loading...</p>;
+  return logoSrc ? 
+          <Image src={logoSrc} alt="Company Logo" width={50} height={50} className='h-[50px] w-[50px] rounded-full'/> 
+          : 
+           // Spinner
+           <div>
+            <div className="w-5 h-5 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+           </div>
+           
 };
 
 export default CompanyLogo;

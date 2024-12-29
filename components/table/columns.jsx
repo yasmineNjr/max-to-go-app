@@ -1,17 +1,17 @@
-import { user } from "@/public/assets"
-import Image from "next/image"
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { IoMdCloseCircle } from "react-icons/io";
 import { FaRegCirclePause } from "react-icons/fa6";
 import { TbLockPassword } from "react-icons/tb";
 import { FiSend } from "react-icons/fi";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { BiSolidPurchaseTag } from "react-icons/bi";
+import { FaCheckCircle } from "react-icons/fa";
 import Badge from "../Badge";
 import UserComponent from "../UserComponent";
 import DeleteModal from "../DeleteModal";
 import ChangePasswordModal from "../ChangePasswordModal";
 
-export const columns = [
+export const columns = (reloadData) => [
 
     {
       accessorKey: "owner",
@@ -33,10 +33,13 @@ export const columns = [
                       icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
                       style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} /> */}
                     <DeleteModal  buttonTxt='Delete' 
-                                  text={`Are you sure you wan to delete the company ${row.original.companyName}?`} 
+                                  text={`Are you sure you want to delete the company ${row.original.companyName}?`} 
                                   icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>}  
                                   style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
-                                  companyId={row.original.id}/>
+                                  companyId={row.original.id}
+                                  onSuccess={reloadData} // Pass reloadData to dialog
+                                  source='delete'
+                    />
               </div>
             );
           },
@@ -47,13 +50,34 @@ export const columns = [
       cell: ({ row }) => {
         return (
           <div className="flex items-center justify-center cursor-pointer">
-            <Badge  
-                  text='Pause' 
+            {/* <Badge  
+                  text={row.original.isApproval === true ? 'UnApprove' : 'Approve'}
                   source='pause'
                   isApproval={row.original.isApproval}
                   companyId={row.original.id}
-                  icon={<FaRegCirclePause size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/>} 
-                  style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} />
+                  icon={row.original.isApproval === true 
+                          ? 
+                          <IoMdCloseCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/> 
+                          :
+                          <FaCheckCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/>
+                        } 
+                  style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} 
+                  onSuccess={reloadData} // Pass reloadData to Badge or Dialog
+                  /> */}
+                  <DeleteModal  buttonTxt={row.original.isApproval === true ? 'UnApprove' : 'Approve'}
+                                text={`Are you sure you want to ${row.original.isApproval === true ? 'unapprove' : 'approve'} the company ${row.original.companyName}?`} 
+                                icon={row.original.isApproval === true 
+                                  ? 
+                                  <IoMdCloseCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/> 
+                                  :
+                                  <FaCheckCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/>
+                                } 
+                                style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} 
+                                companyId={row.original.id}
+                                onSuccess={reloadData} // Pass reloadData to dialog
+                                source='approve'
+                                isApproval={row.original.isApproval}
+                  />
           </div>
         );
       },

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 
-const Badge = ({ icon, text, style, source, companyId, isApproval }) => {
+const Badge = ({ icon, text, style, source, companyId, isApproval , onSuccess }) => {
     
   const router = useRouter();
   // const { token } = useAppContext(); // Ensure token is accessible from context
@@ -41,6 +41,7 @@ const Badge = ({ icon, text, style, source, companyId, isApproval }) => {
       );
   
       console.log('Response from approval API:', response.data);
+      onSuccess(); // Trigger data reload
       return response.data; // Handle the success response
     } catch (error) {
       console.error('Error in approval API:', error.response?.data || error.message);

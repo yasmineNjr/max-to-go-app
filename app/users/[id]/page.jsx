@@ -77,10 +77,16 @@ const UserInfoPage = ({ params }) => {
     fetchCompanyById();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   if (error) return <p>Something went wrong!</p>;
 
   return (
+    loading ? 
+     // Spinner
+     <div className={`${styles.mainSection} mt-25 flex items-center `}>
+        <div className="w-10 h-10 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+     </div>
+     :
     <div className={`${styles.mainSection}`}>
       <Title text='User Information'/>
       <div className='rounded-xl border-2 border-textPrimary bg-blue-400 w-full my-10 p-5 lg:p-10'>
@@ -111,9 +117,9 @@ const UserInfoPage = ({ params }) => {
             <ContentComponent title='Password : ' value='**********'/>
           </div> */}
         </div>
-        <div className='w-[100%]'>
-            <ContentComponent title='Brief Description of Your Company :' value={data.description}/>
-          </div>
+        {/* <div className='w-[100%]'>
+          <ContentComponent title='Brief Description of Your Company :' value={data.description}/>
+        </div> */}
         <div className="flex flex-col md:flex-row flex-1 justify-center items-center w-full mt-10 gap-3">
             { source === 'notification' && 
                 <Button styles='w-[100%] lg:w-[50%] rounded-3xl py-2 text-[14px] font-bold' 
