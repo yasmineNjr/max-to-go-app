@@ -19,9 +19,11 @@ export default function RootLayout({ children }) {
         <SidebarProvider>
           <AppSidebar />
           <main className="w-full bg-black text-textDefault">
-            <Header/>
-            <SidebarTrigger className='text-secondaryColor w-10 h-10 hover:bg-transparent hover:text-secondaryColor'/>
-            <AppProvider>{children}</AppProvider>
+            <AppProvider>
+              <Header/>
+              <SidebarTrigger className='text-secondaryColor w-10 h-10 hover:bg-transparent hover:text-secondaryColor'/>
+              {children}
+            </AppProvider>
           </main>
         </SidebarProvider>
       </body>

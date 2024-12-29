@@ -9,7 +9,8 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
-
+  const [searchQuery, setSearchQuery] = useState('');
+  
    // Load token from localStorage when the app is initialized
    useEffect(() => {
     const savedToken = localStorage.getItem('token');
@@ -30,7 +31,7 @@ export const AppProvider = ({ children }) => {
 
 
   return (
-    <AppContext.Provider value={{ token, setToken: updateToken, user, setUser }}>
+    <AppContext.Provider value={{ token, setToken: updateToken, user, setUser, searchQuery, setSearchQuery, }}>
       {children}
     </AppContext.Provider>
   );

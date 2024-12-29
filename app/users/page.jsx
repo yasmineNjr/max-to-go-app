@@ -10,10 +10,12 @@ import { columns } from '@/components/table/columns';
 import { useRouter } from 'next/navigation';
 import axios from 'axios'
 import { user } from '@/public/assets'
+import { useAppContext } from '@/context/AppContext'
 
 const Users = () => {
 
   const router = useRouter()
+  const { searchQuery, token } = useAppContext();
   // const data1 = users;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -62,12 +64,17 @@ const Users = () => {
   };
 
   useEffect(() => {
-    
     fetchData();
+    
   }, []);
   
   // if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
+   // Filter data based on searchQuery
+   const filteredData = data?.filter((item) =>
+    item.companyName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     loading ? 
@@ -81,7 +88,7 @@ const Users = () => {
         <Command  icon={<IoMdNotificationsOutline color='#FECC02'/>} 
                   text='Account creation notices'
                   onClickHandler={createNoticesHandler}/>
-        <DataTable data={data} columns={columns(fetchData)}/>
+        <DataTable data={filteredData} columns={columns(fetchData)}/>
       </div>
   )
 }
