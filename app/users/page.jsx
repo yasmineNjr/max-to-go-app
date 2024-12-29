@@ -21,7 +21,7 @@ const Users = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { token } = useAppContext(); // Ensure token is accessible from context
+  // const { token } = useAppContext(); // Ensure token is accessible from context
 
   const createNoticesHandler = () => {
     router.push('/users/create-notices')
@@ -48,6 +48,7 @@ const Users = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
       if (!token) {
         console.log('No token available');
         return;

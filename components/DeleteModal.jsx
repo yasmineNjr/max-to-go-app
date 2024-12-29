@@ -17,13 +17,13 @@ import axios from 'axios'
 
 const DeleteModal = ({ buttonTxt, text, icon, style, companyId}) => {
 
-    const { token } = useAppContext(); // Ensure token is accessible from context
+    // const { token } = useAppContext(); // Ensure token is accessible from context
     const [open, setOpen] = useState(false)
 
 
     const onDeleteHandler = async () => {
         try {
-          //const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
+          const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
           if (!token) {
             console.error('No token available');
             return;

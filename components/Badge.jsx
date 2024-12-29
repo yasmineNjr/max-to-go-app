@@ -8,7 +8,7 @@ import React from 'react'
 const Badge = ({ icon, text, style, source, companyId, isApproval }) => {
     
   const router = useRouter();
-  const { token } = useAppContext(); // Ensure token is accessible from context
+  // const { token } = useAppContext(); // Ensure token is accessible from context
   
   const onClickHandler = () => {
     if(source === 'password')

@@ -20,7 +20,7 @@ const UserInfoPage = ({ params }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { token } = useAppContext();
+  // const { token } = useAppContext();
   const searchParams = useSearchParams();
   const source = searchParams.get("source");
   const companyId = params.id;
@@ -48,6 +48,7 @@ const UserInfoPage = ({ params }) => {
   useEffect(() => {
     const fetchCompanyById = async () => {
       try {
+        const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
         if (!token) {
           console.error('No token available');
           return;

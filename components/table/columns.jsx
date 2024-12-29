@@ -18,7 +18,7 @@ export const columns = [
       header: "Owner",
       cell: ({ row }) => 
         <div className="min-w-[120px]" >
-          <UserComponent id={row.original.id} img={row.original.img} name={row.original.companyName}/>
+          <UserComponent id={row.original.id} img={row.original.logo} name={row.original.companyName}/>
         </div>,
     },
     {
