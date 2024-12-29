@@ -13,6 +13,7 @@ import { useSearchParams } from 'next/navigation';
 import { user } from '@/public/assets';
 import { useAppContext } from '@/context/AppContext';
 import axios from 'axios';
+import CompanyLogo from '@/components/CompanyLogo';
 
 const UserInfoPage = ({ params }) => {
 
@@ -88,7 +89,8 @@ const UserInfoPage = ({ params }) => {
           <div 
               className="flex flex-row items-center justify-between gap-2"
           >
-            <Image src={user} alt='user' className='h-[30px] w-[30px] rounded-full'/>
+            {/* <Image src={user} alt='user' className='h-[30px] w-[30px] rounded-full'/> */}
+            <CompanyLogo logoUrl={data.logo}/>
             <p className="w-full text-left text-textDefault font-light">{data.companyName}</p>
           </div>
         </div>
