@@ -82,7 +82,7 @@ const LoginForm = () => {
         const response = await axios.post('/api/login', {
           email,
           password,
-        });
+        }, { cache: 'no-store' });
   
         console.log('Login Response:', response.data.data.token);
         setToken(response.data.data.token)
