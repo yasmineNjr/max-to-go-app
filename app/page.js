@@ -10,39 +10,38 @@ import { useRouter } from 'next/navigation'
 
 const LoginPage = () => {
 
-  const { token } = useAppContext();
+  // const { token } = useAppContext();
   const router = useRouter();
+  const [isChecking, setIsChecking] = useState(true); // State to handle loading/checking
   // const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   if (token) {
-  //     // If the token exists, redirect to the dashboard
-  //     router.replace('/main');
-  //   } else {
-  //     // If there's no token, stop the loading state
-  //     setIsLoading(false);
-  //   }
-  // }, [token, router]);
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = localStorage.getItem('token'); // Retrieve token from localStorage
+      if (token) {
+        // If token exists, redirect programmatically
+        router.replace('/main');
+        return;
+      }
+      setIsChecking(false); // Allow the login form to be shown if no token
+    };
 
-  // if (isLoading) {
-  //   // Show a blank screen or loading spinner while checking the token
-  //   <div className='text-white'>Loading...</div>
-  //   return null;
-  // }
+    checkToken();
+  }, [router]);
 
-  
-  // useEffect(() => {
-  //   if (token) {
-  //     // Redirect to the dashboard if the user is logged in
-  //     router.push('/main'); // Adjust to your logged-in landing page
-  //   }
-  // }, [token, router]);
-
-  if (token) {
-    // Redirect programmatically without rendering unnecessary HTML
-    router.replace('/main');
-    return null; // Prevent rendering anything while redirecting
+  if (isChecking) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-10 h-10 border-2 border-secondaryColor border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    ); // Show a loading spinner while checking the token
   }
+
+  // if (token) {
+  //   // Redirect programmatically without rendering unnecessary HTML
+  //   router.replace('/main');
+  //   return null; // Prevent rendering anything while redirecting
+  // }
   
   return (
     <div className={`${styles.mainSection} items-center justify-center h-full mt-15`}>

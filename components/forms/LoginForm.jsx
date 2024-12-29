@@ -53,29 +53,7 @@ const LoginForm = () => {
             handleLoginProxy();
         }
     }
-
-    const handleLogin = async (e) => {
-        try {
-            const response = await axios.post('https://api.max-togo.com/api/admin/login', {
-              email: email,
-              password: password,
-            });
-            console.log('Login Success:', response.data);
-          } catch (error) {
-            if (error.response) {
-              // Response with error status
-              console.error('Server Error:', error.response.data);
-            } else if (error.request) {
-              // No response received
-              console.error('Network Error:', error.message);
-            } else {
-              // Error during request setup
-              console.error('Error:', error.message);
-            }
-          }
-        
-      };
-
+    
     const handleLoginProxy = async () => {
       setLoading(true);
       try {
