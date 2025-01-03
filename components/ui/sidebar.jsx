@@ -18,6 +18,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { usePathname } from "next/navigation";
+import { CgMenu } from "react-icons/cg";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -227,22 +228,33 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
     <div>
       {
          !isFirstPage &&
-          <Button
-            ref={ref}
-            data-sidebar="trigger"
-            variant="ghost"
-            size="icon"
-            className={cn("h-7 w-7", className)}
-            onClick={(event) => {
-              onClick?.(event)
-              toggleSidebar()
-            }}
-            {...props}>
+          // <Button
+          //   ref={ref}
+          //   data-sidebar="trigger"
+          //   variant="ghost"
+          //   size="icon"
+          //   className={cn("h-7 w-7", className)}
+          //   onClick={(event) => {
+          //     onClick?.(event)
+          //     toggleSidebar()
+          //   }}
+          //   {...props}>
+          //   <PanelLeft />
+          //   <span className="sr-only">Toggle Sidebar</span>
+          // </Button>
+          <CgMenu   color="#FECC02" 
+                            className={cn("h-5 w-5", className)}
+                            onClick={(event) => {
+                              onClick?.(event)
+                              toggleSidebar()
+                            }}
+                            {...props}
+          >
             <PanelLeft />
             <span className="sr-only">Toggle Sidebar</span>
-        </Button>
+          </CgMenu >
+         
       }
-      
     </div>
     
   );
@@ -458,7 +470,17 @@ const SidebarMenuButton = React.forwardRef((
   ref
 ) => {
   const Comp = asChild ? Slot : "button"
-  const { isMobile, state } = useSidebar()
+  const { isMobile, state, setOpenMobile } = useSidebar() // Access setOpenMobile from the context
+  // const { isMobile, state } = useSidebar()
+
+  const handleClick = (event) => {
+    if (onClick) {
+      onClick(event) // Call the passed onClick if provided
+    }
+    if (isMobile) {
+      setOpenMobile(false) // Close the sidebar on small devices
+    }
+  }
 
   const button = (
     <Comp
@@ -467,6 +489,7 @@ const SidebarMenuButton = React.forwardRef((
       data-size={size}
       data-active={isActive}
       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
+      onClick={handleClick} // Attach the custom click handler
       {...props} />
   )
 
