@@ -91,11 +91,14 @@ export function AppSidebar() {
                       </SidebarMenuButton>
                       {
                         item.title === 'Tasks' && isOpenTasks && sidebarSubItems.map((sitem, idx) => (
-                          <p  key={sitem.title} 
+                          < div className={`flex flex-row justify-between ${activePath === sitem.url ? styleSubItemActive : styleSubItemInActive} cursor-pointer ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondaryColor mt-2 ml-3 mr-3`}>
+                            <p  key={sitem.title} 
                               onClick={() => taskItemNavigateHandler(sitem.url)}
-                              className={`${activePath === sitem.url ? styleSubItemActive : styleSubItemInActive} cursor-pointer ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondaryColor mt-2 ml-3 mr-3`}>
-                            {sitem.title}
-                          </p>
+                              className=''>
+                              {sitem.title}
+                            </p>
+                            <p>{sitem.count}</p>
+                          </div>
                         ))
                       }
                     </SidebarMenuItem>

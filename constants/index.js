@@ -84,30 +84,37 @@ export const sidebarSubItems = [
     {
       title: "Unsold assignments",
       url: "/tasks/unsold-tasks",
+      count: '10'
    },
    {
       title: "Tasks to be sold",
       url: "/tasks/sold-tasks",
+      count: '8'
    }, 
    {
       title: "You need to confirm completion",
       url: "/tasks/confirm-tasks",
+      count: '12'
    },
    {
       title: "Expired",
       url: "/tasks/expired-tasks",
+      count: '5'
    },
    {
       title: "Urgent",
       url: "/tasks/urgent-tasks",
+      count: '12'
    },
    {
       title: "Create a task",
       url: "/tasks/create-task",
+      count: ''
    },
    {
       title: "Pricing of selling tasks",
       url: "#",
+      count: ''
    },
 ]
 
@@ -525,18 +532,21 @@ export const emails = [
       id: 'e-1',
       name: 'Mhmd',
       date: '18 minutes ago',
+      title: 'Email Title',
       message: 'Email text Email text Email text Email text Email text Email text'
    },
    {
       id: 'e-2',
       name: 'Ali',
       date: '1 day',
+      title: 'Email Title',
       message: 'Email text Email text Email text Email text Email text Email text'
    },
    {
       id: 'e-3',
       name: 'Ghaith',
       date: '08-12-2024',
+      title: 'Email Title',
       message: 'Email text Email text Email text Email text Email text Email text'
    },
 ]

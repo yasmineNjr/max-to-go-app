@@ -19,6 +19,7 @@ const IncomingEmails = () => {
                             name={email.name} 
                             date={email.date} 
                             message={email.message}
+                            title={email.title}
                 />
               ))
             }
