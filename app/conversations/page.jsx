@@ -7,6 +7,7 @@ import Command from '@/components/Command'
 import { conversations } from '@/constants'
 import ConversationItem from '@/components/ConversationItem'
 import { useRouter } from 'next/navigation'
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 const Conversations = () => {
 
@@ -17,27 +18,29 @@ const Conversations = () => {
   }
    
   return (
-    <div className={`${styles.mainSection}`}>
-      <Title text='Conversations'/>
-      <Command  //icon={<IoMdNotificationsOutline color='#FECC02'/>} 
-                text='Send a group message'
-                onClickHandler={sendGroupMessageHandler}
-                />
-      {
-        conversations.map((con) => (
-          <ConversationItem key={con.id} 
-                            img={con.img} 
-                            name={con.name} 
-                            message={con.message} 
-                            date={con.date} 
-                            isCommand={true}
-                            command1='Delete'
-                            command2='Pause'
-                            command3='See'
-                            unread={con.unread}/>
-        ))
-      }
-    </div>
+    <ProtectedRoute>
+      <div className={`${styles.mainSection}`}>
+        <Title text='Conversations'/>
+        <Command  //icon={<IoMdNotificationsOutline color='#FECC02'/>} 
+                  text='Send a group message'
+                  onClickHandler={sendGroupMessageHandler}
+                  />
+        {
+          conversations.map((con) => (
+            <ConversationItem key={con.id} 
+                              img={con.img} 
+                              name={con.name} 
+                              message={con.message} 
+                              date={con.date} 
+                              isCommand={true}
+                              command1='Delete'
+                              command2='Pause'
+                              command3='See'
+                              unread={con.unread}/>
+          ))
+        }
+      </div>
+    </ProtectedRoute>
   )
 }
 

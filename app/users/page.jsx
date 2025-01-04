@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios'
 import { user } from '@/public/assets'
 import { useAppContext } from '@/context/AppContext'
+import ProtectedRoute from '@/components/ProtectedRoute'
 
 const Users = () => {
 
@@ -77,11 +78,13 @@ const Users = () => {
   );
 
   return (
-    loading ? 
+    <ProtectedRoute>
+    {
+      loading ? 
      // Spinner
-     <div className={`${styles.mainSection} mt-25 flex items-center `}>
-        <div className="w-10 h-10 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
-     </div>
+      <div className={`${styles.mainSection} mt-25 flex items-center `}>
+          <div className="w-10 h-10 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+      </div>
      :
       <div className={`${styles.mainSection}`}>
         <Title text='Users'/>
@@ -90,6 +93,8 @@ const Users = () => {
                   onClickHandler={createNoticesHandler}/>
         <DataTable data={filteredData} columns={columns(fetchData)}/>
       </div>
+    }
+    </ProtectedRoute>
   )
 }
 

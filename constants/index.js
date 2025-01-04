@@ -56,27 +56,27 @@ export const sidebarItems = [
     {
        title: "Conversations",
        url: "/conversations",
-      icon: <BiSolidConversation/>,
+       icon: <BiSolidConversation/>,
     },
     {
        title: "Archive",
        url: "/archives",
-      icon: <FaFileArchive/>,
+       icon: <FaFileArchive/>,
     },
     {
        title: "Incoming emails",
        url: "/incoming-emails",
-      icon: <MdEmail/>,
+       icon: <MdEmail/>,
     },
     {
        title: "Job applications",
        url: "/job-applications",
-      icon: <MdWork/>,
+       icon: <MdWork/>,
     },
     {
-       title: "Individual tasks",
+       title: "Private orders",
        url: "/individual-tasks",
-      icon: <MdTask/>,
+       icon: <MdTask/>,
     },
 ]
 

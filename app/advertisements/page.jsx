@@ -8,6 +8,7 @@ import Command from '@/components/Command';
 import { FaPlus } from "react-icons/fa6";
 import { advertisements } from '@/constants';
 import AdComponent from '@/components/AdComponent';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 const Advertisements = () => {
   
@@ -18,21 +19,23 @@ const Advertisements = () => {
   }
 
   return (
-    <div className={`${styles.mainSection} h-full bg-black`}>
-      <Title text='Advertisement'/>
-      <Command 
-        icon={<FaPlus color='#FECC02'/>} 
-        text='Create ads'
-        onClickHandler={newAdverHandler}
-      />
-      <div className='flex flex-col w-full h-full gap-5 p-0'>
-     { 
-      advertisements.map((ad) => (
-          <AdComponent id={ad.id} img={ad.img}/>
-        ))
-      }
+    <ProtectedRoute>
+      <div className={`${styles.mainSection} h-full bg-black`}>
+        <Title text='Advertisement'/>
+        <Command 
+          icon={<FaPlus color='#FECC02'/>} 
+          text='Create ads'
+          onClickHandler={newAdverHandler}
+        />
+        <div className='flex flex-col w-full h-full gap-5 p-0'>
+      { 
+        advertisements.map((ad) => (
+            <AdComponent id={ad.id} img={ad.img}/>
+          ))
+        }
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   )
 }
 

@@ -14,6 +14,7 @@ import { user } from '@/public/assets';
 import { useAppContext } from '@/context/AppContext';
 import axios from 'axios';
 import CompanyLogo from '@/components/CompanyLogo';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 const UserInfoPage = ({ params }) => {
 
@@ -81,6 +82,8 @@ const UserInfoPage = ({ params }) => {
   if (error) return <p>Something went wrong!</p>;
 
   return (
+    <ProtectedRoute>
+    {
     loading ? 
      // Spinner
      <div className={`${styles.mainSection} mt-25 flex items-center `}>
@@ -139,6 +142,8 @@ const UserInfoPage = ({ params }) => {
         </div>
       </div>
     </div>
+    }
+    </ProtectedRoute>
   )
 }
 
