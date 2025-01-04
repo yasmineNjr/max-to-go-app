@@ -105,7 +105,7 @@ const SidebarProvider = React.forwardRef((
     setOpenMobile,
     toggleSidebar,
   }), [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar])
-
+  
   return (
     (<SidebarContext.Provider value={contextValue}>
       <TooltipProvider delayDuration={0}>
@@ -130,6 +130,7 @@ const SidebarProvider = React.forwardRef((
   );
 })
 SidebarProvider.displayName = "SidebarProvider"
+
 
 const Sidebar = React.forwardRef((
   {

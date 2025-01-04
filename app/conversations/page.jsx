@@ -25,7 +25,8 @@ const Conversations = () => {
                 />
       {
         conversations.map((con) => (
-          <ConversationItem img={con.img} 
+          <ConversationItem key={con.id} 
+                            img={con.img} 
                             name={con.name} 
                             message={con.message} 
                             date={con.date} 

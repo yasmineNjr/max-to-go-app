@@ -12,12 +12,14 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+
 import { logo, menu } from "@/public/assets"
 import Image from "next/image"
 import { sidebarItems, sidebarSubItems } from "@/constants"
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { usePathname, useRouter } from 'next/navigation'
+import { useSidebar } from "@/components/ui/sidebar";
 
 export function AppSidebar() {
 
@@ -30,7 +32,8 @@ export function AppSidebar() {
   const styleInActive = 'bg-primaryColor text-secondaryColor';
   const styleSubItemActive = 'text-secondaryColor';
   const styleSubItemInActive = 'text-textDefault';
-
+  const { toggleSidebar, isMobile } = useSidebar();
+  
   const openTasksHandler = (e) => {
     e.preventDefault(); // Prevent the anchor tag's default behavior
     e.stopPropagation(); // Prevent the event from bubbling to the parent
@@ -41,7 +44,8 @@ export function AppSidebar() {
     if(url){
       e.preventDefault(); // Prevent navigation for the demo
       setActivePath(url); // Update the string state
-      router.push(url)
+      isMobile ? toggleSidebar() :  console.log('desktop')
+      router.push(url);
     }
    
   }
@@ -67,7 +71,8 @@ export function AppSidebar() {
                 <SidebarMenu>
                   {sidebarItems.map((item) => (
                     <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} className={`${activePath === item.url ? styleActive : styleInActive} border border-secondaryColor rounded-xl hover:bg-secondaryColor hover:text-primaryColor`}>
+                      <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} 
+                                          className={`${activePath === item.url ? styleActive : styleInActive} border border-secondaryColor rounded-xl hover:bg-secondaryColor hover:text-primaryColor`}>
                         <div  className="flex flex-row items-center justify-between w-full"  
                             // href={item.url} 
                             >

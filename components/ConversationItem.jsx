@@ -4,7 +4,7 @@ import CommandButton from './CommandButton'
 
 const ConversationItem = ({ id, img, name, message, date, isCommand, command1, command2, command3, unread}) => {
   return (
-    <div key={id} className='border-b-2 border-textDefault w-full'>
+    <div className='border-b-2 border-textDefault w-full'>
       <div className='flex flex-row justify-between items-center'>
         <div key={name} className='flex flex-row items-center p-3 '>
             <Image src={img} alt='user' className='h-[75px] w-[75px] lg:h-[60px] lg:w-[60px] rounded-full'/>
