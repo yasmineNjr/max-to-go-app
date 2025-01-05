@@ -17,13 +17,13 @@ export const columns = (reloadData) => [
       accessorKey: "owner",
       header: "Owner",
       cell: ({ row }) => 
-        <div className="min-w-[120px]" >
+        <div className="min-w-[150px]" >
           <UserComponent id={row.original.id} img={row.original.logo} name={row.original.companyName}/>
         </div>,
     },
     {
         accessorKey: "delete",
-        header: "Delete account",
+        header: "Delete",
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
@@ -46,7 +46,7 @@ export const columns = (reloadData) => [
     },
     {
       accessorKey: "pause",
-      header: "Pause",
+      header: "ِApprove",
       cell: ({ row }) => {
         return (
           <div className="flex items-center justify-center cursor-pointer">

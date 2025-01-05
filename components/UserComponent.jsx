@@ -19,7 +19,12 @@ const UserComponent = ({ id, img, name }) => {
     >
         {/* <Image src={img} alt='user' className='h-[30px] w-[30px] rounded-full'/> */}
         <CompanyLogo logoUrl={img}/>
+       
+       <div className='flex flex-col w-full'>
         <p className="w-full text-left text-textDefault font-light">{name}</p>
+        <p className="w-full text-left text-gray-600 font-light text-[14px]">online</p>
+       </div>
+        
     </div>
   )
 }
