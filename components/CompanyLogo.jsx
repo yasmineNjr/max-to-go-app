@@ -42,7 +42,7 @@ const CompanyLogo = ({ logoUrl }) => {
   }, [logoUrl]);
 
   return logoSrc ? 
-          <div className="relative inline-block w-full">
+          <div className="relative inline-block ">
             <Image 
               src={logoSrc} 
               alt="Company Logo" 
@@ -50,7 +50,7 @@ const CompanyLogo = ({ logoUrl }) => {
               height={50} 
               className="h-[50px] w-[50px] rounded-full"
             />
-            <span className="absolute bottom-0 right-3.25 block h-3 w-3 rounded-full bg-green ring-2 ring-white"></span>
+            <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green ring-2 ring-white"></span>
           </div>
           : 
            // Spinner

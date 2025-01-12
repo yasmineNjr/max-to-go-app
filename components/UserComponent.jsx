@@ -14,13 +14,13 @@ const UserComponent = ({ id, img, name }) => {
 
   return (
     <div 
-        className="flex flex-row items-center justify-between gap-2 cursor-pointer"
+        className="flex flex-row items-center gap-2 cursor-pointer"
         onClick={viewUserInfoHandler}
     >
         {/* <Image src={img} alt='user' className='h-[30px] w-[30px] rounded-full'/> */}
         <CompanyLogo logoUrl={img}/>
        
-       <div className='flex flex-col w-full'>
+       <div className='flex flex-col ml-2'>
         <p className="w-full text-left text-textDefault font-light">{name}</p>
         <p className="w-full text-left text-gray-600 font-light text-[14px]">online</p>
        </div>
