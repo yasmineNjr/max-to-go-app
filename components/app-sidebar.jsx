@@ -64,7 +64,8 @@ export function AppSidebar() {
             <Image src={menu} alt='menu' className='w-5'/>
             <h3 className='text-textDefault'>Main Menu</h3>
           </SidebarHeader>
-          <SidebarContent  className='bg-primaryColor pl-5'>
+          {/* to hide scroll */}
+          <SidebarContent  className='bg-primaryColor pl-5 overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondaryColor scrollbar-track-transparent '>
             <SidebarGroup>
               {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
               <SidebarGroupContent>
@@ -108,7 +109,7 @@ export function AppSidebar() {
             </SidebarGroup>
           </SidebarContent>
           {
-            !isOpenTasks &&
+            // !isOpenTasks &&
             <SidebarFooter  className='bg-primaryColor'>
               <Image src={logo} alt='logo'/>
             </SidebarFooter>

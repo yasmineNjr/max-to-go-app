@@ -94,5 +94,10 @@ module.exports = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+//   plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"), // Existing plugin
+		require('tailwind-scrollbar-hide'), // New plugin for hiding the scrollbar
+		require('tailwind-scrollbar'),
+	],
 };
