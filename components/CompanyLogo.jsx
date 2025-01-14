@@ -38,6 +38,28 @@ const CompanyLogo = ({ logoUrl }) => {
         }
       };
       
+    // const fetchLogo = async () => {
+    //   try {
+    //     // Replace backslashes in the URL if necessary
+    //     const sanitizedLogoUrl = logoUrl.replace(/\\/g, '/'); // Replace backslashes
+    //     const encodedLogoUrl = encodeURIComponent(sanitizedLogoUrl);
+    
+    //     // Fetch the logo
+    //     const response = await fetch(`/api/proxy/logo?logoUrl=${encodedLogoUrl}`);
+        
+    //     if (!response.ok) {
+    //       console.error(`Failed to fetch logo: ${response.status} ${response.statusText}`);
+    //       return;
+    //     }
+    
+    //     // Convert the response to a Blob and create an object URL
+    //     const blob = await response.blob();
+    //     const logoSrc = URL.createObjectURL(blob);
+    //     setLogoSrc(logoSrc); // Set the logo source in your component
+    //   } catch (error) {
+    //     console.error('Error fetching logo:', error);
+    //   }
+    // };
     fetchLogo();
   }, [logoUrl]);
 
@@ -53,10 +75,10 @@ const CompanyLogo = ({ logoUrl }) => {
             <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green ring-2 ring-white"></span>
           </div>
           : 
-           // Spinner
-           <div>
-            <div className="w-5 h-5 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
-           </div>
+          // Spinner
+          <div>
+          <div className="w-5 h-5 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+          </div>
            
 };
 
