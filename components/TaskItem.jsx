@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import CommandButton from './CommandButton'
 
-const TaskItem = ({ id, owner, name, date, type, icon, city, price, source, command1, command2, command3, command4, command5, command6 }) => {
+const TaskItem = ({ id, owner, name, date, type, icon, city, price, status, source, command1, command2, command3, command4, command5, command6 }) => {
   return (
     <div key={id}
          className='rounded-xl border-2 border-textPrimary bg-blue-400 w-full my-5 p-5'
@@ -15,6 +15,16 @@ const TaskItem = ({ id, owner, name, date, type, icon, city, price, source, comm
             <p className="w-full text-left text-textDefault font-light">{owner}</p>
             </div>
         </div>
+
+        {
+            source === 'individual' &&
+            <div className='flex flex-row items-center w-full gap-5 text-textDefault pt-4'>
+                <div className='flex flex-row w-full pt-1'>
+                    <h3 className='w-fit font-bold mr-1'>Status: </h3>
+                    <p className="w-fit text-left text-secondaryColor font-light">{status}</p>
+                </div>
+            </div>
+        }
 
         <div className='flex flex-col lg:flex-row justify-between w-full pt-4'>
             <div className='flex flex-col'>

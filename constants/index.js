@@ -11,6 +11,14 @@ import { FaFileArchive } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { MdWork } from "react-icons/md";
 import { MdTask } from "react-icons/md";
+import { FaCircleCheck } from "react-icons/fa6";
+import { MdCancel } from "react-icons/md";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import { MdGppBad } from "react-icons/md";
+import { MdPending } from "react-icons/md";
+import { RiProgress2Fill } from "react-icons/ri";
+import { RiProgress3Fill } from "react-icons/ri";
+import { RiProgress1Fill } from "react-icons/ri";
 
 export const FormFieldType = {
    INPUT: 'input',
@@ -525,6 +533,30 @@ export const tasks  = [
       isIndividual: false,
       status: 'confirm'
    },
+   {
+      id: 'task-11',
+      owner: 'Mhmd',
+      name: 'Transfer form Damascus to Homs',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 150,
+      city: 'Damascus',
+      isIndividual: true,
+      status: 'new'
+   },
+   {
+      id: 'task-12',
+      owner: 'Ali',
+      name: 'Transfer form Aleppo to Hamah',
+      date: '24-10-2024',
+      type: 'Transfer',
+      icon: <HiTruck color='#FECC02' size={35}/>,
+      price: 250,
+      city: 'Aleppo',
+      isIndividual: true,
+      status: 'execute'
+   },
 ]
 
 export const emails = [
@@ -599,4 +631,55 @@ export const apartments = [
       id: 'apartment-3',
       title: 'Rad house'
    }
+]
+
+export const taskStates = [
+   {
+      id: 'stat-1',
+      value: 'new',
+      label: 'New',
+      icon: <RiProgress1Fill size={20} />
+   },
+   {
+      id: 'stat-2',
+      value: 'wait',
+      label: 'Awaiting customer approval on the quote',
+      icon: <MdPending size={20}/>
+   },
+   {
+      id: 'stat-3',
+      value: 'approved',
+      label: 'Approved',
+      icon: <FaCircleCheck size={18} />
+   },
+   {
+      id: 'stat-4',
+      value: 'cancel',
+      label: 'Rejected by the customer',
+      icon: <MdCancel  size={20} />
+   },
+   {
+      id: 'stat-5',
+      value: 'sale',
+      label: 'Pending Sale',
+      icon: <RiProgress2Fill  size={20} />
+   },
+   {
+      id: 'stat-6',
+      value: 'execute',
+      label: 'Waiting for Execution',
+      icon: <RiProgress3Fill size={20} />
+   },
+   {
+      id: 'stat-7',
+      value: 'completed',
+      label: 'Completed',
+      icon: <IoCheckmarkDoneCircle size={20} />
+   },
+   {
+      id: 'stat-8',
+      value: 'fake',
+      label: 'Fake Request',
+      icon: <MdGppBad size={20} />
+   },
 ]

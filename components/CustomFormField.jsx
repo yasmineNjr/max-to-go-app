@@ -19,7 +19,20 @@ import { Checkbox } from "./ui/checkbox";
 
 const RenderField= ({field, props}) => {
     
-    const { fieldType, iconSrc, iconAlt, placeholder, showTimeSelect, dateFormat, renderSkeleton, onChange, id, value, readOnly, type, min, required } = props;
+    const { fieldType, 
+            iconSrc, 
+            iconAlt, 
+            placeholder, 
+            showTimeSelect, 
+            dateFormat, 
+            renderSkeleton, 
+            onChange, id, 
+            value, 
+            readOnly, 
+            type, 
+            min, 
+            required,
+         } = props;
     
     switch(fieldType){
         case FormFieldType.INPUT:
