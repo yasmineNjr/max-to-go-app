@@ -9,19 +9,32 @@ const MultiSelectDropdown = ({
   setSelectedOptions,
   selectedOptions
 }) => {
-  // const [selectedOptions, setSelectedOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  // const [selectedOptions, setSelected] = useState([]);
   const menuRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const toggleOption = (value) => {
-    setSelectedOptions((prev) =>
-      prev.includes(value)
-        ? prev.filter((item) => item !== value) // Remove if already selected
-        : [...prev, value] // Add if not selected
-    );
-
+  // const toggleOption = (value) => {
+  //   setSelectedOptions((prev) =>
+  //     prev.includes(value)
+  //       ? prev.filter((item) => item !== value) // Remove if already selected
+  //       : [...prev, value] // Add if not selected
+  //   );
+  //   console.log(selectedOptions)
+  // };
+  const toggleOption = (option) => {
+    setSelectedOptions((prev) => {
+      const isSelected = prev.some((item) => item.value === option.value);
+  
+      if (isSelected) {
+        // Remove the option if already selected
+        return prev.filter((item) => item.value !== option.value);
+      } else {
+        // Add the option if not selected
+        return [...prev, option];
+      }
+    });
   };
 
   const handleClickOutside = (event) => {
@@ -46,10 +59,10 @@ const MultiSelectDropdown = ({
       <div className="flex flex-row p-1">
         <button
           type="button"
-          className="w-full px-4 py-2 text-left bg-black shadow-sm  "
+          className="w-full px-4 py-2 text-left bg-black shadow-sm"
         >
           {selectedOptions.length > 0
-            ? selectedOptions.join(", ")
+            ? selectedOptions.map((opt) => opt.label).join(", ") // Use labels
             : placeholder}
         </button>
         <div className="flex items-center mr-3">
@@ -62,16 +75,15 @@ const MultiSelectDropdown = ({
 
           {/* Existing Options */}
           {options.map((option) => (
-            <div className="group flex flex-row w-full items-center px-2 hover:bg-gray-300  " 
-                  onClick={() => toggleOption(option.value)}
+            <div
+              key={option.value}
+              className="group flex flex-row w-full items-center px-2 hover:bg-gray-300"
+              onClick={() => toggleOption(option)}
             >
               <div className="text-secondaryColor group-hover:text-black">
                 {option.icon}
               </div>
-              <div
-                key={option.value}
-                className="flex items-center gap-2 px-4 py-2 cursor-pointer w-full"
-              >
+              <div className="flex items-center gap-2 px-4 py-2 cursor-pointer w-full">
                 <input
                   type="text"
                   value={option.label}
