@@ -15,14 +15,6 @@ const MultiSelectDropdown = ({
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  // const toggleOption = (value) => {
-  //   setSelectedOptions((prev) =>
-  //     prev.includes(value)
-  //       ? prev.filter((item) => item !== value) // Remove if already selected
-  //       : [...prev, value] // Add if not selected
-  //   );
-  //   console.log(selectedOptions)
-  // };
   const toggleOption = (option) => {
     setSelectedOptions((prev) => {
       const isSelected = prev.some((item) => item.value === option.value);
@@ -51,7 +43,7 @@ const MultiSelectDropdown = ({
   }, []);
 
   return (
-    <div className="relative w-full border-2 border-secondaryColor rounded-xl cursor-pointer"
+    <div className="relative w-full cursor-pointer"
           onClick={toggleDropdown}
           ref={menuRef}
     >

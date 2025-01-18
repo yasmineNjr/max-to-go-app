@@ -296,6 +296,7 @@ export const invoices  = [
       owner: 'Ehab',
       price: 100,
       quantity: 2,
+      date: '02-01-2024',
       isArchive: true
    },
    {
@@ -303,6 +304,7 @@ export const invoices  = [
       owner: 'Ghaith',
       price: 70,
       quantity: 3,
+      date: '05-12-2023',
       isArchive: true
    },
    {
@@ -310,6 +312,7 @@ export const invoices  = [
       owner: 'Ahmad',
       price: 200,
       quantity: 1,
+      date: '02-05-2024',
       isArchive: false
    },
    {
@@ -317,6 +320,7 @@ export const invoices  = [
       owner: 'Ali',
       price: 500,
       quantity: 5,
+      date: '10-03-2024',
       isArchive: true
    },
 ]
@@ -683,3 +687,12 @@ export const taskStates = [
       icon: <MdGppBad size={20} />
    },
 ]
+
+export const formatDateWithPadding = (dateString) => {
+   const date = new Date(dateString);
+   const day = String(date.getDate()).padStart(2, "0");
+   const month = String(date.getMonth() + 1).padStart(2, "0");
+   const year = date.getFullYear();
+   
+   return `${day}-${month}-${year}`;
+ };

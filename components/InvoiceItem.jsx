@@ -4,7 +4,7 @@ import ContentComponent from './ContentComponent'
 import Image from 'next/image'
 import { user } from '@/public/assets'
 
-const InvoiceItem = ({ id, owner, price, quantity}) => {
+const InvoiceItem = ({ id, owner, price, quantity, date}) => {
   return (
     <div id={id} className='rounded-xl border-2 border-textPrimary bg-blue-400 w-[300px] my-10 p-2 lg:p-5'>
       <div className='flex flex-row justify-center items-center w-full gap-5 text-textDefault'>
@@ -19,12 +19,16 @@ const InvoiceItem = ({ id, owner, price, quantity}) => {
         <ContentComponent title='ID: ' value={id}/>
       </div>
 
+      <div className='w-[100%] flex justify-start mt-5'>
+        <ContentComponent title='Date: ' value={date}/>
+      </div>
+
       <div className='flex flex-row  mt-5 text-lef items-start w-full gap-5 text-textDefault'>
         <div className='w-[100%] lg:w-[50%] flex justify-start'>
           <ContentComponent title='Price: ' value={`$${price}`}/>
         </div>
         <div className='w-[100%] lg:w-[50%] flex justify-start'>
-            <ContentComponent title='Quantity: ' value={quantity}/>
+          <ContentComponent title='Quantity: ' value={quantity}/>
         </div>
       </div>
 

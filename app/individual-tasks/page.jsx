@@ -29,7 +29,7 @@ const IndividualTasks = () => {
       <div className={`${styles.mainSection} h-full bg-black`}>
         <Title text='Individual Tasks'/>
 
-        <div className="flex flex-row items-center mt-5 ">
+        <div className="flex flex-row items-center mt-5 border-2 border-secondaryColor rounded-xl ">
           <MultiSelectDropdown options={taskStates} 
                                 placeholder="Select task states..." 
                                 // onChange={(selected) => setSelectedStates(selected)}
@@ -37,7 +37,7 @@ const IndividualTasks = () => {
                                 selectedOptions={selectedStates}
           />
           <div className='m-2 cursor-pointer' onClick={() => setSelectedStates([])}>
-            <GrPowerReset size={28} color='#fecc02'/>
+            <GrPowerReset size={22} color='#fecc02'/>
           </div>
         </div>
         <div className='flex flex-col w-full gap-3 justify-center'>
