@@ -10,6 +10,7 @@ import ad3 from './ad3.jpg'
 import ad5 from './ad5.jpg'
 import upload from './upload.svg'
 // import truck from './Truck.png'
+import bg from './bg.jpg'
 
 export {
     logo,
@@ -24,4 +25,5 @@ export {
     ad5,
     upload,
     // truck
+    bg
 }

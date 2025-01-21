@@ -5,19 +5,24 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles'
 import Command from '@/components/Command'
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { DataTable } from '@/components/table/DataTable';
 import { columns } from '@/components/table/columns';
 import { useRouter } from 'next/navigation';
 import axios from 'axios'
 import { user } from '@/public/assets'
 import { useAppContext } from '@/context/AppContext'
 import ProtectedRoute from '@/components/ProtectedRoute'
+import dynamic from 'next/dynamic'
+// import { DataTable } from '@/components/table/DataTable';
+const DataTable = dynamic( 
+  () => import('@/components/table/DataTable'),
+  {
+    loadingTable: () => <p>Loading...</p>
+  })
 
 const Users = () => {
 
   const router = useRouter()
   const { searchQuery, token } = useAppContext();
-  // const data1 = users;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -82,13 +87,13 @@ const Users = () => {
     {
       loading ? 
      // Spinner
-      <div className={`${styles.mainSection} mt-25 flex items-center `}>
+      <div className={`${styles.mainSection} flex items-center justify-center h-screen`}>
           <div className="w-10 h-10 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
       </div>
      :
       <div className={`${styles.mainSection}`}>
         <Title text='Users'/>
-        <Command  icon={<IoMdNotificationsOutline color='#FECC02'/>} 
+        <Command  icon={<IoMdNotificationsOutline size={22} color='#FECC02'/>} 
                   text='Account creation notices'
                   onClickHandler={createNoticesHandler}/>
         <DataTable data={filteredData} columns={columns(fetchData)}/>

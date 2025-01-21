@@ -1,11 +1,16 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import styles from './styles'
-import LoginForm from '@/components/forms/LoginForm'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import styles from './styles'
+// import LoginForm from '@/components/forms/LoginForm'
+const LoginForm = dynamic( 
+  () => import('@/components/forms/LoginForm'),
+  {
+    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+  })
 import { logo } from '@/public/assets'
-import { useAppContext } from '@/context/AppContext'
 import { useRouter } from 'next/navigation'
 
 const LoginPage = () => {

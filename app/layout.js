@@ -1,8 +1,19 @@
 import localFont from "next/font/local";
+import dynamic from "next/dynamic";
 import "./globals.css";
-import Header from '../components/Header'
+// import Header from '../components/Header'
+const Header = dynamic( 
+  () => import('../components/Header'),
+  {
+    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+  })
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
+
+const AppSidebar = dynamic( 
+  () => import('@/components/app-sidebar'),
+  {
+    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+  })
 import { AppProvider } from "@/context/AppContext";
 
 export const metadata = {

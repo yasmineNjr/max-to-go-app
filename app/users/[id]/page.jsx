@@ -163,7 +163,7 @@ const UserInfoPage = ({ params }) => {
     {
     loading ? 
      // Spinner
-     <div className={`${styles.mainSection} mt-25 flex items-center `}>
+     <div className={`${styles.mainSection} flex items-center justify-center h-screen`}>
         <div className="w-10 h-10 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
      </div>
      :
@@ -184,14 +184,14 @@ const UserInfoPage = ({ params }) => {
         <div className='flex flex-col lg:flex-row justify-start items-start w-full gap-5 text-textDefault my-5'>
         {/* lg:w-[50%] */}
           <div className='w-[100%] '>
-            <ContentComponent title='Company Name: ' value={data.companyName}/>
-            <ContentComponent title='Organization Number: ' value={data.organizationNumber}/>
-            <ContentComponent title='Name of responsible person: ' value={data.nameOfResponsiblePerson}/>
-            <ContentComponent title='Address : ' value={data.address}/>
-            <ContentComponent title='Type Of Business :' value={data.typeOfBusiness}/>
-            <ContentComponent title='Email : ' value={data.email}/>
-            <ContentComponent title='Phone Numer : ' value={data.phone}/>
-            <ContentComponent title='Info : ' 
+            <ContentComponent title='Company Name' value={data.companyName}/>
+            <ContentComponent title='Organization Number' value={data.organizationNumber}/>
+            <ContentComponent title='Name of responsible person' value={data.nameOfResponsiblePerson}/>
+            <ContentComponent title='Address' value={data.address}/>
+            <ContentComponent title='Type Of Business' value={data.typeOfBusiness}/>
+            <ContentComponent title='Email' value={data.email}/>
+            <ContentComponent title='Phone Numer' value={data.phone}/>
+            <ContentComponent title='Info' 
                               icon={<FaDownload size={20} 
                                                 onClick={() => openPermitHandler(data.permit)}
                                     />}  

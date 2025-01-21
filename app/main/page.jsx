@@ -1,11 +1,24 @@
 "use client"
 
-import { PieChartComponent } from '@/components/PieChart'
+// import { PieChartComponent } from '@/components/PieChart'
+const PieChartComponent = dynamic(() =>
+  import("@/components/PieChart").then((mod) => mod.PieChartComponent)
+);
 import { LinearChart } from '@/components/LinearChart'
+// const LinearChart = dynamic(() =>
+//   import("@/components/PieChart").then((mod) => mod.LinearChart)
+// );
+
 import { reviews } from "@/constants"
-import ReviewComponent from "@/components/ReviewComponent"
+// import ReviewComponent from "@/components/ReviewComponent"
+const ReviewComponent = dynamic( 
+  () => import('@/components/ReviewComponent'),
+  {
+    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+  })
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "../styles"
+import dynamic from "next/dynamic";
 import ProtectedRoute from '@/components/ProtectedRoute'
 
 

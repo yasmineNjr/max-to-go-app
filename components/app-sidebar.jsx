@@ -20,8 +20,9 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { usePathname, useRouter } from 'next/navigation'
 import { useSidebar } from "@/components/ui/sidebar";
+import dynamic from "next/dynamic";
 
-export function AppSidebar() {
+const AppSidebar = () => {
 
   const router = useRouter();
   const pathname = usePathname();
@@ -122,3 +123,5 @@ export function AppSidebar() {
     
   )
 }
+
+export default AppSidebar

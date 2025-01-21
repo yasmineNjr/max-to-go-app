@@ -1,19 +1,34 @@
 "use client"
  
-import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
+import axios from "axios"
+import dynamic from "next/dynamic"
+import { useRouter } from 'next/navigation'
+import { useAppContext } from "@/context/AppContext"
+// import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
  
-import { Form } from "@/components/ui/form"
-import CustomFormField from "../CustomFormField"
+// import { Form } from "@/components/ui/form"
+const Form = dynamic(() =>
+  import("@/components/ui/form").then((mod) => mod.Form)
+);
+// import CustomFormField from "../CustomFormField"
+const CustomFormField = dynamic( 
+  () => import('../CustomFormField'),
+  {
+    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+  })
+// import Button from "../Button"
+const Button = dynamic( 
+  () => import('../Button'),
+  {
+    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+  })
+
 import { FormFieldType } from "@/constants"
-import Button from "../Button"
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { useState } from "react"
-import axios from "axios"
-import { useRouter } from 'next/navigation'
-import { useAppContext } from "@/context/AppContext"
 
 const formSchema = z.object({
     username: z.string().min(2, {

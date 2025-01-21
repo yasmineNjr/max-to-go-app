@@ -6,7 +6,7 @@ const ContentComponent = ({ title, value, icon, isLoading}) => {
     // flex-col md:flex-row lg:flex-row 
     <div className={`flex flex-row my-2 font-bold w-full md:mb-3`}>
        {/* w-full lg:w-[45%] */}
-        <h2 className='text-textDefault font-bold'>{title}</h2>
+        <h2 className='text-textDefault font-bold mr-5'>{title}: </h2>
         {
           value &&
           // w-full lg:w-[55%]
@@ -14,7 +14,7 @@ const ContentComponent = ({ title, value, icon, isLoading}) => {
         }
         {
           icon && 
-          <div className='text-secondaryColor mt-0 md:mt-1 w-full lg:w-[55%] cursor-pointer'>
+          <div className='text-secondaryColor mt-0 md:mt-1 w-full lg:w-[55%] cursor-pointer ml-10'>
             {
               isLoading ? 
               <div>

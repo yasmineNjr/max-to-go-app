@@ -3,13 +3,28 @@
 import { Pie, PieChart } from "recharts"
 
 import {
-  Card,
-  CardContent,
+  // Card,
+  // CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+  // CardFooter,
+  // CardHeader,
+  // CardTitle,
 } from "@/components/ui/card"
+const Card = dynamic(() =>
+  import("@/components/ui/card").then((mod) => mod.Card)
+);
+const CardContent = dynamic(() =>
+  import("@/components/ui/card").then((mod) => mod.CardContent)
+);
+const CardFooter = dynamic(() =>
+  import("@/components/ui/card").then((mod) => mod.CardFooter)
+);
+const CardHeader = dynamic(() =>
+  import("@/components/ui/card").then((mod) => mod.CardHeader)
+);
+const CardTitle = dynamic(() =>
+  import("@/components/ui/card").then((mod) => mod.CardTitle)
+);
 import {
   ChartConfig,
   ChartContainer,
@@ -19,6 +34,7 @@ import {
 import DatePicker from "react-datepicker"
 import { FaCalendarDays } from "react-icons/fa6";
 import { useState } from "react"
+import dynamic from "next/dynamic";
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },

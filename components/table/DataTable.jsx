@@ -9,21 +9,25 @@ import {
 } from "@tanstack/react-table"
 
 import {
-  Table,
+  // Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+const Table = dynamic(() =>
+  import("@/components/ui/table").then((mod) => mod.Table)
+);
 import { Button } from "../ui/button"
 import Image from "next/image"
 import { arrow } from "@/public/assets"
+import dynamic from "next/dynamic";
 
-export function DataTable({
+const DataTable = ({
   columns,
   data,
-}) {
+}) => {
   const table = useReactTable({
     data,
     columns,
@@ -111,3 +115,5 @@ export function DataTable({
     </div>
   )
 }
+
+export default DataTable;

@@ -13,11 +13,18 @@ import {
 } from "@/components/ui/card"
 import {
   ChartConfig,
-  ChartContainer,
+  // ChartContainer,
   ChartLegend,
   ChartTooltip,
-  ChartTooltipContent,
+  // ChartTooltipContent,
 } from "@/components/ui/chart"
+import dynamic from "next/dynamic"
+const ChartContainer = dynamic(() =>
+  import("@/components/ui/chart").then((mod) => mod.ChartContainer)
+);
+const ChartTooltipContent = dynamic(() =>
+  import("@/components/ui/chart").then((mod) => mod.ChartTooltipContent)
+);
 const chartData = [
   { month: "January", desktop: 186, mobile: 80, tablet: 100 },
   { month: "February", desktop: 305, mobile: 200, tablet: 250 },

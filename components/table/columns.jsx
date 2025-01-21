@@ -6,10 +6,31 @@ import { FiSend } from "react-icons/fi";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { FaCheckCircle } from "react-icons/fa";
-import Badge from "../Badge";
-import UserComponent from "../UserComponent";
-import DeleteModal from "../DeleteModal";
-import ChangePasswordModal from "../ChangePasswordModal";
+// import Badge from "../Badge";
+const Badge = dynamic( 
+  () => import('../Badge'),
+  {
+    loadingTable: () => <p className="text-red">Loading...</p>
+  })
+// import UserComponent from "../UserComponent";
+const UserComponent = dynamic( 
+  () => import('../UserComponent'),
+  {
+    loadingTable: () => <p className="text-red">Loading...</p>
+  })
+// import DeleteModal from "../DeleteModal";
+const DeleteModal = dynamic( 
+  () => import('../DeleteModal'),
+  {
+    loadingTable: () => <p className="text-red">Loading...</p>
+  })
+import dynamic from "next/dynamic";
+// import ChangePasswordModal from "../ChangePasswordModal";
+const ChangePasswordModal = dynamic( 
+  () => import('../ChangePasswordModal'),
+  {
+    loadingTable: () => <p className="text-red">Loading...</p>
+  })
 
 export const columns = (reloadData) => [
 
