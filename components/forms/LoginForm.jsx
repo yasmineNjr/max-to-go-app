@@ -8,7 +8,7 @@ import { useAppContext } from "@/context/AppContext"
 // import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
- 
+import validator from "validator";
 // import { Form } from "@/components/ui/form"
 const Form = dynamic(() =>
   import("@/components/ui/form").then((mod) => mod.Form)
@@ -57,12 +57,15 @@ const LoginForm = () => {
 
     const onClickButton = (e) => {
         e.preventDefault();
-        if(email !== 'admin@domain.com'){
-            setResult('Invalid email')
-            setStyle('text-red')
-        }else if (password !== 'Aa@112233!'){
-            setResult('Incorrect password')
-            setStyle('text-red')
+        //admin@domain.com
+        //Aa@112233!
+        
+        if(email === ''){
+          setResult('Fill in email.')
+          setStyle('text-red')
+        }  else if(!validator.isEmail(email)){
+          setResult('Invalid email format.')
+          setStyle('text-red')
         }else {
             setResult('')
             handleLoginProxy();
@@ -85,8 +88,14 @@ const LoginForm = () => {
         router.push('/main');
       } catch (error) {
         console.error('Login Error:', error.response?.data || error.message);
-        setResult('Login failed. Try again.');
-        setStyle('text-orange')
+        if(error.response?.data.message === 'Company not found.')
+          setResult('Email not found.');
+        else if(error.response?.data.message === 'Invalid password.')
+          setResult('Invalid password.');
+        else if(error.response?.data.message === 'An error occurred')
+          setResult('Fill in password.');
+        //setResult('Login failed. Try again.');
+        setStyle('text-red')
       } finally {
         setLoading(false); // Hide spinner
       }

@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import styles from './styles'
-// import LoginForm from '@/components/forms/LoginForm'
-const LoginForm = dynamic( 
-  () => import('@/components/forms/LoginForm'),
-  {
-    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
-  })
+import LoginForm from '@/components/forms/LoginForm'
+// const LoginForm = dynamic( 
+//   () => import('@/components/forms/LoginForm'),
+//   {
+//     loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+//   })
 import { logo } from '@/public/assets'
 import { useRouter } from 'next/navigation'
 
@@ -49,9 +49,9 @@ const LoginPage = () => {
   // }
   
   return (
-    <div className={`${styles.mainSection} items-center justify-center h-full mt-15`}>
-      <div className='bg-black text-black h-[100px] sm:h-fit '>xxxx</div>
-      <div className='p-5 md:p-10 bg-blue-400 rounded-2xl flex flex-col items-center justify-center w-[100%] lg:w-[50%] mb-25'>
+    <div className={`${styles.mainSection} bg-transparent items-center justify-center h-full mt-15`}
+          style={{ backgroundImage: "url('/assets/bg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}>
+      <div className='mt-10 p-5 md:p-10 bg-blue-400 rounded-2xl flex flex-col items-center justify-center w-[100%] lg:w-[50%] mb-25 shadow-xl shadow-black'>
         <Image src={logo} alt='logo' width={250} height={250} className='ml-5'/>
         <LoginForm/>
       </div>

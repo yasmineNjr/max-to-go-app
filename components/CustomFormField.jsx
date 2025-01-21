@@ -12,13 +12,27 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import { Checkbox } from "./ui/checkbox";
 import { FormFieldType } from "@/constants";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 import { Checkbox } from "./ui/checkbox";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 const RenderField= ({field, props}) => {
     
+    const [showPassword, setShowPassword] = useState(false);
+    const passwordIcon =  showPassword 
+                            ?
+                            <FaEye size={24} 
+                                    color="#fecc02" 
+                                    className="mr-3 cursor-pointer" 
+                                    onClick={() => setShowPassword((prev) => !prev)}/>
+                            :
+                            <FaEyeSlash size={24} 
+                                        color="#fecc02" 
+                                        className="mr-3 cursor-pointer" 
+                                        onClick={() => setShowPassword((prev) => !prev)}/>
     const { fieldType, 
             iconSrc, 
             iconAlt, 
@@ -48,11 +62,15 @@ const RenderField= ({field, props}) => {
                             value={value}
                             readOnly={readOnly}
                             id={id}
-                            type={type}
+                            type={type === 'password' && showPassword ? 'text' : type}
                             min={min}
                             required={required}
                         />
                     </FormControl>
+                    {
+                        type === 'password' && passwordIcon
+                       
+                    }
                 </div>
             )
 
