@@ -16,24 +16,24 @@ const InvoiceItem = ({ id, owner, price, quantity, date}) => {
       </div>
 
       <div className='w-[100%] flex justify-start  mt-5 text-lef'>
-        <ContentComponent title='ID: ' value={id}/>
+        <ContentComponent title='ID' value={id}/>
       </div>
 
       <div className='w-[100%] flex justify-start mt-5'>
-        <ContentComponent title='Date: ' value={date}/>
+        <ContentComponent title='Date' value={date}/>
       </div>
 
       <div className='flex flex-row  mt-5 text-lef items-start w-full gap-5 text-textDefault'>
         <div className='w-[100%] lg:w-[50%] flex justify-start'>
-          <ContentComponent title='Price: ' value={`$${price}`}/>
+          <ContentComponent title='Price' value={`$${price}`}/>
         </div>
         <div className='w-[100%] lg:w-[50%] flex justify-start'>
-          <ContentComponent title='Quantity: ' value={quantity}/>
+          <ContentComponent title='Quantity' value={quantity}/>
         </div>
       </div>
 
       <div className='w-[100%] flex justify-start mt-5'>
-        <ContentComponent title='TOTAL: ' value={`$${quantity*price}`}/>
+        <ContentComponent title='TOTAL' value={`$${quantity*price}`}/>
       </div>
      
       <div className='flex items-center flex-wrap justifiy-center gap-3 my-3 w-full'>
