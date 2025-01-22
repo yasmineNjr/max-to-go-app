@@ -75,13 +75,13 @@ const Users = () => {
   }, []);
   
   // if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  // if (error) return <p>Error: {error}</p>;
 
-   // Filter data based on searchQuery
+  // Filter data based on searchQuery
    const filteredData = data?.filter((item) =>
     item.companyName.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
+  console.log(filteredData)
   return (
     <ProtectedRoute>
     {
@@ -96,10 +96,16 @@ const Users = () => {
         <Command  icon={<IoMdNotificationsOutline size={22} color='#FECC02'/>} 
                   text='Account creation notices'
                   onClickHandler={createNoticesHandler}/>
-        <DataTable data={filteredData} columns={columns(fetchData)}/>
+        {
+          filteredData ?
+            <DataTable data={filteredData} columns={columns(fetchData)}/>
+            :
+            <div className='flex items-center justify-center h-64'>No Companies found.</div>
+        }
       </div>
     }
     </ProtectedRoute>
+    // <div>users</div>
   )
 }
 
