@@ -36,7 +36,7 @@ const CreateNotificationForm = () => {
                 name="sendMessage"
                 label="The account you want to send the message to"
                 placeholder="Select a user..."
-                iconSrc={<TiUserAddOutline color='#FECC02' size={24}/>}
+                iconSrc={<TiUserAddOutline className="text-primary" size={24}/>}
                 >
                 {users.map((user) => (
                 <SelectItem key={user.name} value={user.name}>
@@ -46,9 +46,9 @@ const CreateNotificationForm = () => {
                         alt={user.img}
                         width={32}
                         height={32}
-                        className="rounded-full border border-textPrimary"
+                        className="rounded-full border border-secondary"
                     />
-                    <p className="text-textPrimary">{user.name}</p>
+                    <p className="text-foreground">{user.name}</p>
                     </div>
                 </SelectItem>
                 ))} 
@@ -63,7 +63,7 @@ const CreateNotificationForm = () => {
             />
                     
             <div className="flex flex-1 justify-center items-center w-full mt-6">
-                <Button styles='w-[50%]' title='Send' icon={<FiSend/>}/>
+                <Button styles='w-[50%]' title='Send' icon={<FiSend className="text-foreground"/>}/>
             </div>
         </form>
     </Form>

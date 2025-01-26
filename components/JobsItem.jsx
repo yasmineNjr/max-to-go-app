@@ -6,14 +6,14 @@ import CommandButton from './CommandButton';
 const JobsItem = ({ id, name, city, country, description}) => {
     
   return (
-    <div key={id} className='border-b-2 border-textDefault w-full flex flex-col lg:flex-row justify-between py-5'>
+    <div key={id} className='border-b border-foreground w-full flex flex-col lg:flex-row justify-between py-5'>
         <div className='flex flex-col '>
-            <h1 className='font-bold text-textDefault'>{name}</h1>
+            <h1 className='font-bold text-foreground'>{name}</h1>
             <div className='flex flex-row items-center my-1'>
-                <MdOutlineEmail color='#FECC02' size={20} className='mr-1'/>
+                <MdOutlineEmail size={20} className='mr-1 text-primary'/>
                 <h3>{city}-{country}</h3>
             </div>
-            <p className='font-normal text-textPrimary mr-1'>{description}</p>
+            <p className='font-normal text-foreground mr-1'>{description}</p>
         </div>
 
         <div className='flex items-center justify-start lg:justify-end flex-wrap gap-3 my-3 w-full'>

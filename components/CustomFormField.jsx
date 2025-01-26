@@ -51,7 +51,7 @@ const RenderField= ({field, props}) => {
     switch(fieldType){
         case FormFieldType.INPUT:
             return(
-                <div className="flex rounded-xl border-2 border-secondaryColor bg-transparent items-center overflow-hidden">
+                <div className="flex rounded-xl border-2 border-primary bg-transparent items-center overflow-hidden">
                     <div className="ml-5">{iconSrc}</div>
                     <FormControl>
                         <Input
@@ -80,7 +80,7 @@ const RenderField= ({field, props}) => {
                    <Textarea
                     placeholder={placeholder}
                     {...field}
-                    className="shad-textArea text-textPrimary"
+                    className="shad-textArea text-foreground"
                     disabled={props.disabled}
                    />
                 </FormControl>
@@ -88,7 +88,7 @@ const RenderField= ({field, props}) => {
           
         case FormFieldType.SELECT:
             return(
-                <div className="shad-select placeholder:text-red">
+                <div className="shad-select">
                     <div className="ml-5">{iconSrc}</div>
                     <FormControl>
                         <Select
@@ -96,8 +96,8 @@ const RenderField= ({field, props}) => {
                             onValueChange={field.onChange}
                         >
                             <FormControl>
-                            <SelectTrigger className="shad-select-trigger text-customSecondary">
-                                <SelectValue placeholder={placeholder} className="placehoder:text-textSecondary"/>
+                            <SelectTrigger className="shad-select-trigger text-foreground">
+                                <SelectValue placeholder={placeholder} className="placehoder:text-foreground"/>
                             </SelectTrigger> 
                             </FormControl>
                             <SelectContent className="shad-select-content ">{props.children}</SelectContent>
@@ -113,7 +113,7 @@ const RenderField= ({field, props}) => {
 
         case FormFieldType.DATE_PICKER:
             return(
-                <div className="font-normal text-sm lg:text-lg flex rounded-xl border-2 border-secondaryColor bg-transparent items-center overflow-hidden h-12">
+                <div className="font-normal text-sm lg:text-lg flex rounded-xl border-2 border-primary bg-transparent items-center overflow-hidden h-12">
                     <div className="ml-5">{iconSrc}</div>
                     <FormControl>
                         <DatePicker selected={field.value} 
@@ -137,7 +137,7 @@ const RenderField= ({field, props}) => {
                     onCheckedChange={field.onChange}
                     className="shad-checkbox"
                     />
-                    <label htmlFor={props.name} className="checkbox-label text-textDefault font-normal text-sm lg:text-lg">
+                    <label htmlFor={props.name} className="checkbox-label text-foreground font-normal text-sm">
                     {props.label}
                     </label>
                 </div>
@@ -160,7 +160,7 @@ const CustomFormField = ( props) => {
         render={({ field }) => (
         <FormItem className="flex-1">
            {fieldType !== FormFieldType.CHECKBOX && label &&(
-            <FormLabel className='text-textDefault font-normal text-sm lg:text-lg'>{label}</FormLabel>
+            <FormLabel className='text-foreground font-normal text-sm lg:text-md'>{label}</FormLabel>
            )}
 
            <RenderField field={field} props={props}/>

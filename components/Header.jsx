@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { Input } from './ui/input';
 import { usePathname } from 'next/navigation';
 import { useAppContext } from '@/context/AppContext';
+import { IoIosSearch } from "react-icons/io";
+import { ModeToggle } from './ModeToggle';
 
 const Header = () => {
   const pathname = usePathname();
@@ -20,26 +22,23 @@ const Header = () => {
   return (
     <div>
       {!isFirstPage && (
-        <div className="w-full h-20 bg-primaryColor rounded-b-2xl flex flex-row items-center justify-between p-5">
-          <div className="flex flex-row items-center justify-center gap-2">
+        <div className="w-full h-20 bg-secondary rounded-b-2xl flex flex-row items-center justify-between p-5">
+          <div className="flex flex-row items-center justify-center gap-2 text-foreground">
             <Image src={user} alt="user" className="h-[50px] w-[50px] rounded-full" />
-            <h3>Welcome Back Admin</h3>
+            <h3>Welcome Admin</h3>
           </div>
 
-          <div className="flex justify-end ml-5 rounded-2xl border border-textPrimary bg-textDefault">
-            <Image
-              src={search}
-              alt="user"
-              width={24}
-              height={24}
-              className="mr-1 ml-2 bg-transparent"
-            />
-            <Input
-              placeholder="Search..."
-              className="shad-input border-0 text-textPrimary"
-              value={searchQuery}
-              onChange={handleSearch}
-            />
+          <div className='flex flex-row items-center justify-center gap-2'>
+            <div className="flex items-center justify-end ml-5 rounded-2xl bg-background text-foreground border border-accent">
+              <IoIosSearch size={26} className='m-2 text-foreground'/>
+              <Input
+                placeholder="Search..."
+                className="shad-input"
+                value={searchQuery}
+                onChange={handleSearch}
+              />
+            </div>
+            <ModeToggle/>
           </div>
         </div>
       )}

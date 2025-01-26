@@ -21,8 +21,8 @@ const UserComponent = ({ id, img, name }) => {
         <CompanyLogo logoUrl={img}/>
        
        <div className='flex flex-col ml-2'>
-        <p className="w-full text-left text-textDefault font-light">{name}</p>
-        <p className="w-full text-left text-gray-600 font-light text-[14px]">online</p>
+        <p className="w-full text-left text-foreground font-light">{name}</p>
+        <p className="w-full text-left text-gray-500 font-light text-[14px]">online</p>
        </div>
         
     </div>

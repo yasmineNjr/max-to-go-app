@@ -45,8 +45,8 @@ const NewInvoiceForm = () => {
                 control={form.control}
                 name="user"
                 label="Username"
-                placeholder="Enter username"
-                iconSrc={<FaRegUser color="#FECC02"/>}
+                placeholder="Enter username..."
+                iconSrc={<FaRegUser className="text-primary"/>}
                 iconAlt="user"
             />
             
@@ -55,8 +55,8 @@ const NewInvoiceForm = () => {
                 control={form.control}
                 name="price"
                 label="Price"
-                placeholder="Enter price"
-                iconSrc={<HiCurrencyDollar color="#FECC02"/>}
+                placeholder="Enter price..."
+                iconSrc={<HiCurrencyDollar className="text-primary"/>}
                 iconAlt="price"
                 onChange={handleInputChange}
                 value={value}
@@ -69,7 +69,7 @@ const NewInvoiceForm = () => {
                 label="Quantity"
                 placeholder="1"
                 iconAlt="quantity"
-                iconSrc={<MdOutlineNumbers color="#FECC02"/>}
+                iconSrc={<MdOutlineNumbers className="text-primary"/>}
                 type='number'
                 min={1}
             />
@@ -81,7 +81,7 @@ const NewInvoiceForm = () => {
                 label="Total"
                 placeholder="0"
                 iconAlt="total"
-                iconSrc={<FaSackDollar color="#FECC02"/>}
+                iconSrc={<FaSackDollar className="text-primary"/>}
                 readOnly={true}
             />
                     

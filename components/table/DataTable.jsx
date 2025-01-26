@@ -38,12 +38,12 @@ const DataTable = ({
   return (
     <div className="data-table">
       <Table className="shad-table">
-        <TableHeader className=" bg-customGray text-start ">
+        <TableHeader >
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="shad-table-row-header ">
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id} className='text-center font-semibold'>
+                  <TableHead key={header.id} className='text-center font-semibold text-foreground'>
                     {header.isPlaceholder
                       ? null
                       : flexRender(

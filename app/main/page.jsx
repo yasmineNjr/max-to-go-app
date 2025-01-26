@@ -36,7 +36,7 @@ const Tasks = () => {
           </div>
         </div>
       
-        <h1 className="mt-5 font-bold text-[22px]">Reviews</h1>
+        <h1 className="mt-5 font-bold text-[22px] text-foreground">Reviews</h1>
         {
           reviews.map((review) => (
             <ReviewComponent id={review.id} img={review.img} text={review.text}/>

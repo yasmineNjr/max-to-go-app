@@ -243,13 +243,13 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
           //   <PanelLeft />
           //   <span className="sr-only">Toggle Sidebar</span>
           // </Button>
-          <CgMenu   color="#FECC02" 
-                            className={cn("h-5 w-5", className)}
-                            onClick={(event) => {
-                              onClick?.(event)
-                              toggleSidebar()
-                            }}
-                            {...props}
+          <CgMenu   //color="#FECC02" 
+            className={cn("h-5 w-5 text-primary", className)}
+            onClick={(event) => {
+              onClick?.(event)
+              toggleSidebar()
+            }}
+            {...props}
           >
             <PanelLeft />
             <span className="sr-only">Toggle Sidebar</span>

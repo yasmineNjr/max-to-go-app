@@ -20,10 +20,10 @@ const Advertisements = () => {
 
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-black`}>
+      <div className={`${styles.mainSection} h-full`}>
         <Title text='Advertisement'/>
         <Command 
-          icon={<FaPlus color='#FECC02'/>} 
+          icon={<FaPlus className='text-primary'/>} 
           text='Create ads'
           onClickHandler={newAdverHandler}
         />

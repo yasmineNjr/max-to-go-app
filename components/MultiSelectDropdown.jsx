@@ -43,7 +43,7 @@ const MultiSelectDropdown = ({
   }, []);
 
   return (
-    <div className="relative w-full cursor-pointer"
+    <div className="relative w-full cursor-pointer text-foreground"
           onClick={toggleDropdown}
           ref={menuRef}
     >
@@ -51,28 +51,28 @@ const MultiSelectDropdown = ({
       <div className="flex flex-row p-1">
         <button
           type="button"
-          className="w-full px-4 py-2 text-left bg-black shadow-sm"
+          className="w-full px-4 py-2 text-left bg-transparent shadow-sm placeholder:text-accent"
         >
           {selectedOptions.length > 0
             ? selectedOptions.map((opt) => opt.label).join(", ") // Use labels
             : placeholder}
         </button>
         <div className="flex items-center mr-3">
-          <IoIosArrowDown color="#fecc02" size={20}/>
+          <IoIosArrowDown size={20} className="text-primary"/>
         </div>
       </div>
       {/* Dropdown Content */}
       {isOpen && (
-        <div className="absolute mt-2 w-full bg-black shadow-md z-10 max-h-60 overflow-y-auto border-2 border-secondaryColor rounded-b-xl overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondaryColor scrollbar-track-transparent ">
+        <div className="absolute mt-1 w-full bg-background shadow-md z-10 max-h-60 overflow-y-auto border border-primary rounded-b-xl overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-primary scrollbar-track-transparent ">
 
           {/* Existing Options */}
           {options.map((option) => (
             <div
               key={option.value}
-              className="group flex flex-row w-full items-center px-2 hover:bg-gray-300"
+              className="group flex flex-row w-full items-center px-2 hover:bg-secondary"
               onClick={() => toggleOption(option)}
             >
-              <div className="text-secondaryColor group-hover:text-black">
+              <div className="text-foreground group-hover:text-primary">
                 {option.icon}
               </div>
               <div className="flex items-center gap-2 px-4 py-2 cursor-pointer w-full">
@@ -80,7 +80,7 @@ const MultiSelectDropdown = ({
                   type="text"
                   value={option.label}
                   readOnly
-                  className="text-sm border-none bg-transparent text-secondaryColor group-hover:text-black"
+                  className="text-sm border-none bg-transparent text-foreground group-hover:text-primary"
                 />
               </div>
             </div>

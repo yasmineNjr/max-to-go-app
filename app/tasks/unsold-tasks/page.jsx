@@ -8,7 +8,7 @@ import React from 'react'
 const UnSoldTasksPage = () => {
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-black`}>
+      <div className={`${styles.mainSection} h-full bg-background`}>
         <Title text='Unsold Tasks'/>
         <div className='flex flex-col w-full gap-3 justify-center'>
           { 

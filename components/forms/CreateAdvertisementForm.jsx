@@ -36,7 +36,7 @@ const CreateAdvertisementForm = () => {
                 label="Add photo"
                 renderSkeleton={(field) => (
                     <FormControl>
-                    <FileUploader files={field.value} onChange={field.onChange} />
+                      <FileUploader files={field.value} onChange={field.onChange} />
                     </FormControl>
                 )}
                 />

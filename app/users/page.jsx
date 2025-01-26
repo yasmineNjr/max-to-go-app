@@ -88,19 +88,19 @@ const Users = () => {
       loading ? 
      // Spinner
       <div className={`${styles.mainSection} flex items-center justify-center h-screen`}>
-          <div className="w-10 h-10 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-10 h-10 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
       </div>
      :
       <div className={`${styles.mainSection}`}>
         <Title text='Users'/>
-        <Command  icon={<IoMdNotificationsOutline size={22} color='#FECC02'/>} 
+        <Command  icon={<IoMdNotificationsOutline size={22} className='text-primary'/>} 
                   text='Account creation notices'
                   onClickHandler={createNoticesHandler}/>
         {
           filteredData ?
             <DataTable data={filteredData} columns={columns(fetchData)}/>
             :
-            <div className='flex items-center justify-center h-64'>No Companies found.</div>
+            <div className='flex items-center justify-center h-64 text-foreground'>No Companies found.</div>
         }
       </div>
     }

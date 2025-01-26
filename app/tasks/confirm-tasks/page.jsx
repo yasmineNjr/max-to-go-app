@@ -8,7 +8,7 @@ import React from 'react'
 const ComfirmTasksPage = () => {
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-black`}>
+      <div className={`${styles.mainSection} h-full bg-background`}>
         <Title text='Tasks to be confirm'/>
         <div className='flex flex-col w-full gap-3 justify-center'>
           { 

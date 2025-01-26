@@ -2,14 +2,14 @@
 
 import { Pie, PieChart } from "recharts"
 
-import {
-  // Card,
-  // CardContent,
-  CardDescription,
-  // CardFooter,
-  // CardHeader,
-  // CardTitle,
-} from "@/components/ui/card"
+// import {
+//   // Card,
+//   // CardContent,
+//   CardDescription,
+//   // CardFooter,
+//   // CardHeader,
+//   // CardTitle,
+// } from "@/components/ui/card"
 const Card = dynamic(() =>
   import("@/components/ui/card").then((mod) => mod.Card)
 );
@@ -70,24 +70,22 @@ const chartConfig = {
   // },
 } 
 
-{/*  */}
-
 export function PieChartComponent() {
 
   const [date, setDate] = useState(new Date())
 
   return (
     <Card className="flex flex-col w-full lg:h-[370px] xl:h:[400px] ">
-      <CardHeader className="flex flex-col md:flex-row items-center justify-between pb-0">
-        <CardTitle>Pie Chart - Donut</CardTitle>
-        <div className="flex w-fit rounded-md border border-customGray items-center justify-center text-textPrimary">
-          <FaCalendarDays color="#9C9BA6" className="m-2"/>
+      <CardHeader className="flex flex-col md:flex-row items-center justify-center gap-2 pb-0">
+        <CardTitle >Pie Chart </CardTitle>
+        <div className="w-[60%] flex rounded-md border border-customGray items-center justify-center text-foreground">
+          <FaCalendarDays size={20} className="m-2 text-foreground"/>
           <DatePicker
             selected={date}
             onChange={(date) => setDate(date)}
             showTimeSelect={false}
             dateFormat="yyyy-MM-dd"
-            className="w-20"
+            className="w-full"
           />
         </div>
         {/* <CardDescription>January - June 2024</CardDescription> */}

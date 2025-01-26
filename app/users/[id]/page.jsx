@@ -164,20 +164,20 @@ const UserInfoPage = ({ params }) => {
     loading ? 
      // Spinner
      <div className={`${styles.mainSection} flex items-center justify-center h-screen`}>
-        <div className="w-10 h-10 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
      </div>
      :
     <div className={`${styles.mainSection}`}>
       <Title text='User Information'/>
-      <div className='rounded-xl border-2 border-textPrimary bg-blue-400 w-full my-10 p-5 lg:p-10'>
-        <div className='flex flex-row justify-center items-center gap-5 text-textDefault'>
-          <h3>User: </h3>
+      <div className='rounded-xl border-2 border-secondary bg-secondary w-full my-10 p-5 lg:p-10'>
+        <div className='flex flex-row justify-center items-center gap-5 text-foreground font-bold'>
+          <h1>User: </h1>
           <div 
               className="flex flex-row items-center justify-between gap-2"
           >
             {/* <Image src={user} alt='user' className='h-[30px] w-[30px] rounded-full'/> */}
             <CompanyLogo logoUrl={data.logo}/>
-            <p className="text-left text-textDefault font-light">{data.companyName}</p>
+            <p className="text-left text-foreground font-light">{data.companyName}</p>
           </div>
         </div>
 
@@ -210,7 +210,7 @@ const UserInfoPage = ({ params }) => {
             <PDFDownloadLink
               document={<PDFDocument data={data} />}
               fileName={`${data.companyName}.pdf`}
-              className="w-[100%] lg:w-[50%] rounded-3xl py-2 text-[14px] font-bold cursor-pointer flex flex-row items-center justify-center gap-2 px-6 bg-secondaryColor h-[35px] text-primaryColor outline-none"
+              className="w-[100%] lg:w-[50%] rounded-3xl py-2 text-[14px] font-bold cursor-pointer flex flex-row items-center justify-center gap-2 px-6 bg-primary h-[35px] text-foreground outline-none"
             >
               {({ load }) =>
                 load ? "Generating PDF..." : "Download PDF"

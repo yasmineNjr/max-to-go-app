@@ -25,6 +25,7 @@ const Conversations = () => {
                   text='Send a group message'
                   onClickHandler={sendGroupMessageHandler}
                   />
+        <div className='mt-5'>
         {
           conversations.map((con) => (
             <ConversationItem key={con.id} 
@@ -39,6 +40,7 @@ const Conversations = () => {
                               unread={con.unread}/>
           ))
         }
+        </div>
       </div>
     </ProtectedRoute>
   )

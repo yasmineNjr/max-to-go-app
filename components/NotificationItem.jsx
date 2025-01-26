@@ -16,16 +16,16 @@ const NotificationItem = ({ id, img, name, text, date, isCommand, command1, comm
 
   return (
     <div key={id} 
-         className='border-b-2 border-textDefault w-full cursor-pointer'
+         className='border-b border-foreground w-full cursor-pointer'
          onClick={onClickHandler}>
       <div key={name} className='flex flex-row items-center p-3 w-full '>
           <Image src={img} alt='user' className='h-[75px] w-[75px] lg:h-[60px] lg:w-[60px] rounded-full'/>
           <div className='flex flex-col ml-5'>
             <div className='flex flex-col lg:flex-row p-1'>
-                <h1 className='font-bold text-textDefault'>{name}</h1>
-                <p className='font-normal text-textPrimary lg:ml-3'>{text}</p>
+                <h1 className='font-bold text-foreground'>{name}</h1>
+                <p className='font-normal text-foreground lg:ml-3'>{text}</p>
             </div>
-            <p className='font-normal text-textPrimary'>{date}</p>
+            <p className='font-normal text-foreground'>{date}</p>
           </div>
       </div>
       {

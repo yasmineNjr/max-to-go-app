@@ -53,13 +53,13 @@ const Invoices = () => {
       <div className={`${styles.mainSection}`}>
         <Title text='Invoices'/>
         <Command 
-          icon={<FaPlus color='#FECC02'/>} 
+          icon={<FaPlus className='text-primary'/>} 
           text='Create new invoice'
           onClickHandler={newInvoiceHandler}
         />
         <div className='flex flex-col sm:flex-row w-full justify-center gap-5'>
-          <div className="flex flex-row p-1 w-full items-center border-2 border-secondaryColor rounded-xl text-md overflow-hidden">
-            <Select  value={selectedValue} onValueChange={handleValueChange}>
+          <div className="flex flex-row p-1 w-full items-center border border-primary rounded-xl text-md overflow-hidden">
+            <Select  value={selectedValue} onValueChange={handleValueChange} className='select'>
               <SelectTrigger className="w-full border-none ">
                 <SelectValue placeholder="Company..." />
               </SelectTrigger>
@@ -72,20 +72,20 @@ const Invoices = () => {
                           alt={user.img}
                           width={32}
                           height={32}
-                          className="rounded-full border border-textPrimary"
+                          className="rounded-full border border-accent"
                       />
-                      <p className="text-textPrimary">{user.name}</p>
+                      <p className="text-foreground">{user.name}</p>
                       </div>
                   </SelectItem>
                   ))} 
               </SelectContent>
             </Select>
-            <GrPowerReset size={20} color='#fecc02' className='mr-1' onClick={() => setSelectedValue("")}/>
+            <GrPowerReset size={20}  className='text-primary mr-1' onClick={() => setSelectedValue("")}/>
           </div>
          
-          <div className="flex flex-row p-1 w-full items-center border-2 border-secondaryColor rounded-xl text-md overflow-hidden">
+          <div className="flex flex-row p-1 w-full items-center border border-primary rounded-xl text-md overflow-hidden">
             <DatePicker style='w-full' date={selectedDate} setDate={setSelectedDate}/>
-            <GrPowerReset size={20} color='#fecc02' className='mr-1' onClick={() => setSelectedDate("")}/>
+            <GrPowerReset size={20} className='mr-1 text-primary' onClick={() => setSelectedDate("")}/>
           </div>
         </div>
         <div className='flex flex-wrap w-full gap-10 justify-center'>

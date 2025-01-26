@@ -25,13 +25,13 @@ export function DatePicker({ style, date, setDate }) {
         //     "w-[280px] justify-start text-left font-normal",
         //     !date && "text-muted-foreground"
         //   )}
-        className={`${style} bg-black text-white border-none p-5 text-md hover:bg-transparent hover:text-white`}
+        className={`${style} bg-transparent text-foreground border-none p-5 text-sm hover:bg-transparent hover:text-foreground`}
         >
           <CalendarIcon />
           {date ? format(date, "PPP") : <span>Pick a date</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0 bg-black text-secondaryColor border-2 border-secondaryColor rounded-b-xl">
+      <PopoverContent className="w-auto p-0 bg-background text-foreground border border-primary">
         <Calendar
           mode="single"
           selected={date}

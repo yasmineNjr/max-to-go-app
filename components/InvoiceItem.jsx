@@ -6,7 +6,7 @@ import { user } from '@/public/assets'
 
 const InvoiceItem = ({ id, owner, price, quantity, date}) => {
   return (
-    <div id={id} className='rounded-xl border-2 border-textPrimary bg-blue-400 w-[300px] my-10 p-2 lg:p-5'>
+    <div id={id} className='rounded-xl border-2 border-accent bg-secondary w-[300px] my-10 p-2 lg:p-5'>
       <div className='flex flex-row justify-center items-center w-full gap-5 text-textDefault'>
         <h3>Owner: </h3>
         <div className="flex flex-row items-center justify-between gap-2">

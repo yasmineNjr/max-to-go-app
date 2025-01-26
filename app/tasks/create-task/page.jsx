@@ -9,7 +9,7 @@ const NewTaskPage = () => {
     <ProtectedRoute>
       <div className={`${styles.mainSection} items-center justify-center`}>
           <Title text='+ Create a new task'/>
-          <div className='bg-blue-400 rounded-2xl flex flex-col items-center justify-center w-[95%] lg:w-[75%] mb-25 mt-5 p-5'>
+          <div className='bg-secondary rounded-2xl flex flex-col items-center justify-center w-[95%] lg:w-[75%] mb-25 mt-5 p-5'>
               <NewTaskForm />
           </div>
       </div>

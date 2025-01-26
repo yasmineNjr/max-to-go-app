@@ -38,12 +38,12 @@ const NewTaskForm = () => {
                 name="taskType"
                 label="Task type"
                 placeholder="Select a type..."
-                iconSrc={<LuFileType color='#FECC02' size={20}/>}
+                iconSrc={<LuFileType className="text-primary" size={20}/>}
                 >
                 {types.map((type) => (
                 <SelectItem key={type.id} value={type.title}>
                     <div className="flex items-center gap-2 cursor-pointer">
-                     <p className="text-textPrimary">{type.title}</p>
+                     <p className="text-foreground">{type.title}</p>
                     </div>
                 </SelectItem>
                 ))} 
@@ -55,7 +55,7 @@ const NewTaskForm = () => {
                 name="name"
                 label="Task name"
                 placeholder="Enter task name..."
-                iconSrc={<SiTask color="#FECC02" size={20}/>}
+                iconSrc={<SiTask className="text-primary" size={20}/>}
                 iconAlt="task"
             />
             
@@ -73,12 +73,12 @@ const NewTaskForm = () => {
                 name="apartmentType"
                 label="Apartment type"
                 placeholder="Select the apartment type..."
-                iconSrc={<PiBuildingApartmentFill color='#FECC02' size={20}/>}
+                iconSrc={<PiBuildingApartmentFill className="text-primary" size={20}/>}
                 >
                 {apartments.map((apartment) => (
                 <SelectItem key={apartment.id} value={apartment.title}>
                     <div className="flex items-center gap-2 cursor-pointer">
-                     <p className="text-textPrimary">{apartment.title}</p>
+                     <p className="text-foreground">{apartment.title}</p>
                     </div>
                 </SelectItem>
                 ))} 
@@ -98,7 +98,7 @@ const NewTaskForm = () => {
               label="Task date"
               showTimeSelect
               dateFormat="MM/dd/yyyy  -  h:mm aa"
-              iconSrc={<FaCalendarDays color='#FECC02' size={18}/>}
+              iconSrc={<FaCalendarDays className="text-primary" size={18}/>}
             />
 
             <div className="flex flex-1 justify-center items-center w-full mt-6">

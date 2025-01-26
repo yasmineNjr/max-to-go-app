@@ -9,8 +9,8 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 const IncomingEmails = () => {
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-black`}>
-        <Title text='Incoming emails' icon={<MdOutlineEmail color='#006AA7' size={22}/>}/>
+      <div className={`${styles.mainSection} h-full`}>
+        <Title text='Incoming emails' icon={<MdOutlineEmail className='text-primary' size={22}/>}/>
         {
           <div className='flex flex-col w-full gap-3 justify-center mt-5'>
           { 

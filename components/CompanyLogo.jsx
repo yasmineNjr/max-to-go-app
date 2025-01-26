@@ -77,7 +77,7 @@ const CompanyLogo = ({ logoUrl }) => {
           : 
           // Spinner
           <div>
-          <div className="w-5 h-5 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
            
 };

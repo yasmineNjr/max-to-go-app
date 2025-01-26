@@ -6,11 +6,13 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
+  // SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  // SidebarMenuSub,
+  // SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 
 import { logo, menu } from "@/public/assets"
@@ -20,7 +22,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { usePathname, useRouter } from 'next/navigation'
 import { useSidebar } from "@/components/ui/sidebar";
-import dynamic from "next/dynamic";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 
 const AppSidebar = () => {
 
@@ -28,17 +30,19 @@ const AppSidebar = () => {
   const pathname = usePathname();
   const isFirstPage = pathname === '/';
   const [isOpenTasks, setIsOpenTasks] = useState(false);
+  const [isRotated, setIsRotated] = useState(false);
   const [activePath, setActivePath] = useState('/');
-  const styleActive = 'bg-secondaryColor text-primaryColor';
-  const styleInActive = 'bg-primaryColor text-secondaryColor';
-  const styleSubItemActive = 'text-secondaryColor';
-  const styleSubItemInActive = 'text-textDefault';
+  const styleActive = 'bg-secondary text-primary';
+  const styleInActive = 'bg-primary text-secondary';
+  const styleSubItemActive = 'text-secondary-foreground hover:bg-primary'
+  const styleSubItemInActive = 'text-secondary-foreground';
   const { toggleSidebar, isMobile } = useSidebar();
   
   const openTasksHandler = (e) => {
     e.preventDefault(); // Prevent the anchor tag's default behavior
     e.stopPropagation(); // Prevent the event from bubbling to the parent
     setIsOpenTasks((prevState) => !prevState);
+    setIsRotated(!isRotated);
   }
 
   const activePathHandler = (e, url) => {
@@ -61,39 +65,44 @@ const AppSidebar = () => {
       {
         !isFirstPage &&
         <Sidebar className=''>
-          <SidebarHeader  className='z-25 bg-primaryColor flex flex-row justify-center items-center gap-6 h-[50px]'>
-            <Image src={menu} alt='menu' className='w-5'/>
-            <h3 className='text-textDefault'>Main Menu</h3>
+          <SidebarHeader className='flex items-center z-25' >
+            <Image src={logo} alt='logo' className='m-1 h-[50px] w-[50px]'/>
           </SidebarHeader>
           {/* to hide scroll */}
-          <SidebarContent  className='bg-primaryColor pl-5 overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondaryColor scrollbar-track-transparent '>
+          <SidebarContent  className='pl-5 overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondary scrollbar-track-transparent '>
             <SidebarGroup>
-              {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
               <SidebarGroupContent>
                 <SidebarMenu>
+
                   {sidebarItems.map((item) => (
+                   
                     <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} 
-                                          className={`${activePath === item.url ? styleActive : styleInActive} border border-secondaryColor rounded-xl hover:bg-secondaryColor hover:text-primaryColor`}>
-                        <div  className="flex flex-row items-center justify-between w-full"  
-                            // href={item.url} 
-                            >
+                      <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} className= 'cursor-pointer'>
+                        <div  className="flex flex-row items-center gap-32 w-full" >
                           <div className='flex flex-row items-center justify-center gap-1'>
-                            {/* <item.icon className="w-4 h-4"/> */}
                             {item.icon}
                             <span>{item.title}</span>
                           </div>
                           {
-                            item.title === 'Tasks' ? isOpenTasks ? 
-                              <IoIosArrowUp onClick={openTasksHandler}/> : 
-                              <IoIosArrowDown onClick={openTasksHandler}/> : 
+                            item.title === 'Tasks' ? 
+                              <IoIosArrowDown onClick={openTasksHandler} 
+                                              className="cursor-pointer inline-block transition-transform duration-500" 
+                                              style={{transform: isRotated ? "rotate(180deg)" : "rotate(0deg)",}}/>
+                              : 
                               <></>
                           }
                         </div>
                       </SidebarMenuButton>
                       {
-                        item.title === 'Tasks' && isOpenTasks && sidebarSubItems.map((sitem, idx) => (
-                          < div className={`flex flex-row justify-between ${activePath === sitem.url ? styleSubItemActive : styleSubItemInActive} cursor-pointer ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondaryColor mt-2 ml-3 mr-3`}>
+                        item.title === 'Tasks' && isOpenTasks && 
+                        <div
+                          className={`transition-all duration-600 ease-in-out ${
+                            isOpenTasks ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                          } overflow-hidden`}
+                        >
+                          {
+                          sidebarSubItems.map((sitem, idx) => (
+                          < div className={`px-2 rounded-xl flex flex-row justify-between hover:bg-secondary cursor-pointer ${idx !== sidebarSubItems.length-1 ? 'border-b' : ''}  border-secondary mt-2 ml-3 mr-3`}>
                             <p  key={sitem.title} 
                               onClick={() => taskItemNavigateHandler(sitem.url)}
                               className=''>
@@ -103,6 +112,8 @@ const AppSidebar = () => {
                           </div>
                         ))
                       }
+                      </div>
+                      }
                     </SidebarMenuItem>
                   ))}
                 </SidebarMenu>
@@ -110,9 +121,9 @@ const AppSidebar = () => {
             </SidebarGroup>
           </SidebarContent>
           {
-            // !isOpenTasks &&
-            <SidebarFooter  className='bg-primaryColor'>
-              <Image src={logo} alt='logo'/>
+            <SidebarFooter  className=''>
+              {/* <Image src={logo} alt='logo'/> */}
+              {/* <p className="text-sidebar-accent">xxxxxxx</p> */}
             </SidebarFooter>
           }
           

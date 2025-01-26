@@ -23,7 +23,7 @@ const Notifications = () => {
       <div className={`${styles.mainSection}`}>
         <Title text='Notifications'/>
         <Command 
-          icon={<FaPlus color='#FECC02'/>} 
+          icon={<FaPlus className='text-primary'/>} 
           text='Create notifications and send them to specific accounts'
           onClickHandler={newNotificationHandler}
         />

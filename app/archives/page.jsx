@@ -20,7 +20,7 @@ const Archives = () => {
   
   return  (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-black`}>
+      <div className={`${styles.mainSection} h-full bg-background`}>
         <Title text='Archive'/>
         <div className='flex flex-row justify-center items-center gap-20'>
           {

@@ -33,10 +33,10 @@ const FileUploader = ({ files, onChange }) => {
                 alt='upload'
             />
             <div className='file-upload_label text-[14px] '>
-                <p className=' text-textSecondary'>
-                    <span className='text-textSecondary'>Click to upload</span> or drag and drop
+                <p className=' text-foreground'>
+                    <span className='text-foreground'>Click to upload</span> or drag and drop
                 </p>
-                <p className='text-textSecondary'>
+                <p className='text-foreground'>
                     SVG, PNG, JPG or GIF (Maximum 800x400)
                 </p>
             </div>

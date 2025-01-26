@@ -8,7 +8,7 @@ import ProtectedRoute from '@/components/ProtectedRoute'
 const JobApplications = () => {
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-black`}>
+      <div className={`${styles.mainSection}`}>
         <Title text='Job Applications'/>
         {
           <div className='flex flex-col w-full gap-3 justify-center mt-5'>

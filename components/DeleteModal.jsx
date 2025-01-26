@@ -85,7 +85,7 @@ const DeleteModal = ({ buttonTxt, text, icon, style, companyId, onSuccess, sourc
             className={`min-w-[60px] flex justify-center text-center w-fit items-center gap-1 rounded-full px-2 py-2 ${style}`} 
             >
                 {icon}
-                <p className='text-textDefault font-light'>
+                <p className='text-foreground font-light'>
                     {buttonTxt}
                 </p>
             </div>
@@ -96,10 +96,10 @@ const DeleteModal = ({ buttonTxt, text, icon, style, companyId, onSuccess, sourc
                 <DialogTitle className='capitalize text-center text-customSecondart'>
                     <Image src={logo} alt='logo' width={250} height={250} className='ml-10'/>
                 </DialogTitle>
-                <DialogDescription className='text-center text-textDefault gap-3 text-[18px] flex flex-col items-center justify-center'>
+                <DialogDescription className='text-center text-foreground gap-3 text-[18px] flex flex-col items-center justify-center'>
                     {text}
                     <Button variant='none' disabled={loading}
-                            className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-secondaryColor font-bold h-[25px] text-primaryColor outline-none rounded-xl`}
+                            className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-primary font-bold h-[25px] text-foreground outline-none rounded-xl`}
                             onClick={source === 'delete' ? onDeleteHandler : onApproveHandler}>
                         {loading ? 'Processing...' : 'OK'}
                     </Button>

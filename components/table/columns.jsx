@@ -105,7 +105,7 @@ export const columns = (reloadData) => [
     },
     {
         accessorKey: "password",
-        header: "Change password",
+        header: "password",
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
@@ -143,7 +143,8 @@ export const columns = (reloadData) => [
     },
     {
         accessorKey: "invoices",
-        header: "User invoices with history",
+        // header: "User invoices with history",
+        header: "Invoices",
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
@@ -159,7 +160,8 @@ export const columns = (reloadData) => [
     },
     {
         accessorKey: "purchases",
-        header: "Give free purchases",
+        // header: "Give free purchases",
+        header: "Purchases",
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center">

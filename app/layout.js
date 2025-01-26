@@ -15,6 +15,7 @@ const AppSidebar = dynamic(
     loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
   })
 import { AppProvider } from "@/context/AppContext";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata = {
   title: "MaxToGo App",
@@ -27,16 +28,24 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SidebarProvider>
-          <AppSidebar />
-          <main className="w-full bg-black text-textDefault">
-            <AppProvider>
-              <Header/>
-              <SidebarTrigger className=' text-secondaryColor w-7 h-7 hover:bg-transparent hover:text-secondaryColor'/>
-              {children}
-            </AppProvider>
-          </main>
-        </SidebarProvider>
+        <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="w-full bg-background">
+              <AppProvider>
+                <Header/>
+                <SidebarTrigger className='w-7 h-7 hover:bg-transparent m-1'/>
+                {/* className=' text-secondary w-7 h-7 hover:bg-transparent hover:text-secondary' */}
+                {children}
+              </AppProvider>
+            </main>
+          </SidebarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

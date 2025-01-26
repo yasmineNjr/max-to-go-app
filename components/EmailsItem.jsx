@@ -6,13 +6,13 @@ import EmailModal from './EmailModal';
 const EmailsItem = ({ id, name, date, message, title }) => {
     
   return (
-    <div key={id} className='border-b-2 border-textDefault w-full flex flex-row justify-between '>
+    <div key={id} className='border-b border-foreground w-full flex flex-row justify-between '>
         <div key={name} className='flex flex-row items-center p-3 w-full '>
-            <MdOutlineEmail color='#FECC02' size={42}/>
+            <MdOutlineEmail className='text-primary' size={42}/>
             <div className='flex flex-col ml-5'>
-            <h1 className='font-bold text-textDefault'>{name} - <span className='text-[14px] font-normal'>{title}</span></h1>
+            <h1 className='font-bold text-foreground'>{name} - <span className='text-[14px] font-normal'>{title}</span></h1>
             {/* <p className='font-normal text-textPrimary'>{title}</p> */}
-            <p className='font-normal text-textPrimary'>{date}</p>
+            <p className='font-normal text-foreground'>{date}</p>
             </div>
         </div>
         <div className='flex items-center justify-end flex-wrap gap-3 my-3 w-full'>

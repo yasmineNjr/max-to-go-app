@@ -26,10 +26,10 @@ const IndividualTasks = () => {
   );
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-black`}>
-        <Title text='Individual Tasks'/>
+      <div className={`${styles.mainSection} `}>
+        <Title text='Private orders'/>
 
-        <div className="flex flex-row items-center mt-5 border-2 border-secondaryColor rounded-xl ">
+        <div className="flex flex-row items-center mt-5 border border-primary rounded-xl ">
           <MultiSelectDropdown options={taskStates} 
                                 placeholder="Select task states..." 
                                 // onChange={(selected) => setSelectedStates(selected)}
@@ -37,7 +37,7 @@ const IndividualTasks = () => {
                                 selectedOptions={selectedStates}
           />
           <div className='m-2 cursor-pointer' onClick={() => setSelectedStates([])}>
-            <GrPowerReset size={22} color='#fecc02'/>
+            <GrPowerReset size={22} className='text-primary'/>
           </div>
         </div>
         <div className='flex flex-col w-full gap-3 justify-center'>
