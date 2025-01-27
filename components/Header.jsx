@@ -22,14 +22,14 @@ const Header = () => {
   return (
     <div>
       {!isFirstPage && (
-        <div className="w-full h-20 bg-secondary rounded-b-2xl flex flex-row items-center justify-between p-5">
+        <div className="w-full h-20 bg-secondary rounded-b-2xl flex flex-row items-center justify-between p-5 shadow-sm border-b border-gray-200">
           <div className="flex flex-row items-center justify-center gap-2 text-foreground">
             <Image src={user} alt="user" className="h-[50px] w-[50px] rounded-full" />
             <h3>Welcome Admin</h3>
           </div>
 
           <div className='flex flex-row items-center justify-center gap-2'>
-            <div className="flex items-center justify-end ml-5 rounded-2xl bg-background text-foreground border border-accent">
+            <div className="flex items-center justify-end ml-5 rounded-xl bg-background text-foreground border border-gray-200 h-9 hover:bg-secondary shadow-sm">
               <IoIosSearch size={26} className='m-2 text-foreground'/>
               <Input
                 placeholder="Search..."

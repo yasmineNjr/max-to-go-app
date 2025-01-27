@@ -31,7 +31,7 @@ const NotificationItem = ({ id, img, name, text, date, isCommand, command1, comm
       {
         isCommand &&
         <div className='flex items-center flex-wrap justifiy-center gap-3 my-3 w-full'>
-          <CommandButton title={command1} styles='bg-black '/>
+          <CommandButton title={command1} styles='bg-background'/>
           <CommandButton title={command2} styles='bg-black '/>
           <CommandButton title={command3} styles='bg-black '/>
         </div>

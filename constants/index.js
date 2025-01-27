@@ -39,52 +39,57 @@ export const sidebarItems = [
     {
       title: "Tasks",
       url: "/main",
-      icon: <FaTasks/>,
+      icon: <FaTasks size={18}/>,
     },
     {
       title: "Users",
       url: "/users",
-      icon: <FaUsers/>,
+      icon: <FaUsers size={18}/>,
     },
     {
       title: "Invoices",
       url: "/invoices",
-      icon: <FaFileInvoiceDollar />,
+      icon: <FaFileInvoiceDollar size={18}/>,
     },
     {
-      title: "Notifications",
-      url: "/notifications",
-      icon: <MdNotificationsActive/>,
+      title: "Communication",
+      url: "/invoices",
+      icon: <FaFileInvoiceDollar size={18}/>,
     },
+   //  {
+   //    title: "Notifications",
+   //    url: "/notifications",
+   //    icon: <MdNotificationsActive size={18}/>,
+   //  },
     {
       title: "Advertisements",
       url: "/advertisements",
-      icon: <RiAdvertisementFill/>,
+      icon: <RiAdvertisementFill size={18}/>,
     },
-    {
-       title: "Conversations",
-       url: "/conversations",
-       icon: <BiSolidConversation/>,
-    },
+   //  {
+   //     title: "Conversations",
+   //     url: "/conversations",
+   //     icon: <BiSolidConversation size={18}/>,
+   //  },
     {
        title: "Archive",
        url: "/archives",
-       icon: <FaFileArchive/>,
+       icon: <FaFileArchive size={18}/>,
     },
-    {
-       title: "Incoming emails",
-       url: "/incoming-emails",
-       icon: <MdEmail/>,
-    },
+   //  {
+   //     title: "Incoming emails",
+   //     url: "/incoming-emails",
+   //     icon: <MdEmail size={18}/>,
+   //  },
     {
        title: "Job applications",
        url: "/job-applications",
-       icon: <MdWork/>,
+       icon: <MdWork size={18}/>,
     },
     {
        title: "Private orders",
        url: "/individual-tasks",
-       icon: <MdTask/>,
+       icon: <MdTask size={18}/>,
     },
 ]
 

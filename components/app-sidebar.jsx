@@ -66,7 +66,7 @@ const AppSidebar = () => {
         !isFirstPage &&
         <Sidebar className=''>
           <SidebarHeader className='flex items-center z-25' >
-            <Image src={logo} alt='logo' className='m-1 h-[50px] w-[50px]'/>
+            <Image src={logo} alt='logo' className='m-1 h-[60px] w-[60px]'/>
           </SidebarHeader>
           {/* to hide scroll */}
           <SidebarContent  className='pl-5 overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondary scrollbar-track-transparent '>
