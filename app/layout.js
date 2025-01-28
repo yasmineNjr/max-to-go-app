@@ -5,14 +5,14 @@ import "./globals.css";
 const Header = dynamic( 
   () => import('../components/Header'),
   {
-    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+    loadingTable: () => <p className='text-primary'>Loading...</p>
   })
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 const AppSidebar = dynamic( 
   () => import('@/components/app-sidebar'),
   {
-    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+    loadingTable: () => <p className='text-primary'>Loading...</p>
   })
 import { AppProvider } from "@/context/AppContext";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -39,8 +39,6 @@ export default function RootLayout({ children }) {
             <main className="w-full bg-background">
               <AppProvider>
                 <Header/>
-                <SidebarTrigger className='w-7 h-7 hover:bg-transparent m-1'/>
-                {/* className=' text-secondary w-7 h-7 hover:bg-transparent hover:text-secondary' */}
                 {children}
               </AppProvider>
             </main>

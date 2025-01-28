@@ -229,22 +229,11 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
     <div>
       {
          !isFirstPage &&
-          // <Button
-          //   ref={ref}
-          //   data-sidebar="trigger"
-          //   variant="ghost"
-          //   size="icon"
-          //   className={cn("h-7 w-7", className)}
-          //   onClick={(event) => {
-          //     onClick?.(event)
-          //     toggleSidebar()
-          //   }}
-          //   {...props}>
-          //   <PanelLeft />
-          //   <span className="sr-only">Toggle Sidebar</span>
-          // </Button>
-          <CgMenu   //color="#FECC02" 
-            className={cn("h-5 w-5 text-primary", className)}
+          <CgMenu   
+            // size={16}
+            className={cn(
+              "w-9 h-9 text-foreground bg-transparent rounded-md p-2 transition-colors hover:bg-background hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+              className)}
             onClick={(event) => {
               onClick?.(event)
               toggleSidebar()

@@ -1,5 +1,5 @@
 import { ad1, ad2, ad3, user } from "@/public/assets"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { BriefcaseBusiness, Calendar, ContactRound, Database, Home, House, Inbox, ListChecks, Search, Settings } from "lucide-react"
 import { HiTruck } from "react-icons/hi2";
 import { FaTasks } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
@@ -31,70 +31,50 @@ export const FormFieldType = {
  };
 
 export const sidebarItems = [
-   //   {
-   //    title: "Login",
-   //    url: "/",
-   //    icon: <FaUsers/>,
-   //  },
-    {
-      title: "Tasks",
+   {
+      title: "Home",
       url: "/main",
-      icon: <FaTasks size={18}/>,
+      icon: <House size={18}/>,
+      items: [],
+    },
+  {
+      title: "Core Tasks",
+      icon: <ListChecks size={20}/>,
+      items: [
+         { title: "Unsold assignments", url: "/tasks/unsold-tasks", count: '10' },
+         { title: "Tasks to be sold", url: "/tasks/sold-tasks", count: '8' }, 
+         { title: "You need to confirm completion", url: "/tasks/confirm-tasks", count: '12' },
+         { title: "Expired", url: "/tasks/expired-tasks", count: '5' },
+         { title: "Urgent", url: "/tasks/urgent-tasks", count: '12' },
+         { title: "Private orders", url: "/individual-tasks", count: '12' },
+         { title: "Create a task", url: "/tasks/create-task", count: '' },
+         { title: "Pricing of selling tasks", url: "#", count: '' },
+       ],
     },
     {
-      title: "Users",
-      url: "/users",
-      icon: <FaUsers size={18}/>,
+      title: "User and Communication",
+      icon: <ContactRound size={18}/>,
+      items: [
+        { title: "Users", url: "/users", icon: <FaUsers size={16}/>, },
+        { title: "Notifications", url: "/notifications", icon: <MdNotificationsActive size={16}/>, },
+        { title: "Conversations", url: "/conversations", icon: <BiSolidConversation size={16}/>, },
+        { title: "Incoming emails", url: "/incoming-emails", icon: <MdEmail size={16}/>, },
+      ],
     },
     {
-      title: "Invoices",
-      url: "/invoices",
-      icon: <FaFileInvoiceDollar size={18}/>,
-    },
-    {
-      title: "Communication",
-      url: "/invoices",
-      icon: <FaFileInvoiceDollar size={18}/>,
-    },
-   //  {
-   //    title: "Notifications",
-   //    url: "/notifications",
-   //    icon: <MdNotificationsActive size={18}/>,
-   //  },
-    {
-      title: "Advertisements",
-      url: "/advertisements",
-      icon: <RiAdvertisementFill size={18}/>,
-    },
-   //  {
-   //     title: "Conversations",
-   //     url: "/conversations",
-   //     icon: <BiSolidConversation size={18}/>,
-   //  },
-    {
-       title: "Archive",
-       url: "/archives",
-       icon: <FaFileArchive size={18}/>,
-    },
-   //  {
-   //     title: "Incoming emails",
-   //     url: "/incoming-emails",
-   //     icon: <MdEmail size={18}/>,
-   //  },
-    {
-       title: "Job applications",
-       url: "/job-applications",
-       icon: <MdWork size={18}/>,
-    },
-    {
-       title: "Private orders",
-       url: "/individual-tasks",
-       icon: <MdTask size={18}/>,
+      title: "Data and Records",
+      icon: <Database size={18}/>,
+      items: [
+         { title: "Invoices", url: "/invoices", icon: <FaFileInvoiceDollar size={16}/>, },
+         { title: "Archive", url: "/archives", icon: <FaFileArchive size={16}/>, },
+         { title: "Advertisements", url: "/advertisements", icon: <RiAdvertisementFill size={16}/>, },
+         { title: "Job applications", url: "/job-applications", icon: <BriefcaseBusiness size={18} />, },
+      ],
     },
 ]
 
 export const sidebarSubItems = [
-    {
+   {
       title: "Unsold assignments",
       url: "/tasks/unsold-tasks",
       count: '10'
@@ -117,6 +97,12 @@ export const sidebarSubItems = [
    {
       title: "Urgent",
       url: "/tasks/urgent-tasks",
+      count: '12'
+   },
+   {
+      title: "Private orders",
+      url: "/individual-tasks",
+      // icon: <MdTask size={16}/>,
       count: '12'
    },
    {
