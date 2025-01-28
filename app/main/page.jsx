@@ -14,7 +14,7 @@ import { reviews } from "@/constants"
 const ReviewComponent = dynamic( 
   () => import('@/components/ReviewComponent'),
   {
-    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+    loadingTable: () => <p className='text-primary'>Loading...</p>
   })
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "../styles"

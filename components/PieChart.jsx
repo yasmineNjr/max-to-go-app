@@ -85,7 +85,7 @@ export function PieChartComponent() {
             onChange={(date) => setDate(date)}
             showTimeSelect={false}
             dateFormat="yyyy-MM-dd"
-            className="w-full"
+            className="w-full bg-transparent"
           />
         </div>
         {/* <CardDescription>January - June 2024</CardDescription> */}
