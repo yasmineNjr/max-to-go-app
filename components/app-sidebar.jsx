@@ -18,11 +18,9 @@ import {
 import { logo, menu } from "@/public/assets"
 import Image from "next/image"
 import { sidebarItems, sidebarSubItems } from "@/constants"
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { usePathname, useRouter } from 'next/navigation'
 import { useSidebar } from "@/components/ui/sidebar";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { ChevronRight } from "lucide-react";
 
 const AppSidebar = () => {
@@ -61,17 +59,17 @@ const AppSidebar = () => {
       {
         !isFirstPage &&
         <Sidebar className=''>
-          <SidebarHeader className='flex items-center z-25' >
+          <SidebarHeader className='flex items-center z-25 bg-secondary' >
             <Image src={logo} alt='logo' className='m-5 h-[120px] w-[120px]'/>
           </SidebarHeader>
           {/* to hide scroll */}
-          <SidebarContent  className='overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondary scrollbar-track-transparent '>
+          <SidebarContent  className='bg-secondary overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondary scrollbar-track-transparent '>
             <SidebarGroup>
               <SidebarGroupContent>
                 <SidebarMenu>
                   {sidebarItems.map((item) => (
                     <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} className= 'cursor-pointer'>
+                      <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} className= 'cursor-pointer hover:bg-background'>
                         <div  className="flex flex-row items-center w-full justify-between" >
                           <div className='flex flex-row items-center justify-center gap-2'>
                             <div>{item.icon}</div>
@@ -92,13 +90,13 @@ const AppSidebar = () => {
                       {
                         item.items.length > 0 && openItem === item.title && 
                         <div
-                            className={`transition-all duration-600 ease-in-out border-l ml-5 border-accent ${
+                            className={`transition-all duration-600 ease-in-out border-l ml-5 border-foreground ${
                               openItem === item.title ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                             } overflow-hidden`}
                         >
                           {
                           item.items.map((sitem, idx) => (
-                            < div className={`px-2 rounded-xl flex flex-row justify-between hover:bg-secondary cursor-pointer  border-foreground mt-2 ml-3 mr-3`}
+                            < div className={`h-9 px-2 rounded-xl flex flex-row items-center justify-between hover:hover:bg-background cursor-pointer  border-foreground ml-3 mr-3`}
                                 onClick={() => itemNavigateHandler(sitem.url)}
                                 >
                               <div className='flex flex-row items-center justify-center gap-2'>
@@ -118,7 +116,7 @@ const AppSidebar = () => {
             </SidebarGroup>
           </SidebarContent>
           {
-            <SidebarFooter  className=''>
+            <SidebarFooter className='bg-secondary'>
               {/* <Image src={logo} alt='logo'/> */}
               {/* <p className="text-sidebar-accent">xxxxxxx</p> */}
             </SidebarFooter>
