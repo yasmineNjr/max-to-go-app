@@ -17,13 +17,13 @@ const Form = dynamic(() =>
 const CustomFormField = dynamic( 
   () => import('../CustomFormField'),
   {
-    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+    loadingTable: () => <p className='text-primary'>Loading...</p>
   })
 // import Button from "../Button"
 const Button = dynamic( 
   () => import('../Button'),
   {
-    loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
+    loadingTable: () => <p className='text-primary'>Loading...</p>
   })
 
 import { FormFieldType } from "@/constants"

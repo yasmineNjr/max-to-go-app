@@ -119,7 +119,7 @@ export const columns = (reloadData) => [
                               buttonTxt='Password' 
                               text='Are you sure you wan to delete the user?' 
                               icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
-                              style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'}
+                              style={row.original.password === true ? 'bg-primary boreder-2 border-primary' : 'bg-transparent border-2 border-primary'}
                               user={row.original.owner}/>
                </div>
             );
