@@ -32,9 +32,9 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import DatePicker from "react-datepicker"
-import { FaCalendarDays } from "react-icons/fa6";
 import { useState } from "react"
 import dynamic from "next/dynamic";
+import { CalendarDays } from "lucide-react";
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
@@ -78,14 +78,14 @@ export function PieChartComponent() {
     <Card className="flex flex-col w-full lg:h-[370px] xl:h:[400px] ">
       <CardHeader className="flex flex-col md:flex-row items-center justify-center gap-2 pb-0">
         <CardTitle >Pie Chart </CardTitle>
-        <div className="w-[60%] flex rounded-md border border-customGray items-center justify-center text-foreground">
-          <FaCalendarDays size={20} className="m-2 text-foreground"/>
+        <div className="w-[60%] h-9 flex rounded-md border border-customGray items-center justify-center text-foreground">
+          <CalendarDays className="mx-2"/>
           <DatePicker
             selected={date}
             onChange={(date) => setDate(date)}
             showTimeSelect={false}
             dateFormat="yyyy-MM-dd"
-            className="w-full bg-transparent"
+            className="w-full bg-transparent text-sm"
           />
         </div>
         {/* <CardDescription>January - June 2024</CardDescription> */}

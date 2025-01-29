@@ -2,7 +2,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva } from "class-variance-authority";
-import { PanelLeft } from "lucide-react"
+import { Menu, PanelLeft } from "lucide-react"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
@@ -229,7 +229,8 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
     <div>
       {
          !isFirstPage &&
-          <CgMenu   
+          // <CgMenu   
+          <Menu
             // size={16}
             className={cn(
               "w-9 h-9 text-foreground bg-transparent rounded-md p-2 transition-colors hover:bg-background hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
@@ -240,9 +241,9 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
             }}
             {...props}
           >
-            <PanelLeft />
+            {/* <PanelLeft /> */}
             <span className="sr-only">Toggle Sidebar</span>
-          </CgMenu >
+          </Menu >
          
       }
     </div>
