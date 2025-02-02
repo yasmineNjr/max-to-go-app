@@ -1,7 +1,7 @@
 import { ad1, ad2, ad3, user } from "@/public/assets"
-import { BriefcaseBusiness, Calendar, ContactRound, Database, Home, House, Inbox, ListChecks, Search, Settings } from "lucide-react"
+import { BellRing, BriefcaseBusiness, Calendar, ClipboardCheck, ClipboardPlus, ContactRound, Database, FileArchive, Files, Home, House, Inbox, ListChecks, Mails, Megaphone, MessageCircleMore, Receipt, Search, Settings, Users } from "lucide-react"
 import { HiTruck } from "react-icons/hi2";
-import { FaTasks } from "react-icons/fa";
+// import { FaTasks } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
 import { MdNotificationsActive } from "react-icons/md";
@@ -9,8 +9,8 @@ import { RiAdvertisementFill } from "react-icons/ri";
 import { BiSolidConversation } from "react-icons/bi";
 import { FaFileArchive } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { MdWork } from "react-icons/md";
-import { MdTask } from "react-icons/md";
+// import { MdWork } from "react-icons/md";
+// import { MdTask } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
@@ -32,89 +32,76 @@ export const FormFieldType = {
 
 export const sidebarItems = [
    {
-      title: "Home",
-      url: "/main",
-      icon: <House size={18}/>,
-      items: [],
-    },
-  {
-      title: "Core Tasks",
-      icon: <ListChecks size={20}/>,
+      category: "Core Tasks",
       items: [
-         { title: "Unsold assignments", url: "/tasks/unsold-tasks", count: '10' },
-         { title: "Tasks to be sold", url: "/tasks/sold-tasks", count: '8' }, 
-         { title: "You need to confirm completion", url: "/tasks/confirm-tasks", count: '12' },
-         { title: "Expired", url: "/tasks/expired-tasks", count: '5' },
-         { title: "Urgent", url: "/tasks/urgent-tasks", count: '12' },
-         { title: "Private orders", url: "/individual-tasks", count: '12' },
-         { title: "Create a task", url: "/tasks/create-task", count: '' },
-         { title: "Pricing of selling tasks", url: "#", count: '' },
-       ],
-    },
-    {
-      title: "User and Communication",
-      icon: <ContactRound size={18}/>,
+         {
+            title: "Tasks",
+            icon: <ListChecks size={18}/>,
+            items: [
+               { title: "Unsold assignments", url: "/tasks/unsold-tasks", count: '10' },
+               { title: "Tasks to be sold", url: "/tasks/sold-tasks", count: '8' }, 
+               { title: "You need to confirm completion", url: "/tasks/confirm-tasks", count: '12' },
+               { title: "Expired", url: "/tasks/expired-tasks", count: '5' },
+               { title: "Urgent", url: "/tasks/urgent-tasks", count: '12' },
+            ],
+         },
+         { title: "Private orders", url: "/individual-tasks", icon: <ClipboardCheck size={18}/> },
+         { title: "Create a task", url: "/tasks/create-task", icon: <ClipboardPlus size={18}/> },
+         { title: "Pricing of selling tasks", url: "#", icon: <Receipt size={18}/> },
+      ]
+   },
+   {
+      category: "User and Communication",
       items: [
-        { title: "Users", url: "/users", icon: <FaUsers size={16}/>, },
-        { title: "Notifications", url: "/notifications", icon: <MdNotificationsActive size={16}/>, },
-        { title: "Conversations", url: "/conversations", icon: <BiSolidConversation size={16}/>, },
-        { title: "Incoming emails", url: "/incoming-emails", icon: <MdEmail size={16}/>, },
-      ],
-    },
-    {
-      title: "Data and Records",
-      icon: <Database size={18}/>,
+         { title: "Users", url: "/users", icon: <Users size={18}/>, },
+         { title: "Notifications", url: "/notifications", icon: <BellRing size={16}/>, },
+         { title: "Conversations", url: "/conversations", icon: <MessageCircleMore size={16}/>, },
+         { title: "Incoming emails", url: "/incoming-emails", icon: <Mails size={16}/>, },
+      ]
+   },
+   {
+      category: "Data and Records",
       items: [
-         { title: "Invoices", url: "/invoices", icon: <FaFileInvoiceDollar size={16}/>, },
-         { title: "Archive", url: "/archives", icon: <FaFileArchive size={16}/>, },
-         { title: "Advertisements", url: "/advertisements", icon: <RiAdvertisementFill size={16}/>, },
+         { title: "Invoices", url: "/invoices", icon: <Files size={16}/>, },
+         { title: "Archive", url: "/archives", icon: <FileArchive size={16}/>, },
+         { title: "Advertisements", url: "/advertisements", icon: <Megaphone size={16}/>, },
          { title: "Job applications", url: "/job-applications", icon: <BriefcaseBusiness size={18} />, },
-      ],
-    },
-]
-
-export const sidebarSubItems = [
-   {
-      title: "Unsold assignments",
-      url: "/tasks/unsold-tasks",
-      count: '10'
+      ]
    },
-   {
-      title: "Tasks to be sold",
-      url: "/tasks/sold-tasks",
-      count: '8'
-   }, 
-   {
-      title: "You need to confirm completion",
-      url: "/tasks/confirm-tasks",
-      count: '12'
-   },
-   {
-      title: "Expired",
-      url: "/tasks/expired-tasks",
-      count: '5'
-   },
-   {
-      title: "Urgent",
-      url: "/tasks/urgent-tasks",
-      count: '12'
-   },
-   {
-      title: "Private orders",
-      url: "/individual-tasks",
-      // icon: <MdTask size={16}/>,
-      count: '12'
-   },
-   {
-      title: "Create a task",
-      url: "/tasks/create-task",
-      count: ''
-   },
-   {
-      title: "Pricing of selling tasks",
-      url: "#",
-      count: ''
-   },
+   // {
+   //    title: "Core Tasks",
+   //    // icon: <ListChecks size={20}/>,
+   //    items: [
+   //       { title: "Unsold assignments", url: "/tasks/unsold-tasks", count: '10' },
+   //       { title: "Tasks to be sold", url: "/tasks/sold-tasks", count: '8' }, 
+   //       { title: "You need to confirm completion", url: "/tasks/confirm-tasks", count: '12' },
+   //       { title: "Expired", url: "/tasks/expired-tasks", count: '5' },
+   //       { title: "Urgent", url: "/tasks/urgent-tasks", count: '12' },
+   //       { title: "Private orders", url: "/individual-tasks", count: '12' },
+   //       { title: "Create a task", url: "/tasks/create-task", count: '' },
+   //       { title: "Pricing of selling tasks", url: "#", count: '' },
+   //     ],
+   // },
+   // {
+   // title: "User and Communication",
+   // // icon: <ContactRound size={18}/>,
+   // items: [
+   //    { title: "Users", url: "/users", icon: <FaUsers size={16}/>, },
+   //    { title: "Notifications", url: "/notifications", icon: <MdNotificationsActive size={16}/>, },
+   //    { title: "Conversations", url: "/conversations", icon: <BiSolidConversation size={16}/>, },
+   //    { title: "Incoming emails", url: "/incoming-emails", icon: <MdEmail size={16}/>, },
+   // ],
+   // },
+   // {
+   // title: "Data and Records",
+   // // icon: <Database size={18}/>,
+   // items: [
+   //    { title: "Invoices", url: "/invoices", icon: <FaFileInvoiceDollar size={16}/>, },
+   //    { title: "Archive", url: "/archives", icon: <FaFileArchive size={16}/>, },
+   //    { title: "Advertisements", url: "/advertisements", icon: <RiAdvertisementFill size={16}/>, },
+   //    { title: "Job applications", url: "/job-applications", icon: <BriefcaseBusiness size={18} />, },
+   // ],
+   // },
 ]
 
 export const users = [

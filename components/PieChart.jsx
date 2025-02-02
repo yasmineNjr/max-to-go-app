@@ -79,7 +79,7 @@ export function PieChartComponent() {
       <CardHeader className="flex flex-col md:flex-row items-center justify-center gap-2 pb-0">
         <CardTitle >Pie Chart </CardTitle>
         <div className="w-[60%] h-9 flex rounded-md border border-customGray items-center justify-center text-foreground">
-          <CalendarDays className="mx-2"/>
+          <CalendarDays size={18} className="mx-2"/>
           <DatePicker
             selected={date}
             onChange={(date) => setDate(date)}

@@ -60,60 +60,74 @@ const AppSidebar = () => {
         !isFirstPage &&
         <Sidebar className=''>
           <SidebarHeader className='flex items-center z-25 bg-secondary' >
-            <Image src={logo} alt='logo' className='m-5 h-[120px] w-[120px]'/>
+            <Image src={logo} alt='logo' className='m-5 h-[40px] w-[40px]'/>
           </SidebarHeader>
           {/* to hide scroll */}
-          <SidebarContent  className='bg-secondary overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-secondary scrollbar-track-transparent '>
-            <SidebarGroup>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {sidebarItems.map((item) => (
-                    <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} className= 'cursor-pointer hover:bg-background'>
-                        <div  className="flex flex-row items-center w-full justify-between" >
-                          <div className='flex flex-row items-center justify-center gap-2'>
-                            <div>{item.icon}</div>
-                            <span>{item.title}</span>
-                          </div>
-                          {
-                            item.items.length > 0 ? 
-                              <ChevronRight onClick={(e) => openSubMenuHandler(e, item.title)} 
-                                              className="cursor-pointer inline-block transition-transform duration-500" 
-                                              style={{
-                                                transform: openItem === item.title ? "rotate(90deg)" : "rotate(0deg)", // Rotate based on openItem
-                                              }}/>
-                              : 
-                              <></>
-                          }
-                        </div>
-                      </SidebarMenuButton>
+          <SidebarContent  className='bg-secondary overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-textPrimary scrollbar-track-transparent '>
+            {
+              sidebarItems.map((item) => (
+                <SidebarGroup key={item.category}>
+                  <div className="text-[12px] text-textPrimary">{item.category}</div>
+                  <SidebarGroupContent>
+                    <SidebarMenu>
                       {
-                        item.items.length > 0 && openItem === item.title && 
-                        <div
-                            className={`transition-all duration-600 ease-in-out border-l ml-5 border-foreground ${
-                              openItem === item.title ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                            } overflow-hidden`}
-                        >
-                          {
-                          item.items.map((sitem, idx) => (
-                            < div className={`h-9 px-2 rounded-xl flex flex-row items-center justify-between hover:hover:bg-background cursor-pointer  border-foreground ml-3 mr-3`}
-                                onClick={() => itemNavigateHandler(sitem.url)}
-                                >
-                              <div className='flex flex-row items-center justify-center gap-2'>
-                                {sitem.icon && sitem.icon}
-                                <p  key={sitem.title}> {sitem.title} </p>
+                        item.items.map((it) => (
+                          <SidebarMenuItem key={item.category} className="w-full">
+                            <SidebarMenuButton asChild  onClick={(e) => activePathHandler(e, it.url)} 
+                                                        className= 'cursor-pointer hover:bg-background'>
+                              <div  className="flex flex-row items-center w-full justify-between" >
+                                <div key={it.title} className='flex flex-row gap-2 items-center'>
+                                  <div>{it.icon}</div>
+                                  <span>{it.title}</span>
+                                </div>
+                                {
+                                  it.items && it.items.length > 0 ? (
+                                    <div className="flex items-center justify-center w-4">
+                                      <ChevronRight
+                                        onClick={(e) => openSubMenuHandler(e, item.title)}
+                                        className="cursor-pointer transition-transform duration-500"
+                                        style={{
+                                          transform: openItem === item.title ? "rotate(90deg)" : "rotate(0deg)",
+                                        }}
+                                      />
+                                    </div>
+                                    ) : 
+                                    null
+                                }
                               </div>
-                              {sitem.count && <p>{sitem.count}</p>}
-                            </div>
-                            ))
-                          }
-                      </div>
+                            </SidebarMenuButton>
+                            {
+                              it.items && it.items.length > 0 && openItem === item.title && 
+                              <div
+                                  className={`transition-all duration-600 ease-in-out border-l ml-5 border-foreground ${
+                                    openItem === item.title ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                                  } overflow-hidden`}
+                              >
+                                {
+                                it.items.map((sitem, idx) => (
+                                  < div className={`h-9 px-2 rounded-xl flex flex-row items-center justify-between hover:hover:bg-background cursor-pointer  border-foreground ml-3 mr-3`}
+                                      onClick={() => itemNavigateHandler(sitem.url)}
+                                      >
+                                    <div className='flex flex-row items-center justify-center gap-2'>
+                                      {sitem.icon && sitem.icon}
+                                      <p  key={sitem.title}> {sitem.title} </p>
+                                    </div>
+                                    {sitem.count && <p>{sitem.count}</p>}
+                                  </div>
+                                  ))
+                                }
+                              </div>
+                            }
+                          </SidebarMenuItem>
+                        ))
                       }
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
+                       
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </SidebarGroup>
+              ))
+            }
+            
           </SidebarContent>
           {
             <SidebarFooter className='bg-secondary'>
@@ -131,3 +145,51 @@ const AppSidebar = () => {
 }
 
 export default AppSidebar
+
+{/* <SidebarMenu>
+{sidebarItems.map((item) => (
+  <SidebarMenuItem key={item.category}>
+    <SidebarMenuButton asChild onClick={(e) => activePathHandler(e, item.url)} className= 'cursor-pointer hover:bg-background'>
+      <div  className="flex flex-row items-center w-full justify-between" >
+        <div className='flex flex-row items-center justify-center gap-2'>
+          <div>{item.icon}</div>
+          <span>{item.title}</span>
+        </div>
+        {
+          // item.items.length > 0 ? 
+          item.title === 'Core Tasks' ?
+            <ChevronRight onClick={(e) => openSubMenuHandler(e, item.title)} 
+                            className="cursor-pointer inline-block transition-transform duration-500" 
+                            style={{
+                              transform: openItem === item.title ? "rotate(90deg)" : "rotate(0deg)", // Rotate based on openItem
+                            }}/>
+            : 
+            <></>
+        }
+      </div>
+    </SidebarMenuButton>
+    {
+      item.items.length > 0 && openItem === item.title && 
+      <div
+          className={`transition-all duration-600 ease-in-out border-l ml-5 border-foreground ${
+            openItem === item.title ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          } overflow-hidden`}
+      >
+        {
+        item.items.map((sitem, idx) => (
+          < div className={`h-9 px-2 rounded-xl flex flex-row items-center justify-between hover:hover:bg-background cursor-pointer  border-foreground ml-3 mr-3`}
+              onClick={() => itemNavigateHandler(sitem.url)}
+              >
+            <div className='flex flex-row items-center justify-center gap-2'>
+              {sitem.icon && sitem.icon}
+              <p  key={sitem.title}> {sitem.title} </p>
+            </div>
+            {sitem.count && <p>{sitem.count}</p>}
+          </div>
+          ))
+        }
+      </div>
+    }
+  </SidebarMenuItem>
+))}
+</SidebarMenu> */}
