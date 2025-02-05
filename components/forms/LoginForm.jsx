@@ -29,6 +29,7 @@ const Button = dynamic(
 import { FormFieldType } from "@/constants"
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { Lock, Mail } from "lucide-react"
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -43,7 +44,7 @@ const LoginForm = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [result, setResult] = useState('test');
+    const [result, setResult] = useState('');
     const [style, setStyle] = useState('text-[#003553]');
     const [loading, setLoading] = useState(false);
     const { setToken, setUser } = useAppContext();
@@ -113,7 +114,8 @@ const LoginForm = () => {
                 label="Email"
                 placeholder="Your email..."
                 iconAlt="email"
-                iconSrc={<MdEmail size={20} color='#FECC02'/>}
+                // iconSrc={<MdEmail size={20} color='#FECC02'/>}
+                iconSrc={<Mail size={20} className="text-primary" />}
                 type='mail'
                 required={true}
                 value={email}
@@ -128,7 +130,8 @@ const LoginForm = () => {
                 label="Password"
                 placeholder="Your password..."
                 iconAlt="password"
-                iconSrc={<RiLockPasswordFill size={20} color='#FECC02'/>}
+                // iconSrc={<RiLockPasswordFill size={20} color='#FECC02'/>}
+                iconSrc={<Lock size={20} className="text-primary"/>}
                 type='password'
                 required={true}
                 value={password}
@@ -136,7 +139,7 @@ const LoginForm = () => {
             />
             {loading ? (
               // Spinner
-              <div className="w-5 h-5 border-2 border-[#FECC02] border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
             ) : (
               <p className={`${style} font-light`}>{result}</p>
             )}

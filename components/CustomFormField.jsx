@@ -18,21 +18,22 @@ import { Checkbox } from "./ui/checkbox";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 const RenderField= ({field, props}) => {
     
     const [showPassword, setShowPassword] = useState(false);
     const passwordIcon =  showPassword 
                             ?
-                            <FaEye size={24} 
-                                    // color="#fecc02" 
-                                    className="mr-3 cursor-pointer text-primary" 
-                                    onClick={() => setShowPassword((prev) => !prev)}/>
+                            // <FaEye size={24} 
+                            <Eye 
+                                className="mr-3 cursor-pointer text-primary" 
+                                onClick={() => setShowPassword((prev) => !prev)}/>
                             :
-                            <FaEyeSlash size={24} 
-                                        // color="#fecc02" 
-                                        className="mr-3 cursor-pointer text-primary" 
-                                        onClick={() => setShowPassword((prev) => !prev)}/>
+                            // <FaEyeSlash size={24} 
+                            <EyeOff 
+                                className="mr-3 cursor-pointer text-primary" 
+                                onClick={() => setShowPassword((prev) => !prev)}/>
     const { fieldType, 
             iconSrc, 
             iconAlt, 

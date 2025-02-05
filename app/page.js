@@ -52,8 +52,9 @@ const LoginPage = () => {
     <div className={`${styles.mainSection} bg-transparent items-center justify-center h-full mt-15`}
           // style={{ backgroundImage: "url('/assets/bg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}
           >
-      <div className='mt-10 p-5 md:p-10 bg-secondary rounded-2xl flex flex-col items-center justify-center w-[100%] lg:w-[50%] mb-25 shadow-xl shadow-black'>
+      <div className='mt-10 p-5 md:p-10 bg-secondary rounded-2xl flex flex-col items-center justify-center w-[100%] lg:w-[50%] mb-25 shadow-sm shadow-primary'>
         <Image src={logo} alt='logo' width={45} height={45} className=''/>
+        <h1 className='font-bold text-[22px]'>MaxToGo</h1>
         <LoginForm/>
       </div>
     </div>
