@@ -10,7 +10,8 @@ const CreateNoticesPage = () => {
       <div className={`${styles.mainSection}`}>
         {
           notifications.map((noti) => (
-            <NotificationItem img={noti.img} 
+            <NotificationItem key={noti.id}
+                              img={noti.img} 
                               name={noti.name} 
                               text={noti.text} 
                               date={noti.date} 

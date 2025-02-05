@@ -8,7 +8,7 @@ import React from 'react'
 const UrgentTasksPage = () => {
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full bg-background`}>
+      <div className={`${styles.mainSection}`}>
         <Title text='Urgent Tasks'/>
         <div className='flex flex-col w-full gap-3 justify-center'>
           { 

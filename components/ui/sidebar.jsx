@@ -232,7 +232,8 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
           <Menu
             // size={16}
             className={cn(
-              "w-9 h-9 text-foreground bg-transparent rounded-md p-2 transition-colors hover:bg-background border border-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer",
+              // "w-9 h-9 text-foreground bg-transparent rounded-md p-2 transition-colors hover:bg-background border border-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer",
+              "w-9 h-9 text-foreground bg-background rounded-md p-2 transition-colors hover:bg-secondary border border-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer shadow-sm",
               className)}
             onClick={(event) => {
               onClick?.(event)

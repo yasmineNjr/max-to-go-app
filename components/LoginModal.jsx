@@ -28,7 +28,7 @@ const LoginModal = ({ form, text }) => {
         <DialogContent className='shad-dialog'>
             <DialogHeader className='mb-4 space-y-3'>
                 <DialogTitle className='capitalize text-center text-customSecondart '>
-                    <Image src={logo} alt='logo' width={250} height={250} className='ml-5'/>
+                    <Image src={logo} alt='logo' width={4} height={45} className=''/>
                 </DialogTitle>
                 <DialogDescription className=' text-textDefault gap-3 flex flex-col items-center justify-center'>
                    <LoginForm setOpen={setOpen}/>

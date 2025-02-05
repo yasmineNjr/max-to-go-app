@@ -93,8 +93,8 @@ const DeleteModal = ({ buttonTxt, text, icon, style, companyId, onSuccess, sourc
        
         <DialogContent className='shad-dialog'>
             <DialogHeader className='mb-4 space-y-3'>
-                <DialogTitle className='capitalize text-center text-customSecondart'>
-                    <Image src={logo} alt='logo' width={250} height={250} className='ml-10'/>
+                <DialogTitle className='flex justify-center capitalize text-center text-customSecondart my-5'>
+                    <Image src={logo} alt='logo' width={45} height={45} className=''/>
                 </DialogTitle>
                 <DialogDescription className='text-center text-foreground gap-3 text-[18px] flex flex-col items-center justify-center'>
                     {text}

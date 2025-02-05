@@ -25,13 +25,13 @@ const RenderField= ({field, props}) => {
     const passwordIcon =  showPassword 
                             ?
                             <FaEye size={24} 
-                                    color="#fecc02" 
-                                    className="mr-3 cursor-pointer" 
+                                    // color="#fecc02" 
+                                    className="mr-3 cursor-pointer text-primary" 
                                     onClick={() => setShowPassword((prev) => !prev)}/>
                             :
                             <FaEyeSlash size={24} 
-                                        color="#fecc02" 
-                                        className="mr-3 cursor-pointer" 
+                                        // color="#fecc02" 
+                                        className="mr-3 cursor-pointer text-primary" 
                                         onClick={() => setShowPassword((prev) => !prev)}/>
     const { fieldType, 
             iconSrc, 

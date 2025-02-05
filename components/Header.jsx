@@ -24,16 +24,21 @@ const Header = () => {
   return (
     <div>
       {!isFirstPage && (
-        <div className="w-full h-20 bg-secondary rounded-b-2xl flex flex-row items-center justify-between p-5 shadow-sm ">          
+        <div className="w-full h-20 bg-background flex flex-row items-center justify-between py-5 px-2 md:px-5  ">          
           <div className="flex flex-row items-center justify-center gap-1 md:gap-2 text-foreground">
             <SidebarTrigger />
             <div 
-                className='w-9 h-9 text-foreground bg-transparent rounded-md p-2 transition-colors hover:bg-background border border-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer'
+                // className='w-9 h-9 text-foreground bg-secondary rounded-md p-2 transition-colors hover:bg-background border border-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer'
+                className='w-9 h-9 text-foreground bg-background rounded-md p-2 transition-colors hover:bg-secondary border border-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer shadow-sm'
                 onClick={() => router.push('/main')}>
               <House size={18}/>
             </div>
-            <div className="flex items-center justify-end rounded-xl bg-background text-foreground border border-card h-9 hover:bg-secondary  shadow-sm">
-              <Search className='m-2'/>
+            <div 
+              // className="flex items-center justify-end rounded-xl bg-background text-foreground border border-card h-9 hover:bg-secondary  shadow-sm"
+              // className="flex items-center justify-end rounded-xl bg-secondary text-foreground border border-card h-9 hover:bg-background  shadow-sm"
+              className="flex items-center justify-end rounded-xl bg-background text-foreground border border-secondary h-9 hover:bg-secondary shadow-sm"
+            >
+              <Search size={20} className='ml-2'/>
               <Input
                 placeholder="Search..."
                 className="shad-input w-32 md:w-36"
@@ -45,9 +50,12 @@ const Header = () => {
 
           <div className='flex flex-row items-center justify-center gap-1 md:gap-2'>   
             <ModeToggle/>
-            <div className='flex flex-col'>
-              <Image src={user} alt="user" className="h-[45px] w-[45px] rounded-full" />
-              {/* <span className='hidden md:block text-sm font-medium'>Admin</span> */}
+            <div className='flex flex-row'>
+              <Image src={user} alt="user" className="h-[42px] w-[42px] rounded-full" />
+              <div className='flex flex-col ml-2 justify-center'>
+                <p className='hidden md:block text-[12px] font-normal'>Admin</p>
+                <p className='hidden md:block text-[10px] font-medium text-textPrimary'>Project Manager</p>
+              </div>
             </div>
           </div>
         </div>

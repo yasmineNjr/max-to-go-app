@@ -14,6 +14,7 @@ import ConfirmationModal from "../ConfirmationModal"
 import { LuFileType } from "react-icons/lu";
 import { PiBuildingApartmentFill } from "react-icons/pi";
 import { SiTask } from "react-icons/si";
+import { BookType, Building, CalendarDays, ClipboardCheck, TypeOutline } from "lucide-react"
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -38,7 +39,8 @@ const NewTaskForm = () => {
                 name="taskType"
                 label="Task type"
                 placeholder="Select a type..."
-                iconSrc={<LuFileType className="text-primary" size={20}/>}
+                // iconSrc={<LuFileType className="text-primary" size={20}/>}
+                iconSrc={<TypeOutline className="text-primary" size={20}/>}
                 >
                 {types.map((type) => (
                 <SelectItem key={type.id} value={type.title}>
@@ -55,7 +57,8 @@ const NewTaskForm = () => {
                 name="name"
                 label="Task name"
                 placeholder="Enter task name..."
-                iconSrc={<SiTask className="text-primary" size={20}/>}
+                // iconSrc={<SiTask className="text-primary" size={20}/>}
+                iconSrc={<ClipboardCheck className="text-primary" size={20}/>}
                 iconAlt="task"
             />
             
@@ -73,7 +76,8 @@ const NewTaskForm = () => {
                 name="apartmentType"
                 label="Apartment type"
                 placeholder="Select the apartment type..."
-                iconSrc={<PiBuildingApartmentFill className="text-primary" size={20}/>}
+                // iconSrc={<PiBuildingApartmentFill className="text-primary" size={20}/>}<Building />
+                iconSrc={<Building className="text-primary" size={20}/>}
                 >
                 {apartments.map((apartment) => (
                 <SelectItem key={apartment.id} value={apartment.title}>
@@ -98,7 +102,8 @@ const NewTaskForm = () => {
               label="Task date"
               showTimeSelect
               dateFormat="MM/dd/yyyy  -  h:mm aa"
-              iconSrc={<FaCalendarDays className="text-primary" size={18}/>}
+              //iconSrc={<FaCalendarDays className="text-primary" size={18}/>}
+              iconSrc={<CalendarDays size={18} className="text-primary"/>}
             />
 
             <div className="flex flex-1 justify-center items-center w-full mt-6">

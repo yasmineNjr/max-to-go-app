@@ -8,7 +8,7 @@ import React from 'react'
 const ExpiredTasksPage = () => {
   return (
     <ProtectedRoute>
-      <div className={`${styles.mainSection} h-full `}>
+      <div className={`${styles.mainSection}`}>
         <Title text='Expired Tasks'/>
         <div className='flex flex-col w-full gap-3 justify-center'>
           { 

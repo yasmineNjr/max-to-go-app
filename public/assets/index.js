@@ -1,4 +1,6 @@
-import logo from './logo.png';
+// import logo from './logo.png';
+import logo from './logo.svg';
+import logoWhite from './logo-white.svg';
 import menu from './menu.png';
 import user from './user.png';
 import search from './search.svg';

@@ -207,7 +207,18 @@ body {
   .shad-select-content {
     @apply bg-secondary border border-primary shadow-none !important; /* Removes border and shadow */
     box-shadow: none !important; /* Ensure no box-shadow */
-    
+  }
+ 
+  .shad-select-content [data-highlighted] {
+    @apply bg-accent text-red; /* Changes background and text color on hover */
+  }
+  
+  .shad-select-content [data-state="checked"] {
+    @apply bg-primary text-white; /* Background and text color for selected item */
+  }
+  
+  .shad-select-content [data-disabled] {
+    @apply text-gray-400 opacity-50; /* Styling for disabled items */
   }
 
   .shad-select {

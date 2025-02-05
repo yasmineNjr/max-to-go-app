@@ -11,6 +11,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarRail,
   // SidebarMenuSub,
   // SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
@@ -59,8 +60,12 @@ const AppSidebar = () => {
       {
         !isFirstPage &&
         <Sidebar className=''>
-          <SidebarHeader className='flex items-center z-25 bg-secondary' >
-            <Image src={logo} alt='logo' className='m-5 h-[40px] w-[40px]'/>
+          <SidebarHeader className='flex flex-row z-25 bg-secondary' >
+            <Image src={logo} alt='logo' className='my-3 h-[30px] w-[30px]'/>
+            <div className="flex flex-col items-start justify-center text-[12px]">
+              <h1 className="text-[#6e37d3]">MaxToGo</h1>
+              <p className="text-[#957be2]">Grow Smart & Sustainably</p>
+            </div>
           </SidebarHeader>
           {/* to hide scroll */}
           <SidebarContent  className='bg-secondary overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-textPrimary scrollbar-track-transparent '>
@@ -135,7 +140,7 @@ const AppSidebar = () => {
               {/* <p className="text-sidebar-accent">xxxxxxx</p> */}
             </SidebarFooter>
           }
-          
+          <SidebarRail />
         </Sidebar>
       }
       
