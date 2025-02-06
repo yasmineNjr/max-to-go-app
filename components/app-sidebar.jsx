@@ -60,11 +60,11 @@ const AppSidebar = () => {
       {
         !isFirstPage &&
         <Sidebar className=''>
-          <SidebarHeader className='flex flex-row z-25 bg-secondary' >
-            <Image src={logo} alt='logo' className='my-3 h-[30px] w-[30px]'/>
-            <div className="flex flex-col items-start justify-center text-[12px]">
+          <SidebarHeader className='flex flex-col items-center justify-center z-25 bg-secondary' >
+            <Image src={logo} alt='logo' className='mt-1 h-[30px] w-[30px]'/>
+            <div className="flex flex-col items-center justify-center text-[12px]">
               <h1 className="text-[#6e37d3]">MaxToGo</h1>
-              <p className="text-[#957be2]">Grow Smart & Sustainably</p>
+              <p className="text-[#957be2] text-[10px]">Grow Smart & Sustainably</p>
             </div>
           </SidebarHeader>
           {/* to hide scroll */}
