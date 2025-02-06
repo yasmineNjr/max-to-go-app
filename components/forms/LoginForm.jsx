@@ -115,7 +115,7 @@ const LoginForm = () => {
                 placeholder="Your email..."
                 iconAlt="email"
                 // iconSrc={<MdEmail size={20} color='#FECC02'/>}
-                iconSrc={<Mail size={20} className="text-primary" />}
+                iconSrc={<Mail size={20} />}
                 type='mail'
                 required={true}
                 value={email}
@@ -131,7 +131,7 @@ const LoginForm = () => {
                 placeholder="Your password..."
                 iconAlt="password"
                 // iconSrc={<RiLockPasswordFill size={20} color='#FECC02'/>}
-                iconSrc={<Lock size={20} className="text-primary"/>}
+                iconSrc={<Lock size={20}/>}
                 type='password'
                 required={true}
                 value={password}

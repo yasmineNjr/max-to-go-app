@@ -27,12 +27,12 @@ const RenderField= ({field, props}) => {
                             ?
                             // <FaEye size={24} 
                             <Eye 
-                                className="mr-3 cursor-pointer text-primary" 
+                                className="mr-3 cursor-pointer text-textPrimary group-focus-within:text-primary" 
                                 onClick={() => setShowPassword((prev) => !prev)}/>
                             :
                             // <FaEyeSlash size={24} 
                             <EyeOff 
-                                className="mr-3 cursor-pointer text-primary" 
+                                className="mr-3 cursor-pointer text-textPrimary group-focus-within:text-primary" 
                                 onClick={() => setShowPassword((prev) => !prev)}/>
     const { fieldType, 
             iconSrc, 
@@ -52,13 +52,13 @@ const RenderField= ({field, props}) => {
     switch(fieldType){
         case FormFieldType.INPUT:
             return(
-                <div className="flex rounded-xl border-2 border-primary bg-transparent items-center overflow-hidden">
-                    <div className="ml-5">{iconSrc}</div>
+                <div className="flex rounded-xl border border-textPrimary bg-transparent items-center overflow-hidden focus-within:border-primary group">
+                    <div className="ml-5 text-textPrimary group-focus-within:text-primary">{iconSrc}</div>
                     <FormControl>
                         <Input
                             placeholder={placeholder}
                             {...field}
-                            className="shad-input bg-transparent"
+                            className="shad-input bg-transparent "
                             onChange={onChange}
                             value={value}
                             readOnly={readOnly}

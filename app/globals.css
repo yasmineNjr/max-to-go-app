@@ -231,7 +231,7 @@ body {
 
   .shad-input {
     /* @apply font-normal text-sm lg:text-lg bg-transparent text-textPrimary placeholder:text-textSecondary border-transparent h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important; */
-    @apply font-normal text-sm bg-transparent placeholder:text-foreground h-8 border-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-none shadow-none !important;
+    @apply py-6 font-normal text-sm bg-transparent placeholder:text-textPrimary h-8 border-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-none shadow-none !important;
   }
 
   .shad-dialog {
@@ -239,7 +239,7 @@ body {
   }
 
   .date-picker {
-    @apply font-normal text-sm  overflow-hidden border-transparent bg-transparent w-full placeholder:text-foreground  h-11  rounded-md px-3 outline-none !important;
+    @apply font-normal text-sm  overflow-hidden border-transparent bg-transparent w-full placeholder:text-textPrimary  h-11  rounded-md px-3 outline-none !important;
   }
 
   .shad-checkbox {
