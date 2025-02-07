@@ -20,9 +20,9 @@ const NotificationItem = ({ img, name, text, date, isCommand, command1, command2
          onClick={onClickHandler}>
       <div key={name} className='flex flex-row items-center p-3 w-full '>
           <Image src={img} alt='user' className='h-[75px] w-[75px] lg:h-[60px] lg:w-[60px] rounded-full'/>
-          <div className='flex flex-col ml-5'>
+          <div className='flex flex-col ml-5 justify-start'>
             <div className='flex flex-col lg:flex-row p-1 items-center'>
-                <h1 className='font-bold text-foreground'>{name}</h1>
+                <h1 className='font-bold text-foreground w-full'>{name}</h1>
                 <p className='font-normal text-foreground lg:ml-3 text-sm'>{text}</p>
             </div>
             <p className='font-normal text-textPrimary text-sm'>{date}</p>

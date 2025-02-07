@@ -6,26 +6,22 @@ import { FiSend } from "react-icons/fi";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { FaCheckCircle } from "react-icons/fa";
-// import Badge from "../Badge";
 const Badge = dynamic( 
   () => import('../Badge'),
   {
     loadingTable: () => <p className="text-primary">Loading...</p>
   })
-// import UserComponent from "../UserComponent";
 const UserComponent = dynamic( 
   () => import('../UserComponent'),
   {
     loadingTable: () => <p className="text-primary">Loading...</p>
   })
-// import DeleteModal from "../DeleteModal";
 const DeleteModal = dynamic( 
   () => import('../DeleteModal'),
   {
     loadingTable: () => <p className="text-primary">Loading...</p>
   })
 import dynamic from "next/dynamic";
-// import ChangePasswordModal from "../ChangePasswordModal";
 const ChangePasswordModal = dynamic( 
   () => import('../ChangePasswordModal'),
   {
@@ -48,19 +44,14 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
-                {/* <Badge  
-                      text='delete' 
-                      source='delete'
-                      icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>} 
-                      style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'} /> */}
-                    <DeleteModal  buttonTxt='Delete' 
-                                  text={`Are you sure you want to delete the company ${row.original.companyName}?`} 
-                                  icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>}  
-                                  style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
-                                  companyId={row.original.id}
-                                  onSuccess={reloadData} // Pass reloadData to dialog
-                                  source='delete'
-                    />
+                <DeleteModal  buttonTxt='' 
+                              text={`Are you sure you want to delete the company ${row.original.companyName}?`} 
+                              icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>}  
+                              style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
+                              companyId={row.original.id}
+                              onSuccess={reloadData} // Pass reloadData to dialog
+                              source='delete'
+                />
               </div>
             );
           },
@@ -85,7 +76,7 @@ export const columns = (reloadData) => [
                   style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} 
                   onSuccess={reloadData} // Pass reloadData to Badge or Dialog
                   /> */}
-                  <DeleteModal  buttonTxt={row.original.isApproval === true ? 'UnApprove' : 'Approve'}
+                  <DeleteModal  buttonTxt=''
                                 text={`Are you sure you want to ${row.original.isApproval === true ? 'unapprove' : 'approve'} the company ${row.original.companyName}?`} 
                                 icon={row.original.isApproval === true 
                                   ? 
@@ -109,14 +100,8 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
-                {/* <Badge  
-                      text='change' 
-                      source='password'
-                      user={row.original.owner}
-                      icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
-                      style={row.original.password === true ? 'bg-secondaryColor boreder-2 border-secondaryColor' : 'bg-transparent border-2 border-secondaryColor'} /> */}
                 <ChangePasswordModal  
-                              buttonTxt='Password' 
+                              buttonTxt='' 
                               text='Are you sure you wan to delete the user?' 
                               icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
                               style={row.original.password === true ? 'bg-primary boreder-2 border-primary' : 'bg-transparent border-2 border-primary'}
@@ -132,7 +117,7 @@ export const columns = (reloadData) => [
             return (
               <div className="flex items-center justify-center cursor-pointer">
                 <Badge  
-                      text='Send' 
+                      text='' 
                       source='message'
                       user={row.original.owner}
                       icon={<FiSend color={row.original.messaging === true ? 'white' : '#07A2FB'}/>} 
@@ -151,7 +136,7 @@ export const columns = (reloadData) => [
                 <Badge  
                       source='invoices'
                       user={row.original.owner}
-                      text='Invoices' 
+                      text='' 
                       icon={<FaFileInvoiceDollar color={row.original.invoices === true ? 'white' : '#121EFF'}/>} 
                       style={row.original.invoices === true ? 'bg-blue-600 boreder-2 border-blue-600' : 'bg-transparent border-2 border-blue-600'} />
               </div>
@@ -166,7 +151,7 @@ export const columns = (reloadData) => [
             return (
               <div className="flex items-center justify-center">
                 <Badge  
-                      text='Free' 
+                      text='' 
                       icon={<BiSolidPurchaseTag color={row.original.purchases === true ? 'white' : '#14C004'}/>} 
                       style={row.original.purchases === true ? 'bg-green boreder-2 border-green' : 'bg-transparent border-2 border-green'} />
               </div>

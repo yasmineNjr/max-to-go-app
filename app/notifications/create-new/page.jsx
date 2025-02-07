@@ -8,7 +8,7 @@ const CreateNewPage = () => {
   return (
     <ProtectedRoute>
       <div className={`${styles.mainSection}`}>
-        <Title text='+ Create notifications and send them to specific accounts'/>
+        <Title text='Create notifications and send them to specific accounts'/>
         <CreateNotificationForm/>
       </div>
     </ProtectedRoute>

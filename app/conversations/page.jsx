@@ -8,6 +8,7 @@ import { conversations } from '@/constants'
 import ConversationItem from '@/components/ConversationItem'
 import { useRouter } from 'next/navigation'
 import ProtectedRoute from '@/components/ProtectedRoute';
+import { Send } from 'lucide-react';
 
 const Conversations = () => {
 
@@ -20,11 +21,7 @@ const Conversations = () => {
   return (
     <ProtectedRoute>
       <div className={`${styles.mainSection}`}>
-        <Title text='Conversations'/>
-        <Command  //icon={<IoMdNotificationsOutline color='#FECC02'/>} 
-                  text='Send a group message'
-                  onClickHandler={sendGroupMessageHandler}
-                  />
+        <Title text='Conversations' commandText='Send a group message' commandIcon={<Send size={16}/>} onClickHandler={sendGroupMessageHandler}/>
         <div className='mt-5'>
         {
           conversations.map((con) => (

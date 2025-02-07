@@ -1,14 +1,13 @@
 'use client'
 
-import Command from '@/components/Command'
 import Title from '@/components/Title'
 import React from 'react'
 import styles from '../styles'
-import { FaPlus } from "react-icons/fa6";
 import { notifications } from '@/constants';
 import NotificationItem from '@/components/NotificationItem';
 import { useRouter } from 'next/navigation';
 import ProtectedRoute from '@/components/ProtectedRoute'
+import { Send } from 'lucide-react'
 
 const Notifications = () => {
 
@@ -21,12 +20,11 @@ const Notifications = () => {
   return (
     <ProtectedRoute>
       <div className={`${styles.mainSection}`}>
-        <Title text='Notifications'/>
-        <Command 
-          icon={<FaPlus className='text-primary'/>} 
-          text='Create notifications and send them to specific accounts'
-          onClickHandler={newNotificationHandler}
-        />
+        <Title text='Notifications' 
+                commandText='Send to specific accounts' 
+                // Create notifications and send them to specific accounts
+                commandIcon={<Send size={16}/>} 
+                onClickHandler={newNotificationHandler}/>
         {
           notifications.map((noti) => (
             <NotificationItem id={noti.id} 

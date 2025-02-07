@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../styles'
 import Title from '@/components/Title'
-import Command from '@/components/Command'
 import { FaPlus } from "react-icons/fa6";
 import { useRouter } from 'next/navigation';
 import InvoiceItem from '@/components/InvoiceItem'
@@ -20,6 +19,7 @@ import {
 } from "@/components/ui/select"
 import { DatePicker } from '@/components/DatePicker'
 import { GrPowerReset } from 'react-icons/gr'
+import { CirclePlus } from 'lucide-react'
 
 const Invoices = () => {
 
@@ -51,12 +51,7 @@ const Invoices = () => {
   return (
     <ProtectedRoute>
       <div className={`${styles.mainSection}`}>
-        <Title text='Invoices'/>
-        <Command 
-          icon={<FaPlus className='text-primary'/>} 
-          text='Create new invoice'
-          onClickHandler={newInvoiceHandler}
-        />
+        <Title text='Invoices' commandText='Create new invoice' commandIcon={<CirclePlus />} onClickHandler={newInvoiceHandler}/>
         <div className='flex flex-col sm:flex-row w-full justify-center gap-5'>
           <div className="flex flex-row p-1 w-full items-center border border-primary rounded-xl text-md overflow-hidden">
             <Select  value={selectedValue} onValueChange={handleValueChange} className='select'>

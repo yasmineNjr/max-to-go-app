@@ -2,13 +2,15 @@ import React from 'react'
 import { MdOutlineEmail } from "react-icons/md";
 import ConfirmationModal from './ConfirmationModal';
 import EmailModal from './EmailModal';
+import { Mail } from 'lucide-react';
 
 const EmailsItem = ({ id, name, date, message, title }) => {
     
   return (
     <div key={id} className='border-b border-foreground w-full flex flex-row justify-between '>
         <div key={name} className='flex flex-row items-center p-3 w-full '>
-            <MdOutlineEmail className='text-primary' size={42}/>
+            {/* <MdOutlineEmail className='text-primary' size={42}/> */}
+            <Mail className='text-primary' size={30}/>
             <div className='flex flex-col ml-5'>
             <h1 className='font-bold text-foreground'>{name} - <span className='text-[14px] font-normal'>{title}</span></h1>
             {/* <p className='font-normal text-textPrimary'>{title}</p> */}

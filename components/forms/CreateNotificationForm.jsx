@@ -63,7 +63,7 @@ const CreateNotificationForm = () => {
             />
                     
             <div className="flex flex-1 justify-center items-center w-full mt-6">
-                <Button styles='w-[50%]' title='Send' icon={<FiSend className="text-foreground"/>}/>
+                <Button styles='w-[100%]' title='Send' icon={<FiSend className="text-foreground"/>}/>
             </div>
         </form>
     </Form>

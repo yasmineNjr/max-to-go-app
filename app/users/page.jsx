@@ -12,6 +12,7 @@ import { user } from '@/public/assets'
 import { useAppContext } from '@/context/AppContext'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import dynamic from 'next/dynamic'
+import { BellRing } from 'lucide-react'
 // import { DataTable } from '@/components/table/DataTable';
 const DataTable = dynamic( 
   () => import('@/components/table/DataTable'),
@@ -92,10 +93,10 @@ const Users = () => {
       </div>
      :
       <div className={`${styles.mainSection}`}>
-        <Title text='Users'/>
-        <Command  icon={<IoMdNotificationsOutline size={22} className='text-primary'/>} 
-                  text='Account creation notices'
-                  onClickHandler={createNoticesHandler}/>
+        <Title text='Users' 
+                commandText='Account creation notifications' 
+                commandIcon={<BellRing size={16}/>}
+                onClickHandler={createNoticesHandler}/>
         {
           filteredData ?
             <DataTable data={filteredData} columns={columns(fetchData)}/>
@@ -105,7 +106,6 @@ const Users = () => {
       </div>
     }
     </ProtectedRoute>
-    // <div>users</div>
   )
 }
 
