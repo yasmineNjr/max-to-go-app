@@ -54,7 +54,7 @@ const Badge = ({ icon, text, style, source, companyId, isApproval , onSuccess })
       onClick={onClickHandler}
     >
         {icon}
-        <p className='text-textDefault font-light'>
+        <p className='text-foreground font-light'>
             {text}
         </p>
     </div>

@@ -10,26 +10,26 @@ import { FaCheckCircle } from "react-icons/fa";
 const Badge = dynamic( 
   () => import('../Badge'),
   {
-    loadingTable: () => <p className="text-red">Loading...</p>
+    loadingTable: () => <p className="text-primary">Loading...</p>
   })
 // import UserComponent from "../UserComponent";
 const UserComponent = dynamic( 
   () => import('../UserComponent'),
   {
-    loadingTable: () => <p className="text-red">Loading...</p>
+    loadingTable: () => <p className="text-primary">Loading...</p>
   })
 // import DeleteModal from "../DeleteModal";
 const DeleteModal = dynamic( 
   () => import('../DeleteModal'),
   {
-    loadingTable: () => <p className="text-red">Loading...</p>
+    loadingTable: () => <p className="text-primary">Loading...</p>
   })
 import dynamic from "next/dynamic";
 // import ChangePasswordModal from "../ChangePasswordModal";
 const ChangePasswordModal = dynamic( 
   () => import('../ChangePasswordModal'),
   {
-    loadingTable: () => <p className="text-red">Loading...</p>
+    loadingTable: () => <p className="text-primary">Loading...</p>
   })
 
 export const columns = (reloadData) => [
