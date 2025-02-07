@@ -1,13 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { user } from '@/public/assets';
 import Image from 'next/image';
 import { Input } from './ui/input';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAppContext } from '@/context/AppContext';
 import { ModeToggle } from './ModeToggle';
-import { SidebarTrigger } from './ui/sidebar';
+import { SIDEBAR_WIDTH, SidebarContext, SidebarTrigger, useSidebar } from './ui/sidebar';
 import { House, Search } from 'lucide-react';
 
 const Header = () => {
@@ -16,15 +16,18 @@ const Header = () => {
   const isFirstPage = pathname === '/';
 
   const { searchQuery, setSearchQuery } = useAppContext();
+  const { open } = useContext(SidebarContext);
+  const { isMobile } = useSidebar();
   
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
-
+  const isSideBarOpen = open;
+  
   return (
     <div>
       {!isFirstPage && (
-        <div className="w-full h-20 bg-background flex flex-row items-center justify-between py-5 px-2 md:px-5  ">          
+        <div className= {`${isMobile ? 'w-full' : isSideBarOpen ? `w-[calc(100%-${SIDEBAR_WIDTH})]` : 'w-full'} h-20 bg-background flex flex-row items-center justify-between py-5 px-2 md:px-5 fixed top-0 z-50`}>
           <div className="flex flex-row items-center justify-center gap-1 md:gap-2 text-foreground">
             <SidebarTrigger />
             <div 

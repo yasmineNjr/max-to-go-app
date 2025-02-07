@@ -49,7 +49,7 @@ const LoginPage = () => {
   // }
   
   return (
-    <div className={`${styles.mainSection} bg-transparent items-center justify-center h-full mt-15`}
+    <div className={`${styles.mainSection} items-center justify-center h-full mt-15`}
           // style={{ backgroundImage: "url('/assets/bg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}
           >
       <div className='mt-10 p-5 md:p-10 bg-secondary rounded-2xl flex flex-col items-center justify-center w-[100%] lg:w-[50%] mb-25 shadow-sm shadow-primary'>

@@ -35,13 +35,13 @@ export default function RootLayout({ children }) {
               disableTransitionOnChange
             >
           <SidebarProvider>
-            <AppSidebar />
-            <main className="w-full bg-background">
-              <AppProvider>
-                <Header/>
-                {children}
-              </AppProvider>
-            </main>
+              <AppSidebar />
+              <main className="bg-background w-full">
+                <AppProvider>
+                  <Header/>
+                  {children}
+                </AppProvider>
+              </main>
           </SidebarProvider>
         </ThemeProvider>
       </body>
