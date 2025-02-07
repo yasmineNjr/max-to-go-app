@@ -50,21 +50,17 @@ const AppSidebar = () => {
    
   }
 
-  const itemNavigateHandler = (url) => {
-    setActivePath(url);
-    router.push(url);
-  }
-
   return (
     <div>
       {
         !isFirstPage &&
         <Sidebar className=''>
           <SidebarHeader className='flex flex-col items-center justify-center z-25 bg-secondary' >
-            <Image src={logo} alt='logo' className='mt-1 h-[30px] w-[30px]'/>
+            <Image src={logo} alt='logo' className='mt-1 h-[45px] w-[45px]'/>
             <div className="flex flex-col items-center justify-center text-[12px]">
-              <h1 className="text-[#6e37d3]">MaxToGo</h1>
-              <p className="text-[#957be2] text-[10px]">Grow Smart & Sustainably</p>
+              <h1 className="font-semibold text-foreground text-[16px]">MaxToGo</h1>
+              {/* #6e37d3 */}
+              {/* <p className="text-[#957be2] text-[10px]">Grow Smart & Sustainably</p> */}
             </div>
           </SidebarHeader>
           {/* to hide scroll */}
@@ -111,7 +107,7 @@ const AppSidebar = () => {
                                 {
                                 it.items.map((sitem, idx) => (
                                   < div className={`h-9 px-2 rounded-xl flex flex-row items-center justify-between hover:hover:bg-background cursor-pointer  border-foreground ml-3 mr-3`}
-                                      onClick={() => itemNavigateHandler(sitem.url)}
+                                      onClick={(e) => activePathHandler(e, sitem.url)}
                                       >
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                       {sitem.icon && sitem.icon}
