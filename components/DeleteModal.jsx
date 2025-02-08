@@ -10,12 +10,9 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
 import { Button } from './ui/button'
-import Image from 'next/image'
-import { logo } from '@/public/assets'
-import { useAppContext } from '@/context/AppContext'
 import axios from 'axios'
 
-const DeleteModal = ({ buttonTxt, text, icon, style, companyId, onSuccess, source, isApproval }) => {
+const DeleteModal = ({ title, buttonTxt, text, icon, style, companyId, onSuccess, source, isApproval }) => {
 
     // const { token } = useAppContext(); // Ensure token is accessible from context
     const [open, setOpen] = useState(false)
@@ -87,15 +84,23 @@ const DeleteModal = ({ buttonTxt, text, icon, style, companyId, onSuccess, sourc
         <DialogContent className='shad-dialog'>
             <DialogHeader className='mb-4 space-y-3'>
                 <DialogTitle className='flex justify-center capitalize text-center text-customSecondart my-5'>
-                    <Image src={logo} alt='logo' width={45} height={45} className=''/>
+                    {/* <Image src={logo} alt='logo' width={45} height={45} className=''/> */}
+                    <h1 className='text-xl mt-5 text-primary'>{title}</h1>
                 </DialogTitle>
-                <DialogDescription className='text-center text-foreground gap-3 text-[18px] flex flex-col items-center justify-center'>
+                <DialogDescription className='text-center text-foreground gap-3 text-lg font-light flex flex-col items-center justify-center'>
                     {text}
-                    <Button variant='none' disabled={loading}
-                            className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-primary font-bold h-[25px] text-foreground outline-none rounded-xl`}
-                            onClick={source === 'delete' ? onDeleteHandler : onApproveHandler}>
-                        {loading ? 'Processing...' : 'OK'}
-                    </Button>
+                    <div className='flex flex-row items-center justify-center gap-8'>
+                      <Button variant='none' disabled={loading}
+                              className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-primary font-bold h-[25px] text-foreground outline-none rounded-xl`}
+                              onClick={source === 'delete' ? onDeleteHandler : onApproveHandler}>
+                          {loading ? 'Processing...' : 'OK'}
+                      </Button>
+                      <Button variant='none' disabled={loading}
+                              className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-primary font-bold h-[25px] text-foreground outline-none rounded-xl`}
+                              onClick={() => setOpen(false)}>
+                          Cancel
+                      </Button>
+                    </div>
                 </DialogDescription>
             </DialogHeader>
         </DialogContent>

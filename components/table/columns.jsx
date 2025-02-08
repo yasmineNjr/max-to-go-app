@@ -45,6 +45,7 @@ export const columns = (reloadData) => [
                                     <Hourglass size={20} className="text-[#4ADE80]"/>
                                     }
                                     // #EB7C44
+                          title={row.original.isApproval === true ? 'Unapprove Company' : 'Approve Company'}
                           text={`Are you sure you want to ${row.original.isApproval === true ? 'unapprove' : 'approve'} the company ${row.original.companyName}?`} 
                           style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} 
                           companyId={row.original.id}
@@ -116,6 +117,7 @@ export const columns = (reloadData) => [
           return (
             <div className="flex items-center justify-center cursor-pointer">
               <DeleteModal  buttonTxt={<Trash2 className="text-[#DC2626]"/>}
+                            title='Delete Company'
                             text={`Are you sure you want to delete the company ${row.original.companyName}?`} 
                             style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
                             companyId={row.original.id}

@@ -25,8 +25,8 @@ const ChangePasswordModal = ({ buttonTxt, icon, style, user}) => {
        
         <DialogContent className='shad-dialog'>
             <DialogHeader className='mb-4 space-y-3 w-full'>
-                <DialogDescription className=' text-textDefault gap-3 text-[18px] flex flex-col items-center justify-center w-full'>
-                    <UserActionComponent form={<ChangePasswordForm setOpen={setOpen} user={user}/>}/>
+                <DialogDescription className=' text-foreground gap-3 text-[18px] flex flex-col items-center justify-center w-full'>
+                    <UserActionComponent title='Reset Password' form={<ChangePasswordForm setOpen={setOpen} user={user}/>}/>
                 </DialogDescription>
             </DialogHeader>
         </DialogContent>

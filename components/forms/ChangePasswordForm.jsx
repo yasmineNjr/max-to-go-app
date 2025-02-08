@@ -7,9 +7,10 @@ import { z } from "zod"
 import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import { FormFieldType } from "@/constants"
-import Button from "../Button"
+// import Button from "../Button"
 import { useState } from "react"
-import { RiLockPasswordFill } from "react-icons/ri";
+import { Lock } from "lucide-react"
+import { Button } from "../ui/button"
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -45,7 +46,7 @@ const ChangePasswordForm = ({ setOpen, user }) => {
       
   return (
     <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="font-bold space-y-6 flex flex-1 flex-col w-full mb-5">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="font-bold space-y-6 flex flex-1 flex-col w-full ">
             <CustomFormField
                 fieldType={FormFieldType.INPUT}
                 control={form.control}
@@ -53,7 +54,7 @@ const ChangePasswordForm = ({ setOpen, user }) => {
                 label="New Password"
                 placeholder=""
                 iconAlt="password"
-                iconSrc={<RiLockPasswordFill size={20} color='#FECC02'/>}
+                iconSrc={<Lock size={20}/>}
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -66,14 +67,15 @@ const ChangePasswordForm = ({ setOpen, user }) => {
                 label="Confirm New Password"
                 placeholder=""
                 iconAlt="confirm"
-                iconSrc={<RiLockPasswordFill size={20} color='#FECC02'/>}
+                iconSrc={<Lock size={20}/>}
                 type='password'
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
             />
                     
-            <div className="flex flex-1 justify-center items-center w-full mt-6">
-                <Button styles='w-[100%] rounded-3xl' title='Change' onClickHandler={resetPasswordHandler}/>
+            <div className="flex flex-1 flex-row gap-8 justify-center items-center w-full mt-10 ">
+                <Button styles='w-[100%] rounded-3xl' onClickHandler={resetPasswordHandler}>Change</Button>
+                <Button styles='w-[100%] rounded-3xl' onClickHandler={() => setOpen(false)}>Cancel</Button>
             </div>
         </form>
     </Form>
