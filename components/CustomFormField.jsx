@@ -161,7 +161,9 @@ const CustomFormField = ( props) => {
         render={({ field }) => (
         <FormItem className="flex-1">
            {fieldType !== FormFieldType.CHECKBOX && label &&(
-            <FormLabel className='text-foreground font-normal text-sm lg:text-md'>{label}</FormLabel>
+            <div className="text-left">
+                <FormLabel className='text-foreground font-normal text-sm lg:text-md '>{label}</FormLabel>
+            </div>
            )}
 
            <RenderField field={field} props={props}/>
