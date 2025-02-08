@@ -4,11 +4,10 @@ import React from 'react'
 import styles from '../styles'
 import Title from '@/components/Title'
 import { useRouter } from 'next/navigation';
-import Command from '@/components/Command';
-import { FaPlus } from "react-icons/fa6";
 import { advertisements } from '@/constants';
 import AdComponent from '@/components/AdComponent';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import { CirclePlus } from 'lucide-react';
 
 const Advertisements = () => {
   
@@ -21,14 +20,9 @@ const Advertisements = () => {
   return (
     <ProtectedRoute>
       <div className={`${styles.mainSection} h-full`}>
-        <Title text='Advertisement'/>
-        <Command 
-          icon={<FaPlus className='text-primary'/>} 
-          text='Create ads'
-          onClickHandler={newAdverHandler}
-        />
+        <Title text='Advertisement' commandText='Create ads' commandIcon={<CirclePlus />} onClickHandler={newAdverHandler}/>
         <div className='flex flex-col w-full h-full gap-5 p-0'>
-      { 
+        { 
         advertisements.map((ad) => (
             <AdComponent id={ad.id} img={ad.img}/>
           ))

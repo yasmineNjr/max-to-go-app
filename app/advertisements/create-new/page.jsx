@@ -8,7 +8,7 @@ const NewAdvertisementPage = ({ params }) => {
   return (
     <ProtectedRoute>
       <div className={`${styles.mainSection}`}>
-        <Title text='+ Create new advertisement'/>
+        <Title text='Create new advertisement'/>
         <CreateAdvertisementForm/>
       </div>
     </ProtectedRoute>
