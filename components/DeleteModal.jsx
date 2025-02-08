@@ -81,14 +81,7 @@ const DeleteModal = ({ buttonTxt, text, icon, style, companyId, onSuccess, sourc
   return (
     <Dialog open={open} onOpenChange={(isOpen) => !loading && setOpen(isOpen)}>
         <DialogTrigger asChild>
-            <div 
-            className={`min-w-[60px] flex justify-center text-center w-fit items-center gap-1 rounded-full px-2 py-2 ${style}`} 
-            >
-                {icon}
-                <p className='text-foreground font-light'>
-                    {buttonTxt}
-                </p>
-            </div>
+            <Button variant='ghost'>{buttonTxt}</Button>
         </DialogTrigger>
        
         <DialogContent className='shad-dialog'>

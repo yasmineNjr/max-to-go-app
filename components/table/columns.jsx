@@ -1,16 +1,8 @@
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { IoMdCloseCircle } from "react-icons/io";
-import { FaRegCirclePause } from "react-icons/fa6";
-import { TbLockPassword } from "react-icons/tb";
-import { FiSend } from "react-icons/fi";
-import { FaFileInvoiceDollar } from "react-icons/fa";
-import { BiSolidPurchaseTag } from "react-icons/bi";
-import { FaCheckCircle } from "react-icons/fa";
-const Badge = dynamic( 
-  () => import('../Badge'),
-  {
-    loadingTable: () => <p className="text-primary">Loading...</p>
-  })
+// const Badge = dynamic( 
+//   () => import('../Badge'),
+//   {
+//     loadingTable: () => <p className="text-primary">Loading...</p>
+//   })
 const UserComponent = dynamic( 
   () => import('../UserComponent'),
   {
@@ -22,6 +14,8 @@ const DeleteModal = dynamic(
     loadingTable: () => <p className="text-primary">Loading...</p>
   })
 import dynamic from "next/dynamic";
+import { CircleCheckBig, Files, Hourglass, LockKeyhole, Send, ShoppingCart, Trash2 } from "lucide-react";
+import { Button } from "../ui/button";
 const ChangePasswordModal = dynamic( 
   () => import('../ChangePasswordModal'),
   {
@@ -39,71 +33,38 @@ export const columns = (reloadData) => [
         </div>,
     },
     {
-        accessorKey: "delete",
-        header: "Delete",
-        cell: ({ row }) => {
-            return (
-              <div className="flex items-center justify-center cursor-pointer">
-                <DeleteModal  buttonTxt='' 
-                              text={`Are you sure you want to delete the company ${row.original.companyName}?`} 
-                              icon={<RiDeleteBin6Line color={row.original.delete === true ? 'white' : 'red'}/>}  
-                              style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
-                              companyId={row.original.id}
-                              onSuccess={reloadData} // Pass reloadData to dialog
-                              source='delete'
-                />
-              </div>
-            );
-          },
-    },
-    {
       accessorKey: "pause",
-      header: "ِApprove",
+      header: "Approve",
       cell: ({ row }) => {
         return (
           <div className="flex items-center justify-center cursor-pointer">
-            {/* <Badge  
-                  text={row.original.isApproval === true ? 'UnApprove' : 'Approve'}
-                  source='pause'
-                  isApproval={row.original.isApproval}
-                  companyId={row.original.id}
-                  icon={row.original.isApproval === true 
-                          ? 
-                          <IoMdCloseCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/> 
-                          :
-                          <FaCheckCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/>
-                        } 
-                  style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} 
-                  onSuccess={reloadData} // Pass reloadData to Badge or Dialog
-                  /> */}
-                  <DeleteModal  buttonTxt=''
-                                text={`Are you sure you want to ${row.original.isApproval === true ? 'unapprove' : 'approve'} the company ${row.original.companyName}?`} 
-                                icon={row.original.isApproval === true 
-                                  ? 
-                                  <IoMdCloseCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/> 
-                                  :
-                                  <FaCheckCircle size={16} color={row.original.isApproval === true ? 'white' : '#EB7C44'}/>
-                                } 
-                                style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} 
-                                companyId={row.original.id}
-                                onSuccess={reloadData} // Pass reloadData to dialog
-                                source='approve'
-                                isApproval={row.original.isApproval}
-                  />
+            <DeleteModal  buttonTxt={row.original.isApproval === true 
+                                    ?
+                                    <CircleCheckBig size={20} className="text-[#4ADE80]"/>
+                                    :
+                                    <Hourglass size={20} className="text-[#4ADE80]"/>
+                                    }
+                                    // #EB7C44
+                          text={`Are you sure you want to ${row.original.isApproval === true ? 'unapprove' : 'approve'} the company ${row.original.companyName}?`} 
+                          style={row.original.isApproval === true ? 'bg-orange boreder-2 border-orange' : 'bg-transparent border-2 border-orange'} 
+                          companyId={row.original.id}
+                          onSuccess={reloadData} // Pass reloadData to dialog
+                          source='approve'
+                          isApproval={row.original.isApproval}
+            />
           </div>
         );
       },
     },
     {
         accessorKey: "password",
-        header: "password",
+        header: "Reset Password",
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
                 <ChangePasswordModal  
-                              buttonTxt='' 
+                              buttonTxt={<LockKeyhole className="text-[#FACC15]"/>}
                               text='Are you sure you wan to delete the user?' 
-                              icon={<TbLockPassword color={row.original.password === true ? 'white' : '#FECC02'}/>} 
                               style={row.original.password === true ? 'bg-primary boreder-2 border-primary' : 'bg-transparent border-2 border-primary'}
                               user={row.original.owner}/>
                </div>
@@ -116,12 +77,8 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
-                <Badge  
-                      text='' 
-                      source='message'
-                      user={row.original.owner}
-                      icon={<FiSend color={row.original.messaging === true ? 'white' : '#07A2FB'}/>} 
-                      style={row.original.messaging === true ? 'bg-blue-200 boreder-2 border-blue-200' : 'bg-transparent border-2 border-blue-200'} />
+                <Button variant='ghost'>{<Send className="text-[#2563EB]"/>}</Button>
+                {/* #07A2FB */}
               </div>
             );
           },
@@ -133,12 +90,8 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
-                <Badge  
-                      source='invoices'
-                      user={row.original.owner}
-                      text='' 
-                      icon={<FaFileInvoiceDollar color={row.original.invoices === true ? 'white' : '#121EFF'}/>} 
-                      style={row.original.invoices === true ? 'bg-blue-600 boreder-2 border-blue-600' : 'bg-transparent border-2 border-blue-600'} />
+                <Button variant='ghost'>{<Files size={16} className="text-[#FB923C]"/>}</Button>
+                {/* #121EFF */}
               </div>
             );
           },
@@ -150,12 +103,27 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center">
-                <Badge  
-                      text='' 
-                      icon={<BiSolidPurchaseTag color={row.original.purchases === true ? 'white' : '#14C004'}/>} 
-                      style={row.original.purchases === true ? 'bg-green boreder-2 border-green' : 'bg-transparent border-2 border-green'} />
+                <Button variant='ghost'>{<ShoppingCart size={20} className="text-[#9333EA]"/>}</Button>
+                {/* #14C004 */}
               </div>
             );
           },
     },
+    {
+      accessorKey: "delete",
+      header: "Delete",
+      cell: ({ row }) => {
+          return (
+            <div className="flex items-center justify-center cursor-pointer">
+              <DeleteModal  buttonTxt={<Trash2 className="text-[#DC2626]"/>}
+                            text={`Are you sure you want to delete the company ${row.original.companyName}?`} 
+                            style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
+                            companyId={row.original.id}
+                            onSuccess={reloadData} // Pass reloadData to dialog
+                            source='delete'
+              />
+            </div>
+          );
+        },
+  },
 ]

@@ -11,6 +11,7 @@ import {
   } from "@/components/ui/dialog"
 import UserActionComponent from './UserActionComponent'
 import ChangePasswordForm from './forms/ChangePasswordForm'
+import { Button } from './ui/button'
 
 const ChangePasswordModal = ({ buttonTxt, icon, style, user}) => {
 
@@ -19,14 +20,7 @@ const ChangePasswordModal = ({ buttonTxt, icon, style, user}) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-            <div 
-            className={`min-w-[60px] flex justify-center text-center w-fit items-center gap-1 rounded-full px-2 py-2 ${style}`} 
-            >
-                {icon}
-                <p className='text-textDefault font-light'>
-                    {buttonTxt}
-                </p>
-            </div>
+           <Button variant='ghost'>{buttonTxt}</Button>
         </DialogTrigger>
        
         <DialogContent className='shad-dialog'>

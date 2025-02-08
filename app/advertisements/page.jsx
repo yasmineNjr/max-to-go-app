@@ -20,7 +20,7 @@ const Advertisements = () => {
   return (
     <ProtectedRoute>
       <div className={`${styles.mainSection} h-full`}>
-        <Title text='Advertisement' commandText='Create ads' commandIcon={<CirclePlus />} onClickHandler={newAdverHandler}/>
+        <Title text='Advertisement' commandText='Create ads' commandIcon={<CirclePlus size={20}/>} onClickHandler={newAdverHandler}/>
         <div className='flex flex-col w-full h-full gap-5 p-0'>
         { 
         advertisements.map((ad) => (

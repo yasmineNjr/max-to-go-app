@@ -4,6 +4,7 @@ import { useAppContext } from '@/context/AppContext';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React from 'react'
+import { Button } from './ui/button';
 
 const Badge = ({ icon, text, style, source, companyId, isApproval , onSuccess }) => {
     
@@ -53,10 +54,11 @@ const Badge = ({ icon, text, style, source, companyId, isApproval , onSuccess })
       className={`min-w-[60px] flex justify-center text-center w-fit items-center gap-1 rounded-full px-2 py-2 ${style}`} 
       onClick={onClickHandler}
     >
-        {icon}
+        {/* {icon}
         <p className='text-foreground font-light'>
             {text}
-        </p>
+        </p> */}
+         <Button variant='ghost'>{text}</Button>
     </div>
   )
 }
