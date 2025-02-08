@@ -114,7 +114,6 @@ const LoginForm = () => {
                 label="Email"
                 placeholder="Your email..."
                 iconAlt="email"
-                // iconSrc={<MdEmail size={20} color='#FECC02'/>}
                 iconSrc={<Mail size={20} />}
                 type='mail'
                 required={true}
@@ -130,7 +129,6 @@ const LoginForm = () => {
                 label="Password"
                 placeholder="Your password..."
                 iconAlt="password"
-                // iconSrc={<RiLockPasswordFill size={20} color='#FECC02'/>}
                 iconSrc={<Lock size={20}/>}
                 type='password'
                 required={true}

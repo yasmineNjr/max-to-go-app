@@ -1,15 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import styles from './styles'
 import LoginForm from '@/components/forms/LoginForm'
-// const LoginForm = dynamic( 
-//   () => import('@/components/forms/LoginForm'),
-//   {
-//     loadingTable: () => <p className='text-secondaryColor'>Loading...</p>
-//   })
 import { logo } from '@/public/assets'
 import { useRouter } from 'next/navigation'
 
@@ -18,7 +11,6 @@ const LoginPage = () => {
   // const { token } = useAppContext();
   const router = useRouter();
   const [isChecking, setIsChecking] = useState(true); // State to handle loading/checking
-  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkToken = async () => {
@@ -49,8 +41,8 @@ const LoginPage = () => {
   // }
   
   return (
-    <div className={`${styles.mainSection} items-center justify-center h-full mt-15`}
-          // style={{ backgroundImage: "url('/assets/bg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}
+    <div className={`flex items-center justify-center h-full sm:px-16 px-5`}
+          style={{ backgroundImage: "url('/assets/bg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", objectFit: 'contain'}}
           >
       <div className='mt-10 p-5 md:p-10 bg-secondary rounded-2xl flex flex-col items-center justify-center w-[100%] lg:w-[50%] mb-25 shadow-sm shadow-primary'>
         <Image src={logo} alt='logo' width={45} height={45} className=''/>
