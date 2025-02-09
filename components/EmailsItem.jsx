@@ -28,7 +28,7 @@ const EmailsItem = ({ id, name, date, message, title }) => {
       />
        
         <div className='flex items-center justify-end flex-wrap gap-3 my-3 w-full'>
-          <DeleteModal source='delete' title='Delete Email' actionTxt='Delete' buttonTxt={<Trash2 size={16} className="m-2 hover:text-destructive"/>} text='Are you sure you want to delete this email, knowing that a notification will be sent to the user?'/>
+          <DeleteModal source='deleteEmail' title='Delete Email' actionTxt='Delete' buttonTxt={<Trash2 size={16} className="m-2 hover:text-destructive"/>} text='Are you sure you want to delete this email, knowing that a notification will be sent to the user?'/>
         </div>
    </div>
   )

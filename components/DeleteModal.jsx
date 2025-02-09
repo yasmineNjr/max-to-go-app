@@ -46,6 +46,8 @@ const DeleteModal = ({ title, buttonTxt, actionTxt, text, icon, style, companyId
           }finally {
             setLoading(false); // End loading
           }
+        }else{
+          setOpen(false)
         }
       };   
       

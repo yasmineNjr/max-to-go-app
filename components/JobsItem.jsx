@@ -2,6 +2,8 @@ import React from 'react'
 import { MdOutlineEmail } from "react-icons/md";
 import ConfirmationModal from './ConfirmationModal';
 import CommandButton from './CommandButton';
+import { FileUser, Trash2 } from 'lucide-react';
+import DeleteModal from './DeleteModal';
 
 const JobsItem = ({ id, name, city, country, description}) => {
     
@@ -17,8 +19,8 @@ const JobsItem = ({ id, name, city, country, description}) => {
         </div>
 
         <div className='flex items-center justify-start lg:justify-end flex-wrap gap-3 my-3 w-full'>
-            <ConfirmationModal command={true} buttonText='Delete' text='Are you sure you want to delete this jjob application, knowing that a notification will be sent to the user?'/>
-            <CommandButton title='View CV'/>
+            <FileUser size={16} className="cursor-pointer m-2"/>
+            <DeleteModal source='deletejob' title='Delete Job' actionTxt='Delete' buttonTxt={<Trash2 size={16} className="cursor-pointer m-2 hover:text-destructive"/>} text='Are you sure you want to delete this job application, knowing that a notification will be sent to the user?'/>
         </div>
    </div>
   )
