@@ -73,9 +73,9 @@ const ChangePasswordForm = ({ setOpen, user }) => {
                 onChange={(e) => setConfirm(e.target.value)}
             />
                     
-            <div className="flex flex-1 flex-row gap-8 justify-center items-center w-full mt-10 ">
-                <Button styles='w-[100%] rounded-3xl' onClickHandler={resetPasswordHandler}>Change</Button>
-                <Button styles='w-[100%] rounded-3xl' onClickHandler={() => setOpen(false)}>Cancel</Button>
+            <div className="flex flex-1 flex-row gap-8 justify-center items-center w-full mt-10 w-full">
+                <Button styles='w-[100%] rounded-3xl bg-primary' onClickHandler={resetPasswordHandler}>Reset</Button>
+                <Button styles='w-[100%] rounded-3xl bg-gray-500' onClickHandler={() => setOpen(false)}>Cancel</Button>
             </div>
         </form>
     </Form>

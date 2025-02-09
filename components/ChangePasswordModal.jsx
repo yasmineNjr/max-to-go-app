@@ -20,7 +20,9 @@ const ChangePasswordModal = ({ buttonTxt, icon, style, user}) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-           <Button variant='ghost'>{buttonTxt}</Button>
+          {/* <Button variant='ghost'> */}
+            {buttonTxt}
+          {/* </Button> */}
         </DialogTrigger>
        
         <DialogContent className='shad-dialog'>

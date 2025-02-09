@@ -15,10 +15,10 @@ const NotificationItem = ({ img, name, text, date, isCommand, command1, command2
   }
 
   return (
-    <div  
+    <div  key={name} 
          className='border-b border-foreground w-full cursor-pointer'
          onClick={onClickHandler}>
-      <div key={name} className='flex flex-row items-center p-3 w-full '>
+      <div className='flex flex-row items-center p-3 w-full '>
           <Image src={img} alt='user' className='h-[75px] w-[75px] lg:h-[60px] lg:w-[60px] rounded-full'/>
           <div className='flex flex-row ml-5 justify-start items-center'>
             <div className='flex flex-col items-center'>
