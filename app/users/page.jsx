@@ -60,8 +60,9 @@ const Users = () => {
       }));
 
       // console.log('Data:', response.data.data.companies);
-      // setData(response.data.data.companies)
-      setData(modifiedData)
+      console.log('Data:', response.data);
+      setData(response.data.data.companies)
+      // setData(modifiedData)
     } catch (error) {
       console.error('Error:', error.response?.data || error.message); // Log full error response
       setError(error.response?.data || error.message);
@@ -82,7 +83,7 @@ const Users = () => {
    const filteredData = data?.filter((item) =>
     item.companyName.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  console.log(filteredData)
+  // console.log(data)
   return (
     <ProtectedRoute>
     {

@@ -27,7 +27,12 @@ const Header = () => {
   return (
     <div>
       {!isFirstPage && (
-        <div className= {`${isMobile ? 'w-full' : isSideBarOpen ? `w-[calc(100%-${SIDEBAR_WIDTH})]` : 'w-full'} h-20 bg-background flex flex-row items-center justify-between py-5 px-2 md:px-5 fixed top-0 z-50`}>
+        <div 
+          className={`h-20 bg-background flex flex-row items-center justify-between 
+                      py-5 px-2 md:px-5 fixed top-0 z-50
+                      ${isMobile ? 'w-full' : isSideBarOpen ? 'md:flex' : 'w-full'}`}
+          style={isMobile ? {} : isSideBarOpen ? { width: `calc(100% - ${SIDEBAR_WIDTH})` } : {}}
+        >
           <div className="flex flex-row items-center justify-center gap-1 md:gap-2 text-foreground">
             <SidebarTrigger />
             <div 
