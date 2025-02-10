@@ -8,13 +8,9 @@ import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import { apartments, FormFieldType, types } from "@/constants"
 import { SelectItem } from "../ui/select"
-import { FaCalendarDays } from "react-icons/fa6";
 import "react-datepicker/dist/react-datepicker.css";
-import ConfirmationModal from "../ConfirmationModal"
-import { LuFileType } from "react-icons/lu";
-import { PiBuildingApartmentFill } from "react-icons/pi";
-import { SiTask } from "react-icons/si";
-import { BookType, Building, CalendarDays, ClipboardCheck, TypeOutline } from "lucide-react"
+import {  Building, CalendarDays, ClipboardCheck, TypeOutline } from "lucide-react"
+import { Button } from "../ui/button"
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -107,8 +103,8 @@ const NewTaskForm = () => {
             />
 
             <div className="flex flex-1 justify-center items-center w-full mt-6">
-                {/* <Button styles='w-[100%] rounded-3xl' title='Create'/> */}
-                <ConfirmationModal buttonText='Create' text='Your task has been created successfully'/>
+                <Button className='w-full flex justify-center'>Create</Button>
+                {/* <ConfirmationModal buttonText='Create' text='Your task has been created successfully'/> */}
             </div>
         </form>
     </Form>
