@@ -81,7 +81,7 @@ const RenderField= ({field, props}) => {
                    <Textarea
                     placeholder={placeholder}
                     {...field}
-                    className="shad-textArea text-foreground"
+                    className="shad-textArea"
                     disabled={props.disabled}
                    />
                 </FormControl>
@@ -89,8 +89,8 @@ const RenderField= ({field, props}) => {
           
         case FormFieldType.SELECT:
             return(
-                <div className="shad-select">
-                    <div className="ml-5">{iconSrc}</div>
+                <div className="shad-select focus-within:border-primary group">
+                    <div className="ml-5 group-focus-within:text-primary">{iconSrc}</div>
                     <FormControl>
                         <Select
                             defaultValue={field.value}
@@ -114,7 +114,7 @@ const RenderField= ({field, props}) => {
 
         case FormFieldType.DATE_PICKER:
             return(
-                <div className="font-normal text-sm lg:text-lg flex rounded-xl border-2 border-primary bg-transparent items-center overflow-hidden h-12">
+                <div className="font-normal text-sm lg:text-lg flex rounded-xl border border-textPrimary focus:text-primary bg-transparent items-center overflow-hidden h-12">
                     <div className="ml-5">{iconSrc}</div>
                     <FormControl>
                         <DatePicker selected={field.value} 

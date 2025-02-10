@@ -35,8 +35,7 @@ const NewTaskForm = () => {
                 name="taskType"
                 label="Task type"
                 placeholder="Select a type..."
-                // iconSrc={<LuFileType className="text-primary" size={20}/>}
-                iconSrc={<TypeOutline className="text-primary" size={20}/>}
+                iconSrc={<TypeOutline className="text-textPrimary" size={20}/>}
                 >
                 {types.map((type) => (
                 <SelectItem key={type.id} value={type.title}>
@@ -53,8 +52,7 @@ const NewTaskForm = () => {
                 name="name"
                 label="Task name"
                 placeholder="Enter task name..."
-                // iconSrc={<SiTask className="text-primary" size={20}/>}
-                iconSrc={<ClipboardCheck className="text-primary" size={20}/>}
+                iconSrc={<ClipboardCheck size={20}/>}
                 iconAlt="task"
             />
             

@@ -222,11 +222,12 @@ body {
   }
 
   .shad-select {
-    @apply font-normal text-sm lg:text-lg flex rounded-xl border-2 border-primary bg-transparent items-center !important
+    @apply font-normal text-sm lg:text-lg flex rounded-xl border border-textPrimary focus:border-primary bg-transparent items-center !important
   }
 
   .shad-textArea {
-    @apply font-normal text-sm bg-transparent placeholder:text-foreground border-primary rounded-xl h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply font-normal text-sm bg-transparent placeholder:text-textPrimary border-textPrimary focus:border-primary rounded-xl h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    /*  focus-within:border-primary group text-textPrimary group-focus-within:text-primary */
   }
 
   .shad-input {
