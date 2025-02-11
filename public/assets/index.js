@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import logoWhite from './logo-white.svg';
 import menu from './menu.png';
 import user from './user.png';
+import user2 from './user2.jpg';
+import user3 from './user3.jpg';
+import user4 from './user4.jpg';
+import user5 from './user5.jpg';
 import search from './search.svg';
 import arrow from './arrow.svg'
 import ad1 from './ad1.jpg'
@@ -16,6 +20,10 @@ export {
     logo,
     menu,
     user,
+    user2,
+    user3,
+    user4,
+    user5,
     search,
     arrow,
     ad1,

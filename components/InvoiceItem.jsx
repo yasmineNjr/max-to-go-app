@@ -38,12 +38,6 @@ const InvoiceItem = ({ id, owner, price, quantity, date}) => {
         <ContentComponent title='TOTAL' value={`$${quantity*price}`}/>
       </div>
      
-      {/* <div className='flex items-center flex-wrap justifiy-center gap-3 my-3 w-full'>
-        <CommandButton title='Delete' styles='bg-transparent border-2'/>
-        <CommandButton title='Amendment' styles='bg-transparent border-2'/>
-        <CommandButton title='Send' styles='bg-transparent border-2'/>
-        <CommandButton title='Export to PDF' styles='bg-transparent border-2'/>
-    </div> */}
       <div className="w-full p-2 flex flex-row gap-3 justify-between items-center mt-5">
         <div className='flex flex-row gap-5'>
           <Pencil size={16} className='cursor-pointer'/>

@@ -29,7 +29,7 @@ export const columns = (reloadData) => [
       header: "Owner",
       cell: ({ row }) => 
         <div className="min-w-[150px]" >
-          <UserComponent id={row.original.id} img={row.original.logo} name={row.original.companyName}/>
+          <UserComponent id={row.original.id} img={row.original.logo} name={row.original.owner}/>
         </div>,
     },
     {
@@ -40,9 +40,9 @@ export const columns = (reloadData) => [
           <div className="flex items-center justify-center cursor-pointer">
             <DeleteModal  buttonTxt={row.original.isApproval === true 
                                     ?
-                                    <CircleCheckBig size={20} className="text-[#4ADE80]"/>
+                                    <CircleCheckBig size={16} className="text-[#4ADE80]"/>
                                     :
-                                    <Hourglass size={20} className="text-[#4ADE80]"/>
+                                    <Hourglass size={16} className="text-[#4ADE80]"/>
                                     }
                                     // #EB7C44
                           actionTxt={row.original.isApproval === true ? 'Unapprove' : 'Approve'}
@@ -65,7 +65,7 @@ export const columns = (reloadData) => [
             return (
               <div className="flex items-center justify-center cursor-pointer">
                 <ChangePasswordModal  
-                              buttonTxt={<LockKeyhole className="text-[#FACC15]"/>}
+                              buttonTxt={<LockKeyhole size={16} className="text-[#FACC15]"/>}
                               text='Are you sure you wan to delete the user?' 
                               style={row.original.password === true ? 'bg-primary boreder-2 border-primary' : 'bg-transparent border-2 border-primary'}
                               user={row.original.owner}/>
@@ -79,7 +79,7 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
-                <Button variant='ghost'>{<Send className="text-[#2563EB]"/>}</Button>
+                <Button variant='ghost'>{<Send size={18} className="text-[#2563EB]"/>}</Button>
                 {/* #07A2FB */}
               </div>
             );
@@ -92,7 +92,7 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center cursor-pointer">
-                <Button variant='ghost'>{<Files size={16} className="text-[#FB923C]"/>}</Button>
+                <Button variant='ghost'>{<Files size={18} className="text-[#FB923C]"/>}</Button>
                 {/* #121EFF */}
               </div>
             );
@@ -105,7 +105,7 @@ export const columns = (reloadData) => [
         cell: ({ row }) => {
             return (
               <div className="flex items-center justify-center">
-                <Button variant='ghost'>{<ShoppingCart size={20} className="text-[#9333EA]"/>}</Button>
+                <Button variant='ghost'>{<ShoppingCart size={18} className="text-[#9333EA]"/>}</Button>
                 {/* #14C004 */}
               </div>
             );
@@ -117,7 +117,7 @@ export const columns = (reloadData) => [
       cell: ({ row }) => {
           return (
             <div className="flex items-center justify-center cursor-pointer">
-              <DeleteModal  buttonTxt={<Trash2 size={16} className="text-destructive"/>}
+              <DeleteModal  buttonTxt={<Trash2 size={18} className="text-destructive"/>}
                             actionTxt='Delete'
                             title='Delete Company'
                             text={`Are you sure you want to delete the company ${row.original.companyName}?`} 

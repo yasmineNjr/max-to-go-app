@@ -1,3 +1,4 @@
+import { user } from '@/public/assets';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -76,8 +77,18 @@ const CompanyLogo = ({ logoUrl }) => {
           </div>
           : 
           // Spinner
-          <div>
-          <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+          // <div>
+          // <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+          // </div>
+          <div className="relative inline-block ">
+            <Image 
+              src={user} 
+              alt="Company Logo" 
+              width={50} 
+              height={50} 
+              className="h-[50px] w-[50px] rounded-full"
+            />
+            <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green ring-2 ring-white"></span>
           </div>
            
 };

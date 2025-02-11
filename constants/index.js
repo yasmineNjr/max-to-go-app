@@ -1,4 +1,4 @@
-import { ad1, ad2, ad3, user } from "@/public/assets"
+import { ad1, ad2, ad3, user, user2, user3, user4, user5 } from "@/public/assets"
 import { BellRing, BriefcaseBusiness, Calendar, ClipboardCheck, ClipboardPlus, ContactRound, Database, FileArchive, Files, Home, House, Inbox, ListChecks, Mails, Megaphone, MessageCircleMore, Receipt, Search, Settings, Users } from "lucide-react"
 import { HiTruck } from "react-icons/hi2";
 // import { FaTasks } from "react-icons/fa";
@@ -115,6 +115,13 @@ export const users = [
       invoices: true,
       purchases: false,
       img: user,
+      logo: user,
+      organizationNumber: 'Mhmd organizationNumber',
+      nameOfResponsiblePerson: 'Mhmd ResponsiblePerson',
+      address: 'Mhmd address',
+      typeOfBusiness: 'Mhmd typeOfBusiness',
+      email: 'Mhmd@mail.com',
+      phone: '1111111111',
    },
    {
       name: 'Ali',
@@ -125,7 +132,14 @@ export const users = [
       messaging: true,
       invoices: true,
       purchases: false,
-      img: user,
+      img: user2,
+      logo: user2,
+      organizationNumber: 'Ali organizationNumber',
+      nameOfResponsiblePerson: 'Ali ResponsiblePerson',
+      address: 'Ali address',
+      typeOfBusiness: 'Ali typeOfBusiness',
+      email: 'Ali@mail.com',
+      phone: '1212121122',
    },
    {
       name: 'Ahmad',
@@ -136,7 +150,14 @@ export const users = [
       messaging: true,
       invoices: false,
       purchases: true,
-      img: user,
+      img: user3,
+      logo: user3,
+      organizationNumber: 'Ahmad organizationNumber',
+      nameOfResponsiblePerson: 'Ahmad ResponsiblePerson',
+      address: 'Ahmad address',
+      typeOfBusiness: 'Ahmad typeOfBusiness',
+      email: 'Ahmad@mail.com',
+      phone: '222222222',
    },
    {
       name: 'Nour',
@@ -147,7 +168,14 @@ export const users = [
       messaging: true,
       invoices: false,
       purchases: true,
-      img: user,
+      img: user4,
+      logo: user4,
+      organizationNumber: 'Nour organizationNumber',
+      nameOfResponsiblePerson: 'Nour ResponsiblePerson',
+      address: 'Nour address',
+      typeOfBusiness: 'Nour typeOfBusiness',
+      email: 'Nour@mail.com',
+      phone: '33333333',
    },
    {
       name: 'Ehab',
@@ -158,7 +186,14 @@ export const users = [
       messaging: false,
       invoices: false,
       purchases: true,
-      img: user,
+      img: user5,
+      logo: user5,
+      organizationNumber: 'Ehab organizationNumber',
+      nameOfResponsiblePerson: 'Ehab ResponsiblePerson',
+      address: 'Ehab address',
+      typeOfBusiness: 'Ehab typeOfBusiness',
+      email: 'Ehab@mail.com',
+      phone: '4444444444',
    },
    {
       name: 'Ghaith',
@@ -170,6 +205,13 @@ export const users = [
       invoices: true,
       purchases: false,
       img: user,
+      logo: user,
+      organizationNumber: 'Ghaith organizationNumber',
+      nameOfResponsiblePerson: 'Ghaith ResponsiblePerson',
+      address: 'Ghaith address',
+      typeOfBusiness: 'Ghaith typeOfBusiness',
+      email: 'Ghaith@mail.com',
+      phone: '55555555',
    },
 ]
 

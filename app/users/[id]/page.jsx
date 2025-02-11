@@ -12,69 +12,53 @@ import axios from 'axios';
 import CompanyLogo from '@/components/CompanyLogo';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import { FaDownload } from "react-icons/fa";
+import { users } from '@/constants';
+import Image from 'next/image';
 
 const UserInfoPage = ({ params }) => {
 
-  // const user = users.find((user) => user.name === params.id);
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const user = users.find((user) => user.name === params.id);
+  // console.log(user)
+  // const [data, setData] = useState(null);//???
+  const [data, setData] = useState(user);
+  const [loading, setLoading] = useState(false);///???
   const [error, setError] = useState(null);
   const searchParams = useSearchParams();
   const source = searchParams.get("source");
   const companyId = params.id;
 
-  // const [formData, setFormData] = useState({ name: "xxx", email: "xxx@mail.com" });
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({ ...formData, [name]: value });
-  // };
-  
-  // const data1 = {
-  //   name: 'user.companyName',
-  //   img: 'user.img',
-  //   company : 'AL-Rahma Company',
-  //   number: '#987800255',
-  //   responsiblePerson: 'user.name',
-  //   address : 'Transfer form Gaza to rafah',
-  //   business :'Transfer form Gaza to rafah',
-  //   email : `${'user.name'}@gmail.com`,
-  //   phone : '+978487485785',
-  //   description: 'This text can be installed on any design without a problem. It will not look like copied, unorganized, unformatted, or even incomprehensible'
-  // }
-
-  useEffect(() => {
-    const fetchCompanyById = async () => {
-      try {
-        const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
-        if (!token) {
-          console.error('No token available');
-          return;
-        }
+  // useEffect(() => {
+  //   const fetchCompanyById = async () => {
+  //     try {
+  //       const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
+  //       if (!token) {
+  //         console.error('No token available');
+  //         return;
+  //       }
     
-        const response = await axios.get('/api/get-by-id', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          params: {
-            companyId, // Pass companyId as a query parameter
-          },
-        });
+  //       const response = await axios.get('/api/get-by-id', {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //         params: {
+  //           companyId, // Pass companyId as a query parameter
+  //         },
+  //       });
     
-        console.log('Company Data:', response.data.data);
-        setData(response.data.data);
-        //await fetchPermit(response.data.data.permit);
-        return response.data; // Process the data as needed
-      } catch (error) {
-        console.error('Error fetching company by ID:', error.response?.data || error.message);
-        setError(error.response?.data || error.message)
-      } finally {
-        setLoading(false); // Set loading to false after fetching
-      }
-    };
-    fetchCompanyById();
+  //       console.log('Company Data:', response.data.data);
+  //       setData(response.data.data);
+  //       //await fetchPermit(response.data.data.permit);
+  //       return response.data; // Process the data as needed
+  //     } catch (error) {
+  //       console.error('Error fetching company by ID:', error.response?.data || error.message);
+  //       setError(error.response?.data || error.message)
+  //     } finally {
+  //       setLoading(false); // Set loading to false after fetching
+  //     }
+  //   };
+  //   fetchCompanyById();
 
-  }, []);
+  // }, []);
 
   const [fileSrc, setFileSrc] = useState(null);
   const [loadingFile, setLoadingFile] = useState(false);
@@ -175,16 +159,16 @@ const UserInfoPage = ({ params }) => {
           <div 
               className="flex flex-row items-center justify-between gap-2"
           >
-            {/* <Image src={user} alt='user' className='h-[30px] w-[30px] rounded-full'/> */}
-            <CompanyLogo logoUrl={data.logo}/>
-            <p className="text-left text-foreground font-light">{data.companyName}</p>
+            <Image src={data.img} alt='user' className='h-[30px] w-[30px] rounded-full'/>
+            {/* <CompanyLogo logoUrl={data.logo}/> */}
+            <p className="text-left text-foreground font-light">{data.owner}</p>
           </div>
         </div>
 
         <div className='flex flex-col lg:flex-row justify-start items-start w-full gap-5 text-textDefault my-5'>
         {/* lg:w-[50%] */}
           <div className='w-[100%] '>
-            <ContentComponent title='Company Name' value={data.companyName}/>
+            <ContentComponent title='Company Name' value={data.owner}/>
             <ContentComponent title='Organization Number' value={data.organizationNumber}/>
             <ContentComponent title='Name of responsible person' value={data.nameOfResponsiblePerson}/>
             <ContentComponent title='Address' value={data.address}/>
@@ -193,7 +177,7 @@ const UserInfoPage = ({ params }) => {
             <ContentComponent title='Phone Numer' value={data.phone}/>
             <ContentComponent title='Info' 
                               icon={<FaDownload size={20} 
-                                                onClick={() => openPermitHandler(data.permit)}
+                                                // onClick={() => openPermitHandler(data.permit)}
                                     />}  
                               isLoading={loadingFile}
             />
@@ -209,7 +193,7 @@ const UserInfoPage = ({ params }) => {
             }
             <PDFDownloadLink
               document={<PDFDocument data={data} />}
-              fileName={`${data.companyName}.pdf`}
+              fileName={`${data.name}.pdf`}
               className="w-[100%] lg:w-[50%] rounded-3xl py-2 text-[14px] font-bold cursor-pointer flex flex-row items-center justify-center gap-2 px-6 bg-primary h-[35px] text-foreground outline-none"
             >
               {({ load }) =>
@@ -221,6 +205,7 @@ const UserInfoPage = ({ params }) => {
     </div>
     }
     </ProtectedRoute>
+    // <div>xxx</div>
   )
 }
 

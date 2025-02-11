@@ -3,8 +3,6 @@
 import Title from '@/components/Title'
 import React, { useEffect, useState } from 'react'
 import styles from '../styles'
-import Command from '@/components/Command'
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { columns } from '@/components/table/columns';
 import { useRouter } from 'next/navigation';
 import axios from 'axios'
@@ -13,6 +11,7 @@ import { useAppContext } from '@/context/AppContext'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import dynamic from 'next/dynamic'
 import { BellRing } from 'lucide-react'
+import { users } from '@/constants';
 // import { DataTable } from '@/components/table/DataTable';
 const DataTable = dynamic( 
   () => import('@/components/table/DataTable'),
@@ -24,8 +23,8 @@ const Users = () => {
 
   const router = useRouter()
   const { searchQuery, token } = useAppContext();
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(users);
+  const [loading, setLoading] = useState(false);///?????
   const [error, setError] = useState(null);
   // const { token } = useAppContext(); // Ensure token is accessible from context
 
@@ -60,7 +59,7 @@ const Users = () => {
       }));
 
       // console.log('Data:', response.data.data.companies);
-      console.log('Data:', response.data);
+      // console.log('Data:');
       setData(response.data.data.companies)
       // setData(modifiedData)
     } catch (error) {
@@ -71,17 +70,16 @@ const Users = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-    
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
   
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error: {error}</p>;
 
   // Filter data based on searchQuery
    const filteredData = data?.filter((item) =>
-    item.companyName.toLowerCase().includes(searchQuery.toLowerCase())
+    item.owner.toLowerCase().includes(searchQuery.toLowerCase())
   );
   // console.log(data)
   return (
