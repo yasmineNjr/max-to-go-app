@@ -24,12 +24,10 @@ const RenderField= ({field, props}) => {
     const [showPassword, setShowPassword] = useState(false);
     const passwordIcon =  showPassword 
                             ?
-                            // <FaEye size={24} 
                             <Eye 
                                 className="mr-3 cursor-pointer text-textPrimary group-focus-within:text-primary" 
                                 onClick={() => setShowPassword((prev) => !prev)}/>
                             :
-                            // <FaEyeSlash size={24} 
                             <EyeOff 
                                 className="mr-3 cursor-pointer text-textPrimary group-focus-within:text-primary" 
                                 onClick={() => setShowPassword((prev) => !prev)}/>
@@ -76,6 +74,7 @@ const RenderField= ({field, props}) => {
 
         case FormFieldType.PHONE_INPUT:
             return(
+                <div className="flex rounded-xl border border-textPrimary bg-transparent items-center overflow-hidden focus-within:border-primary group">
                 <FormControl>
                     <PhoneInput
                         defaultCountry='US'
@@ -87,6 +86,7 @@ const RenderField= ({field, props}) => {
                         className="input-phone bg-transparent text-customSecondary "
                     />
                 </FormControl>
+                </div>
             )
 
         case FormFieldType.TEXTAREA:
@@ -130,8 +130,8 @@ const RenderField= ({field, props}) => {
 
         case FormFieldType.DATE_PICKER:
             return(
-                <div className="font-normal text-sm lg:text-lg flex rounded-xl border border-textPrimary focus:text-primary bg-transparent items-center overflow-hidden h-12">
-                    <div className="ml-5">{iconSrc}</div>
+                <div className="flex rounded-xl border border-textPrimary bg-transparent items-center overflow-hidden focus-within:border-primary group">
+                    <div className="ml-5 text-textPrimary group-focus-within:text-primary">{iconSrc}</div>
                     <FormControl>
                         <DatePicker selected={field.value} 
                                     onChange={(date) => field.onChange(date)} 

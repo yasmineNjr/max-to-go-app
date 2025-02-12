@@ -23,6 +23,7 @@ const UserInfoPage = ({ params }) => {
   const [fileSrc, setFileSrc] = useState(null);
   const [loadingFile, setLoadingFile] = useState(false);
   const [errorFile, setErrorFile] = useState(null);
+  const [currentDate, setCurrentDate] = useState('');
   const searchParams = useSearchParams();
   const source = searchParams.get("source");
   const router = useRouter();
@@ -31,6 +32,13 @@ const UserInfoPage = ({ params }) => {
   useEffect(() => {
     
     fetchCompanyById();
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+    setCurrentDate(formattedDate);
 
   }, []);
 
@@ -89,7 +97,7 @@ const UserInfoPage = ({ params }) => {
         throw new Error(`Failed to fetch file: ${response.statusText}`);
       }
       const contentType = response.headers.get('Content-Type');
-      console.log('Content-Type:', contentType);
+      // console.log('Content-Type:', contentType);
       const fileUrl = URL.createObjectURL(response.data);
       // console.log('Generated file URL:', fileUrl);
       setFileSrc(fileUrl); // Update state
@@ -217,6 +225,7 @@ const UserInfoPage = ({ params }) => {
             <ContentComponent title='Type Of Business' value={data.typeOfBusiness}/>
             <ContentComponent title='Email' value={data.email}/>
             <ContentComponent title='Phone Numer' value={data.phone}/>
+            <ContentComponent title='Creation Date' value={currentDate}/>
             <ContentComponent title='Company File' 
                               icon={data.permit ?
                                     <Download

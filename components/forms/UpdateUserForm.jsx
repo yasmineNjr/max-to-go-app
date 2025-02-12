@@ -118,6 +118,17 @@ const UpdateUserForm = ({ user }) => {
             />
 
             <CustomFormField
+                fieldType={FormFieldType.DATE_PICKER}
+                control={form.control}
+                name="creationDate"
+                label="Creation Date"
+                placeholder="Enter phone numer..."
+                iconSrc={<CalendarDays size={20}/>}
+                iconAlt="phoneNumer"
+                // value={user.phone}
+            />
+
+            <CustomFormField
                 fieldType={FormFieldType.SKELETON}
                 control={form.control}
                 name="file"

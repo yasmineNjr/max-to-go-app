@@ -212,7 +212,12 @@ body {
   .shad-select {
     @apply font-normal text-sm lg:text-lg flex rounded-xl border border-textPrimary focus:border-primary bg-transparent items-center !important
   }
-
+  .input-phone {
+    @apply mt-2 h-11 rounded-md px-3 text-sm border bg-transparent placeholder:text-foreground border-primary !important;
+  }
+  .dark .phone-input input {
+    background-color: #1f2937 !important; /* Dark mode */
+  }
   .shad-textArea {
     @apply font-normal text-sm bg-transparent placeholder:text-textPrimary border-textPrimary focus:border-primary rounded-xl h-[150px] focus-visible:ring-0 focus-visible:ring-offset-0 !important;
     /*  focus-within:border-primary group text-textPrimary group-focus-within:text-primary */
@@ -231,6 +236,50 @@ body {
     @apply font-normal text-sm  overflow-hidden border-transparent bg-transparent w-full placeholder:text-textPrimary  h-11  rounded-md px-3 outline-none !important;
   }
 
+  .dark .date-picker {
+    @apply placeholder:text-muted-foreground text-white bg-transparent border-transparent !important;
+  }
+  .react-datepicker__input-container input {
+    @apply date-picker;
+  }
+  
+  .react-datepicker {
+    @apply border border-input bg-popover text-foreground rounded-md shadow-md;
+  }
+  
+  .react-datepicker__header {
+    @apply bg-popover border-b border-border;
+  }
+  
+  .react-datepicker__day,
+  .react-datepicker__day-name {
+    @apply text-foreground hover:bg-accent hover:text-accent-foreground rounded-md;
+  }
+  
+  .react-datepicker__day--selected,
+  .react-datepicker__day--keyboard-selected {
+    @apply bg-primary text-primary-foreground;
+  }
+  
+  /* Dark Mode Styles */
+  .dark .react-datepicker {
+    @apply bg-background border-border text-foreground;
+  }
+  
+  .dark .react-datepicker__header {
+    @apply bg-background border-border;
+  }
+  
+  .dark .react-datepicker__day,
+  .dark .react-datepicker__day-name {
+    @apply text-foreground hover:bg-accent hover:text-accent-foreground;
+  }
+  
+  .dark .react-datepicker__day--selected,
+  .dark .react-datepicker__day--keyboard-selected {
+    @apply bg-primary text-primary-foreground;
+  }
+  
   .shad-checkbox {
     @apply font-normal text-sm w-5 h-5 bg-transparent border-primary hover:border-primary focus:ring-1 focus:ring-primary checked:bg-transparent checked:border-primary !important
   }
