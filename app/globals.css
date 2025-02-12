@@ -209,18 +209,6 @@ body {
     box-shadow: none !important; /* Ensure no box-shadow */
   }
  
-  .shad-select-content [data-highlighted] {
-    @apply bg-accent text-red; /* Changes background and text color on hover */
-  }
-  
-  .shad-select-content [data-state="checked"] {
-    @apply bg-primary text-white; /* Background and text color for selected item */
-  }
-  
-  .shad-select-content [data-disabled] {
-    @apply text-gray-400 opacity-50; /* Styling for disabled items */
-  }
-
   .shad-select {
     @apply font-normal text-sm lg:text-lg flex rounded-xl border border-textPrimary focus:border-primary bg-transparent items-center !important
   }
@@ -249,7 +237,7 @@ body {
 
   /* ==== File Upload */
   .file-upload {
-    @apply text-primary flex cursor-pointer flex-col items-center justify-center gap-3 border border-dashed rounded-xl border-primary bg-transparent p-5;
+    @apply text-primary flex cursor-pointer flex-col items-center justify-center gap-3 border border-dashed rounded-xl border-textPrimary bg-transparent p-5;
   }
 
   .file-upload_label {

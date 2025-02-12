@@ -23,7 +23,12 @@ const ChangePasswordModal = dynamic(
   })
 
 export const columns = (reloadData) => [
-
+    {
+      header: "#",
+      cell: ({ row }) => {
+        return <p className="text-14-medium ">{row.index + 1}</p>;
+      },
+    },
     {
       accessorKey: "owner",
       header: "Owner",

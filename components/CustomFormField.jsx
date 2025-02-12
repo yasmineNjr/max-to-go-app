@@ -15,8 +15,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FormFieldType } from "@/constants";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 import { Checkbox } from "./ui/checkbox";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import PhoneInput from 'react-phone-number-input'
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -75,6 +74,21 @@ const RenderField= ({field, props}) => {
                 </div>
             )
 
+        case FormFieldType.PHONE_INPUT:
+            return(
+                <FormControl>
+                    <PhoneInput
+                        defaultCountry='US'
+                        placeholder={placeholder}
+                        international
+                        withCountryCallingCode
+                        value={field.value}
+                        onChange={onChange}
+                        className="input-phone bg-transparent text-customSecondary "
+                    />
+                </FormControl>
+            )
+
         case FormFieldType.TEXTAREA:
             return(
                 <FormControl>
@@ -89,8 +103,10 @@ const RenderField= ({field, props}) => {
           
         case FormFieldType.SELECT:
             return(
-                <div className="shad-select focus-within:border-primary group">
-                    <div className="ml-5 group-focus-within:text-primary">{iconSrc}</div>
+                <div  className="shad-select group focus-within:!border-primary transition-colors duration-300">
+                    <div className="ml-5 text-muted-foreground group-focus-within:text-primary transition-colors duration-300">
+                        {iconSrc}
+                    </div>
                     <FormControl>
                         <Select
                             defaultValue={field.value}
@@ -98,7 +114,7 @@ const RenderField= ({field, props}) => {
                         >
                             <FormControl>
                             <SelectTrigger className="shad-select-trigger text-foreground">
-                                <SelectValue placeholder={placeholder} className="placehoder:text-foreground"/>
+                                <SelectValue placeholder={placeholder} />
                             </SelectTrigger> 
                             </FormControl>
                             <SelectContent className="shad-select-content ">{props.children}</SelectContent>

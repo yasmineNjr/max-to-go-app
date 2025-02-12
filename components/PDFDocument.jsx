@@ -15,12 +15,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 20,
     textAlign: 'center',
-    color: '#006AA7'
+    color: '#6e37d3'
   },
   text: {
     fontSize: 12,
     marginBottom: 15,
-    color: '#FECC02',
+    color: '#1f2937',
     fontWeight: 'bold'
   },
   value: {
