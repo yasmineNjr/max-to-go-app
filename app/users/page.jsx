@@ -12,7 +12,6 @@ import ProtectedRoute from '@/components/ProtectedRoute'
 import dynamic from 'next/dynamic'
 import { BellRing } from 'lucide-react'
 import { users } from '@/constants';
-// import { DataTable } from '@/components/table/DataTable';
 const DataTable = dynamic( 
   () => import('@/components/table/DataTable'),
   {
@@ -23,10 +22,9 @@ const Users = () => {
 
   const router = useRouter()
   const { searchQuery, token } = useAppContext();
-  const [data, setData] = useState(users);
-  const [loading, setLoading] = useState(false);///?????
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // const { token } = useAppContext(); // Ensure token is accessible from context
 
   const createNoticesHandler = () => {
     router.push('/users/create-notices')
@@ -60,8 +58,8 @@ const Users = () => {
 
       // console.log('Data:', response.data.data.companies);
       // console.log('Data:');
-      setData(response.data.data.companies)
-      // setData(modifiedData)
+      // setData(response.data.data.companies)
+      setData(modifiedData)
     } catch (error) {
       console.error('Error:', error.response?.data || error.message); // Log full error response
       setError(error.response?.data || error.message);
@@ -70,18 +68,15 @@ const Users = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-  
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error: {error}</p>;
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // Filter data based on searchQuery
    const filteredData = data?.filter((item) =>
     item.owner.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  // console.log(data)
+  
   return (
     <ProtectedRoute>
     {

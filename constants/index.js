@@ -716,3 +716,17 @@ export const formatDateWithPadding = (dateString) => {
    
    return `${day}-${month}-${year}`;
  };
+
+ export function abbreviateUserName(userName)
+ {
+     if (!userName) return '';
+ 
+     // Split by spaces and remove extra spaces.
+     const nameParts = userName.split(/\s+/);
+ 
+     // Take first two letters.
+     if (nameParts.length === 1) return nameParts[0].slice(0, 2).toUpperCase();
+ 
+     // First letter of first and last name.
+     return (nameParts[0][0] + nameParts[nameParts.length - 1][0]).toUpperCase();
+ }

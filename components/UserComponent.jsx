@@ -9,8 +9,8 @@ const UserComponent = ({ id, img, name }) => {
     console.log(img)
     const router = useRouter();
     const viewUserInfoHandler = () => {
-        // router.push(`/users/${id}`)
-        router.push(`/users/${name}`)
+        router.push(`/users/${id}`)
+        // router.push(`/users/${name}`)
     }
 
   return (
@@ -18,8 +18,8 @@ const UserComponent = ({ id, img, name }) => {
         className="flex flex-row items-center gap-2 cursor-pointer"
         onClick={viewUserInfoHandler}
     >
-        <Image src={img} alt='user' className='h-[30px] w-[30px] rounded-full'/>
-        {/* <CompanyLogo logoUrl={img}/> */}
+        {/* <Image src={img} alt='user' className='h-[30px] w-[30px] rounded-full'/> */}
+        <CompanyLogo logoUrl={img} userName={name}/>
        
        <div className='flex flex-col ml-2'>
         <p className="w-full text-left text-foreground font-light">{name}</p>

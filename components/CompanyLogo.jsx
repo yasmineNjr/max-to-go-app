@@ -1,8 +1,10 @@
 import { user } from '@/public/assets';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { abbreviateUserName } from '@/constants';
 
-const CompanyLogo = ({ logoUrl }) => {
+const CompanyLogo = ({ logoUrl, userName }) => {
   
   const [logoSrc, setLogoSrc] = useState('');
 //   console.log('logoUrl:', logoUrl);
@@ -64,33 +66,15 @@ const CompanyLogo = ({ logoUrl }) => {
     fetchLogo();
   }, [logoUrl]);
 
-  return logoSrc ? 
-          <div className="relative inline-block ">
-            <Image 
-              src={logoSrc} 
-              alt="Company Logo" 
-              width={50} 
-              height={50} 
-              className="h-[50px] w-[50px] rounded-full"
-            />
-            <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green ring-2 ring-white"></span>
-          </div>
-          : 
-          // Spinner
-          // <div>
-          // <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
-          // </div>
-          <div className="relative inline-block ">
-            <Image 
-              src={user} 
-              alt="Company Logo" 
-              width={50} 
-              height={50} 
-              className="h-[50px] w-[50px] rounded-full"
-            />
-            <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green ring-2 ring-white"></span>
-          </div>
-           
+  return (
+    <div className="relative inline-block ">
+      <Avatar className='ring-2 ring-transparent hover:ring-secondary/50 transition-[box-shadow]'>
+        <AvatarImage src={logoSrc} className={'object-cover'}/>
+        <AvatarFallback className='font-medium text-sm bg-background'>{abbreviateUserName(userName)}</AvatarFallback>
+      </Avatar>
+      <span className="absolute bottom-0 right-0 block h-2 w-2 rounded-full bg-green ring-1 ring-white"></span>
+    </div>
+  )
 };
 
 export default CompanyLogo;
