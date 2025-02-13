@@ -72,17 +72,10 @@ const Users = () => {
     fetchData();
   }, []);
 
-  const sendGroupMessageHandler = () => {
-    console.log('send')
-  }
-
-  const createUserHandler = () => {
-    router.push('/users/create-user')
-  }
-
   const commandsLst = [
-    { commandIcon: <UserRoundPlus size={16}/> , commandText:'Create a new user', clickHandler: createUserHandler },
-    { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: sendGroupMessageHandler },
+    { commandIcon: <UserRoundPlus size={16}/> , commandText:'Create a new user', clickHandler: () => router.push('/users/create-user')  },
+    // { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => router.push('/users/send-group')  },
+    { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => console.log('send')  },
     { commandIcon: <BellRing size={16}/> , commandText:'Account creation notifications', clickHandler: createNoticesHandler },
   ]
 
@@ -101,10 +94,7 @@ const Users = () => {
       </div>
      :
       <div className={`${styles.mainSection}`}>
-        <Title text='Users' source='users' commands={commandsLst}
-                commandText='Account creation notifications' 
-                commandIcon={<BellRing size={16}/>}
-                onClickHandler={createNoticesHandler}/>
+        <Title text='Users' source='users' commands={commandsLst}/>
         {
           filteredData ?
             <DataTable data={filteredData} columns={columns(fetchData)}/>

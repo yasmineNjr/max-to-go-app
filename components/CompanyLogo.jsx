@@ -7,7 +7,6 @@ import { abbreviateUserName } from '@/constants';
 const CompanyLogo = ({ logoUrl, userName }) => {
   
   const [logoSrc, setLogoSrc] = useState('');
-//   console.log('logoUrl:', logoUrl);
 
   useEffect(() => {
     const fetchLogo = async () => {
@@ -41,28 +40,6 @@ const CompanyLogo = ({ logoUrl, userName }) => {
         }
       };
       
-    // const fetchLogo = async () => {
-    //   try {
-    //     // Replace backslashes in the URL if necessary
-    //     const sanitizedLogoUrl = logoUrl.replace(/\\/g, '/'); // Replace backslashes
-    //     const encodedLogoUrl = encodeURIComponent(sanitizedLogoUrl);
-    
-    //     // Fetch the logo
-    //     const response = await fetch(`/api/proxy/logo?logoUrl=${encodedLogoUrl}`);
-        
-    //     if (!response.ok) {
-    //       console.error(`Failed to fetch logo: ${response.status} ${response.statusText}`);
-    //       return;
-    //     }
-    
-    //     // Convert the response to a Blob and create an object URL
-    //     const blob = await response.blob();
-    //     const logoSrc = URL.createObjectURL(blob);
-    //     setLogoSrc(logoSrc); // Set the logo source in your component
-    //   } catch (error) {
-    //     console.error('Error fetching logo:', error);
-    //   }
-    // };
     fetchLogo();
   }, [logoUrl]);
 
