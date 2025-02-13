@@ -280,8 +280,14 @@ body {
     @apply bg-primary text-primary-foreground;
   }
   
-  .shad-checkbox {
+  /* .shad-checkbox {
     @apply font-normal text-sm w-5 h-5 bg-transparent border-primary hover:border-primary focus:ring-1 focus:ring-primary checked:bg-transparent checked:border-primary !important
+  } */
+  .shad-checkbox {
+    @apply w-5 h-5 border-foreground text-foreground bg-transparent 
+           focus:ring-1 focus:ring-primary focus:border-primary
+           hover:border-foreground checked:bg-foreground 
+           checked:border-foreground checked:text-background !important;
   }
 
   /* ==== File Upload */

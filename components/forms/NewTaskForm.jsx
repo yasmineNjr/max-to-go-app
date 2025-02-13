@@ -38,7 +38,8 @@ const NewTaskForm = () => {
                 iconSrc={<TypeOutline className="text-textPrimary" size={20}/>}
                 >
                 {types.map((type) => (
-                <SelectItem key={type.id} value={type.title}>
+                <SelectItem key={type.id} value={type.title}
+                            className='hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground'>
                     <div className="flex items-center gap-2 cursor-pointer">
                      <p className="text-foreground">{type.title}</p>
                     </div>
@@ -70,11 +71,11 @@ const NewTaskForm = () => {
                 name="apartmentType"
                 label="Apartment type"
                 placeholder="Select the apartment type..."
-                // iconSrc={<PiBuildingApartmentFill className="text-primary" size={20}/>}<Building />
-                iconSrc={<Building className="text-primary" size={20}/>}
+                iconSrc={<Building size={20}/>}
                 >
                 {apartments.map((apartment) => (
-                <SelectItem key={apartment.id} value={apartment.title}>
+                <SelectItem key={apartment.id} value={apartment.title}
+                            className='hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground'>
                     <div className="flex items-center gap-2 cursor-pointer">
                      <p className="text-foreground">{apartment.title}</p>
                     </div>
@@ -94,15 +95,14 @@ const NewTaskForm = () => {
               control={form.control}
               name="taskDate"
               label="Task date"
-              showTimeSelect
-              dateFormat="MM/dd/yyyy  -  h:mm aa"
-              //iconSrc={<FaCalendarDays className="text-primary" size={18}/>}
-              iconSrc={<CalendarDays size={18} className="text-primary"/>}
+              placeholder="Enter phone numer..."
+                iconSrc={<CalendarDays size={20}/>}
+                iconAlt="phoneNumer"
+                // value={user.phone}
             />
 
             <div className="flex flex-1 justify-center items-center w-full mt-6">
                 <Button className='w-full flex justify-center'>Create</Button>
-                {/* <ConfirmationModal buttonText='Create' text='Your task has been created successfully'/> */}
             </div>
         </form>
     </Form>

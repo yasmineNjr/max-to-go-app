@@ -112,7 +112,7 @@ const UpdateUserForm = ({ user }) => {
                 control={form.control}
                 name="phoneNumer"
                 label="Phone Numer"
-                placeholder="Enter phone numer..."
+                placeholder="Enter phone number..."
                 iconSrc={<Phone size={20}/>}
                 iconAlt="phoneNumer"
                 value={user ? user.phone : null}
@@ -123,9 +123,9 @@ const UpdateUserForm = ({ user }) => {
                 control={form.control}
                 name="creationDate"
                 label="Creation Date"
-                placeholder="Enter phone numer..."
+                placeholder="Select ceation date..."
                 iconSrc={<CalendarDays size={20}/>}
-                iconAlt="phoneNumer"
+                iconAlt="date"
                 // value={user.phone}
             />
 
