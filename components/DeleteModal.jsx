@@ -49,7 +49,7 @@ const DeleteModal = ({ title, buttonTxt, actionTxt, text, icon, style, companyId
         }else{
           setOpen(false)
         }
-      };   
+    };   
       
     const onApproveHandler = async() => {
       setLoading(true); // Start loading
@@ -102,7 +102,7 @@ const DeleteModal = ({ title, buttonTxt, actionTxt, text, icon, style, companyId
                           Cancel
                       </Button>
                       <Button variant='none' disabled={loading}
-                              className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg font-bold h-[25px] ${source === 'delete' ? 'bg-destructive' : 'bg-primary'} text-foreground outline-none rounded-xl`}
+                              className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg font-bold h-[25px] ${source.includes('delete') ? 'bg-destructive' : 'bg-primary'} text-foreground outline-none rounded-xl`}
                               onClick={source.includes('delete') ? onDeleteHandler : onApproveHandler}>
                           {loading ? 'Processing...' : actionTxt}
                       </Button>

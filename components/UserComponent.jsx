@@ -6,7 +6,7 @@ import React from 'react'
 import CompanyLogo from './CompanyLogo'
 
 const UserComponent = ({ id, img, name }) => {
-    console.log(img)
+    // console.log(img)
     const router = useRouter();
     const viewUserInfoHandler = () => {
         router.push(`/users/${id}`)

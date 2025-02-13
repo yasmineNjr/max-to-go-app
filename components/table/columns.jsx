@@ -1,8 +1,4 @@
-// const Badge = dynamic( 
-//   () => import('../Badge'),
-//   {
-//     loadingTable: () => <p className="text-primary">Loading...</p>
-//   })
+
 const UserComponent = dynamic( 
   () => import('../UserComponent'),
   {
@@ -129,7 +125,7 @@ export const columns = (reloadData) => [
                             style={row.original.delete === true ? 'bg-red boreder-2 border-red' : 'bg-transparent border-2 border-red'}
                             companyId={row.original.id}
                             onSuccess={reloadData} // Pass reloadData to dialog
-                            source='delete'
+                            source='deleteUser'
               />
             </div>
           );

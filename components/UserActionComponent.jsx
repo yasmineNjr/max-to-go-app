@@ -1,5 +1,3 @@
-import { logo } from '@/public/assets'
-import Image from 'next/image'
 import React from 'react'
 
 const UserActionComponent = ({ title, form}) => {
