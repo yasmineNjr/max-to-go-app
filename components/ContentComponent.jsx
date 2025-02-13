@@ -1,12 +1,12 @@
 import React from 'react'
 
-const ContentComponent = ({ title, value, icon, isLoading}) => {
+const ContentComponent = ({ title, value, icon, isLoading, style}) => {
   
   return (
     // flex-col md:flex-row lg:flex-row 
     <div className={`flex flex-row my-2 font-bold w-full md:mb-3`}>
        {/* w-full lg:w-[45%] */}
-        <h1 className='text-foreground font-bold mr-5 w-[35%]'>{title}: </h1>
+        <h1 className={`text-foreground font-bold mr-5 ${style}`}>{title}: </h1>
         {
           value &&
           // w-full lg:w-[55%]

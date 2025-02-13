@@ -219,13 +219,13 @@ const UserInfoPage = ({ params }) => {
         {/* lg:w-[50%] */}
           <div className='w-[100%] '>
             {/* <ContentComponent title='Company Name' value={data.companyName}/> */}
-            <ContentComponent title='Organization Number' value={data.organizationNumber}/>
-            <ContentComponent title='Name Of Responsible Person' value={data.nameOfResponsiblePerson}/>
-            <ContentComponent title='Address' value={data.address}/>
-            <ContentComponent title='Type Of Business' value={data.typeOfBusiness}/>
-            <ContentComponent title='Email' value={data.email}/>
-            <ContentComponent title='Phone Numer' value={data.phone}/>
-            <ContentComponent title='Creation Date' value={currentDate}/>
+            <ContentComponent title='Organization Number' value={data.organizationNumber} style='w-[35%]'/>
+            <ContentComponent title='Name Of Responsible Person' value={data.nameOfResponsiblePerson} style='w-[35%]'/>
+            <ContentComponent title='Address' value={data.address} style='w-[35%]'/>
+            <ContentComponent title='Type Of Business' value={data.typeOfBusiness} style='w-[35%]'/>
+            <ContentComponent title='Email' value={data.email} style='w-[35%]'/>
+            <ContentComponent title='Phone Numer' value={data.phone} style='w-[35%]'/>
+            <ContentComponent title='Creation Date' value={currentDate} style='w-[35%]'/>
             <ContentComponent title='Company File' 
                               icon={data.permit ?
                                     <Download
@@ -233,7 +233,7 @@ const UserInfoPage = ({ params }) => {
                                     /> :
                                     <p className='text-foreground mt-0 font-light'>No File Available</p>
                                     }  
-                              isLoading={loadingFile}
+                              isLoading={loadingFile} style='w-[35%]'
             />
           </div>
         </div>
