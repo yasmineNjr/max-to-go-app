@@ -22,6 +22,7 @@ const formSchema = z.object({
 const UpdateUserForm = ({ user }) => {
 
     const form = useForm();
+    const buttonTxt = user ? 'Update' : 'Create';
 
     const onSubmit = (data) => {
         console.log(user);
@@ -38,7 +39,7 @@ const UpdateUserForm = ({ user }) => {
                 placeholder="Enter company name..."
                 iconSrc={<Building2 size={20}/>}
                 iconAlt="name"
-                value={user.companyName}
+                value={user ? user.companyName : null}
             />
 
             <CustomFormField
@@ -49,7 +50,7 @@ const UpdateUserForm = ({ user }) => {
                 placeholder="Enter organization number..."
                 iconSrc={<Hash size={20}/>}
                 iconAlt="organizationNum"
-                value={user.organizationNumber}
+                value={user ?  user.organizationNumber : null}
             />
 
             <CustomFormField
@@ -60,7 +61,7 @@ const UpdateUserForm = ({ user }) => {
                 placeholder="Enter name Of responsible person..."
                 iconSrc={<UserRound size={20}/>}
                 iconAlt="responsiblePerson"
-                value={user.nameOfResponsiblePerson}
+                value={user ? user.nameOfResponsiblePerson : null}
             />
             
             <CustomFormField
@@ -69,7 +70,7 @@ const UpdateUserForm = ({ user }) => {
                 name="address"
                 label='Address'
                 placeholder='Enter the address...'
-                value={user.address}
+                value={user ? user.address : null}
             />
 
             <CustomFormField
@@ -79,10 +80,10 @@ const UpdateUserForm = ({ user }) => {
                 label="Business Type"
                 placeholder="Select the business type..."
                 iconSrc={<TypeOutline size={20}/>}
-                value={user.typeOfBusiness}
+                value={user ? user.typeOfBusiness : null}
                 >
                 {businessTypes.map((business) => (
-                <SelectItem key={business.id} value={business.title}
+                <SelectItem key={business.id} value={user ? business.title : null}
                             className='hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground'>
                     <div className="flex items-center gap-2 cursor-pointer">
                      <p className="text-foreground">{business.title}</p>
@@ -102,7 +103,7 @@ const UpdateUserForm = ({ user }) => {
                 iconSrc={<Mail size={20} />}
                 type='mail'
                 // required={true}
-                value={user.email}
+                value={user ? user.email : null}
                 // onChange={(e) => setEmail(e.target.value)}
             />
 
@@ -114,7 +115,7 @@ const UpdateUserForm = ({ user }) => {
                 placeholder="Enter phone numer..."
                 iconSrc={<Phone size={20}/>}
                 iconAlt="phoneNumer"
-                value={user.phone}
+                value={user ? user.phone : null}
             />
 
             <CustomFormField
@@ -149,7 +150,7 @@ const UpdateUserForm = ({ user }) => {
             />
 
             <div className="flex flex-1 justify-center items-center w-full mt-6">
-                <Button className='w-full flex justify-center'>Update</Button>
+                <Button className='w-full flex justify-center'>{buttonTxt}</Button>
             </div>
         </form>
     </Form>

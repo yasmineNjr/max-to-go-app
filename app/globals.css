@@ -237,7 +237,7 @@ body {
   }
 
   .dark .date-picker {
-    @apply placeholder:text-muted-foreground text-white bg-transparent border-transparent !important;
+    @apply placeholder:text-muted-foreground text-foreground bg-transparent border-transparent !important;
   }
   .react-datepicker__input-container input {
     @apply date-picker;

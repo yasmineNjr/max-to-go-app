@@ -10,7 +10,7 @@ import { user } from '@/public/assets'
 import { useAppContext } from '@/context/AppContext'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import dynamic from 'next/dynamic'
-import { BellRing } from 'lucide-react'
+import { BellRing, Send, UserRoundPlus } from 'lucide-react'
 import { users } from '@/constants';
 const DataTable = dynamic( 
   () => import('@/components/table/DataTable'),
@@ -72,11 +72,25 @@ const Users = () => {
     fetchData();
   }, []);
 
+  const sendGroupMessageHandler = () => {
+    console.log('send')
+  }
+
+  const createUserHandler = () => {
+    router.push('/users/create-user')
+  }
+
+  const commandsLst = [
+    { commandIcon: <UserRoundPlus size={16}/> , commandText:'Create a new user', clickHandler: createUserHandler },
+    { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: sendGroupMessageHandler },
+    { commandIcon: <BellRing size={16}/> , commandText:'Account creation notifications', clickHandler: createNoticesHandler },
+  ]
+
   // Filter data based on searchQuery
    const filteredData = data?.filter((item) =>
     item.owner.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
+
   return (
     <ProtectedRoute>
     {
@@ -87,7 +101,7 @@ const Users = () => {
       </div>
      :
       <div className={`${styles.mainSection}`}>
-        <Title text='Users' 
+        <Title text='Users' source='users' commands={commandsLst}
                 commandText='Account creation notifications' 
                 commandIcon={<BellRing size={16}/>}
                 onClickHandler={createNoticesHandler}/>
