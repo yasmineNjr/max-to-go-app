@@ -9,7 +9,7 @@ import {
 const IconComponent = ({ icon, tooltip, onClickHandler }) => {
   return (
     <div 
-        className='w-9 h-9 text-foreground bg-background rounded-md p-2 transition-colors hover:bg-secondary border border-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer shadow-sm'
+        className='w-9 h-9 text-foreground bg-transparent rounded-md p-2 transition-colors hover:bg-secondary border border-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer shadow-sm'
         onClick={onClickHandler}>
          <TooltipProvider>
           <Tooltip>

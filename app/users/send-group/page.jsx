@@ -11,6 +11,7 @@ import React, { useEffect, useState } from 'react'
 const SendGroupPage = () => {
 
     const [selectedRows, setSelectedRows] = useState([]);
+    const [recipients, setRecipients] = useState([]);
 
     const fetchData = async () => {
         const token = localStorage.getItem('token'); // Retrieve token from localStorage or context
@@ -51,8 +52,20 @@ const SendGroupPage = () => {
       };
 
     useEffect(() => {
-        console.log("Selected Rows:", selectedRows);
-    }, [selectedRows]);
+      // Extract emails from selectedRows and store them in recipients array
+      const emails = selectedRows.map(row => row.email);
+      setRecipients(emails);
+      console.log("Recipients:", emails);
+  }, [selectedRows]);
+
+    const subject = "Your Subject Here";
+    const body = "Hello,\n\nThis is your message body.\n\nBest regards,";
+  
+    const handleSendEmail = () => {
+      const mailtoLink = `mailto:${recipients.join(",")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+      // console.log(subject)
+    };
 
   return (
     <ProtectedRoute>
@@ -61,12 +74,20 @@ const SendGroupPage = () => {
             <div className='mt-5'>
              {
                 users ?
-                // <DataTable data={users} columns={userColumns(fetchData, setSelectedRows)}/>
-                <UserDataTable data={users} columns={userColumns(fetchData, setSelectedRows)} setSelectedRows={setSelectedRows} />
+                <UserDataTable data={users} 
+                                columns={userColumns(fetchData, setSelectedRows, selectedRows)} 
+                                setSelectedRows={setSelectedRows} 
+                                selectedRows={selectedRows}
+                                onClickSend={handleSendEmail}/>
                 :
                 <div className='flex items-center justify-center h-64 text-foreground'>No Companies found.</div>
              }
-              <div>{JSON.stringify(selectedRows, null, 2)}</div>
+              {/* <div>{JSON.stringify(selectedRows, null, 2)}</div> */}
+              {/* <div>
+                {
+                  recipients.map((rec) => (<p>{rec}</p>))
+                }
+              </div> */}
              </div>
         </div>
     </ProtectedRoute>

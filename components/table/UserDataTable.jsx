@@ -24,8 +24,10 @@ import Image from "next/image"
 import { arrow } from "@/public/assets"
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
+import { Send } from "lucide-react";
+import IconComponent from "../IconComponent";
 
-const UserDataTable = ({ columns, data, setSelectedRows }) => {
+const UserDataTable = ({ columns, data, setSelectedRows, selectedRows, onClickSend }) => {
   const table = useReactTable({
     data,
     columns,
@@ -44,7 +46,11 @@ const UserDataTable = ({ columns, data, setSelectedRows }) => {
 
   return (
     <div className="data-table">
-      <Table className="shad-table">
+      <div className={`h-14 ${selectedRows.length > 0 ? 'bg-primary' : 'bg-transparent'} px-5 flex flex-row items-center justify-between`}>
+        {selectedRows.length > 0 ? <p>{selectedRows.length} companies selected</p> : <p></p>}
+        <IconComponent icon={<Send size={16}/>} tooltip='Send group message' onClickHandler={selectedRows.length > 0 ? onClickSend : undefined}/>
+      </div>
+      <Table className="rounded-lg overflow-hidden bg-secondary rounded-t-none">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="shad-table-row-header ">

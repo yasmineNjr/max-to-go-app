@@ -74,8 +74,8 @@ const Users = () => {
 
   const commandsLst = [
     { commandIcon: <UserRoundPlus size={16}/> , commandText:'Create a new user', clickHandler: () => router.push('/users/create-user')  },
-    // { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => router.push('/users/send-group')  },
-    { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => console.log('send')  },
+    { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => router.push('/users/send-group')  },
+    // { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => console.log('send')  },
     { commandIcon: <BellRing size={16}/> , commandText:'Account creation notifications', clickHandler: createNoticesHandler },
   ]
 
