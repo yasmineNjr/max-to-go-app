@@ -1,13 +1,14 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
 
 const MultiSelectDropdown = ({ 
   options,
   placeholder = "Select task status...",
   setSelectedOptions,
-  selectedOptions
+  selectedOptions,
+  style
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [selectedOptions, setSelected] = useState([]);
@@ -43,7 +44,7 @@ const MultiSelectDropdown = ({
   }, []);
 
   return (
-    <div className="relative w-full cursor-pointer text-foreground"
+    <div className={`relative w-full cursor-pointer text-foreground text-sm ${style}`}
           onClick={toggleDropdown}
           ref={menuRef}
     >
@@ -51,28 +52,30 @@ const MultiSelectDropdown = ({
       <div className="flex flex-row p-1">
         <button
           type="button"
-          className="w-full px-4 py-2 text-left bg-transparent shadow-sm placeholder:text-accent"
+          className="w-full px-4 py-2 text-left bg-transparent shadow-sm placeholder:text-textPrimary"
         >
           {selectedOptions.length > 0
             ? selectedOptions.map((opt) => opt.label).join(", ") // Use labels
             : placeholder}
         </button>
         <div className="flex items-center mr-3">
-          <IoIosArrowDown size={20} className="text-primary"/>
+          <ChevronDown size={20} />
         </div>
       </div>
       {/* Dropdown Content */}
       {isOpen && (
-        <div className="absolute mt-1 w-full bg-background shadow-md z-10 max-h-60 overflow-y-auto border border-primary rounded-b-xl overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-primary scrollbar-track-transparent ">
+        <div 
+          className="absolute mt-1 w-full bg-secondary shadow-md z-10 max-h-60 ml-4 mr-10 overflow-y-auto border border-primary rounded-b-xl overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-primary scrollbar-track-transparent "
+        >
 
           {/* Existing Options */}
           {options.map((option) => (
             <div
               key={option.value}
-              className="group flex flex-row w-full items-center px-2 hover:bg-secondary"
+              className="flex flex-row w-full items-center text-foreground pl-2 hover:bg-primary my-1"
               onClick={() => toggleOption(option)}
             >
-              <div className="text-foreground group-hover:text-primary">
+              <div>
                 {option.icon}
               </div>
               <div className="flex items-center gap-2 px-4 py-2 cursor-pointer w-full">
@@ -80,7 +83,7 @@ const MultiSelectDropdown = ({
                   type="text"
                   value={option.label}
                   readOnly
-                  className="text-sm border-none bg-transparent text-foreground group-hover:text-primary"
+                  className="text-sm border-none bg-transparent w-full"
                 />
               </div>
             </div>
