@@ -26,6 +26,7 @@ import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { Send } from "lucide-react";
 import IconComponent from "../IconComponent";
+import SendMessageModal from "../SendMessageModal";
 
 const UserDataTable = ({ columns, data, setSelectedRows, selectedRows, onClickSend }) => {
   const table = useReactTable({
@@ -48,8 +49,14 @@ const UserDataTable = ({ columns, data, setSelectedRows, selectedRows, onClickSe
     <div className="data-table">
       <div className={`h-14 ${selectedRows.length > 0 ? 'bg-primary' : 'bg-transparent'} px-5 flex flex-row items-center justify-between`}>
         {selectedRows.length > 0 ? <p>{selectedRows.length} companies selected</p> : <p></p>}
-        <IconComponent icon={<Send size={16}/>} tooltip='Send group message' onClickHandler={selectedRows.length > 0 ? onClickSend : undefined}/>
+        {/* send group message */}
+        <SendMessageModal 
+          title='Send Group Message' 
+          buttonText={<IconComponent icon={<Send size={16}/>} tooltip='Send group message' />} 
+          // text
+        />
       </div>
+      {/* <IconComponent icon={<Send size={16}/>} tooltip='Send group message' onClickHandler={selectedRows.length > 0 ? onClickSend : undefined}/> */}
       <Table className="rounded-lg overflow-hidden bg-secondary rounded-t-none">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

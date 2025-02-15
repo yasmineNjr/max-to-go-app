@@ -1,7 +1,7 @@
 'use client'
 
 import Title from '@/components/Title'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styles from '../styles'
 import { columns } from '@/components/table/columns';
 import { useRouter } from 'next/navigation';
@@ -12,6 +12,8 @@ import ProtectedRoute from '@/components/ProtectedRoute'
 import dynamic from 'next/dynamic'
 import { BellRing, Send, UserRoundPlus } from 'lucide-react'
 import { users } from '@/constants';
+import UserDataTable from '@/components/table/UserDataTable';
+import { userColumns } from '@/components/table/userColumns';
 const DataTable = dynamic( 
   () => import('@/components/table/DataTable'),
   {
@@ -25,6 +27,8 @@ const Users = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [recipients, setRecipients] = useState([]);
 
   const createNoticesHandler = () => {
     router.push('/users/create-notices')
@@ -72,17 +76,36 @@ const Users = () => {
     fetchData();
   }, []);
 
+  // useEffect(() => {
+  //     // Extract emails from selectedRows and store them in recipients array
+  //     const emails = selectedRows.map(row => row.email);
+  //     setRecipients(emails);
+  //     // console.log("Recipients:", emails);
+  // }, [selectedRows]);
+
+  const subject = "Your Subject Here";
+  const body = "Hello,\n\nThis is your message body.\n\nBest regards,";
+
+  const handleSendEmail = () => {
+    const emails = selectedRows.map(row => row.email); // Calculate recipients here
+    // const mailtoLink = `mailto:${recipients.join(",")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${emails.join(",")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+    // console.log(subject)
+  };
+
   const commandsLst = [
     { commandIcon: <UserRoundPlus size={16}/> , commandText:'Create a new user', clickHandler: () => router.push('/users/create-user')  },
-    { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => router.push('/users/send-group')  },
+    // { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => router.push('/users/send-group')  },
     // { commandIcon: <Send size={16}/> , commandText:'Send a group message', clickHandler: () => console.log('send')  },
     { commandIcon: <BellRing size={16}/> , commandText:'Account creation notifications', clickHandler: createNoticesHandler },
   ]
 
-  // Filter data based on searchQuery
-   const filteredData = data?.filter((item) =>
-    item.owner.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredData = useMemo(() => {
+    return data?.filter((item) =>
+      item.owner.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [data, searchQuery]);
 
   return (
     <ProtectedRoute>
@@ -96,10 +119,18 @@ const Users = () => {
       <div className={`${styles.mainSection}`}>
         <Title text='Users' source='users' commands={commandsLst}/>
         {
-          filteredData ?
-            <DataTable data={filteredData} columns={columns(fetchData)}/>
-            :
-            <div className='flex items-center justify-center h-64 text-foreground'>No Companies found.</div>
+          // filteredData ?
+          //   <DataTable data={filteredData} columns={columns(fetchData)}/>
+          //   :
+          // <div className='flex items-center justify-center h-64 text-foreground'>No Companies found.</div>
+          filteredData?.length > 0 ?
+                <UserDataTable data={filteredData} 
+                                columns={userColumns(fetchData, setSelectedRows, selectedRows)} 
+                                setSelectedRows={setSelectedRows} 
+                                selectedRows={selectedRows}
+                                onClickSend={handleSendEmail}/>
+                :
+                <div className='flex items-center justify-center h-64 text-foreground'>No Companies found.</div>
         }
       </div>
     }

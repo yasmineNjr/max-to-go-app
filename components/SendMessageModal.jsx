@@ -12,7 +12,7 @@ import {
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
-const ConfirmationModal = ({ title, actionTxt,buttonText, form, text, command}) => {
+const SendMessageModal = ({ title, buttonText, text}) => {
 
     const [open, setOpen] = useState(false)
   return (
@@ -28,18 +28,15 @@ const ConfirmationModal = ({ title, actionTxt,buttonText, form, text, command}) 
                 </DialogTitle>
                 <DialogDescription className='text-center text-foreground gap-3 text-[18px] flex flex-col items-center justify-center'>
                     {text}
-                    {form && 
-                        <div className='rounded-2xl border-border hover:border-primary border'>
-                            <Input
-                                placeholder='duration'
-                                className="shad-input "
-                                type='number'
-                                min={1}
-                            />
-                        </div>
-                    }
+                    <div className='rounded-2xl border-border hover:border-primary border'>
+                        <Input
+                            placeholder='duration'
+                            className="shad-input "
+                            type='number'
+                            min={1}
+                        />
+                    </div>
                     <div className='flex flex-row items-center justify-center gap-8 w-full'>
-                                         
                         <Button variant='none' //disabled={loading}
                                 className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-gray-500 font-bold h-[25px] text-foreground outline-none rounded-xl`}
                                 onClick={() => setOpen(false)}>
@@ -49,7 +46,7 @@ const ConfirmationModal = ({ title, actionTxt,buttonText, form, text, command}) 
                                 className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg font-bold h-[25px] bg-primary text-foreground outline-none rounded-xl`}
                                 onClick={() => setOpen(false)}>
                             {/* {loading ? 'Processing...' : actionTxt} */}
-                            {actionTxt}
+                            Send
                         </Button>
 
                     </div>
@@ -61,4 +58,4 @@ const ConfirmationModal = ({ title, actionTxt,buttonText, form, text, command}) 
   )
 }
 
-export default ConfirmationModal
+export default SendMessageModal

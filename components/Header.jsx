@@ -39,8 +39,9 @@ const Header = () => {
             <div onClick={() => router.push('/main')}>
               <IconComponent icon={<House size={18}/>} tooltip='Home' />
             </div>
-            <div 
-              className="flex items-center justify-end rounded-xl bg-background text-foreground border border-secondary h-9 hover:bg-secondary shadow-sm"
+            <div //
+              // className="flex items-center justify-end rounded-xl bg-background text-foreground border border-secondary h-9 hover:bg-secondary shadow-sm"
+              className="flex items-center justify-end rounded-xl bg-background text-foreground h-9 transition-all hover:bg-secondary hover:shadow-md hover:shadow-black/30 border border-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer shadow-sm"
             >
               <Search size={20} className='ml-2'/>
               <Input

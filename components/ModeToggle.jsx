@@ -19,7 +19,7 @@ export function ModeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild 
         // className="flex items-center justify-center border border-card"
-        className="flex items-center justify-center border border-secondary"
+        className="flex items-center justify-center border border-secondary transition-all hover:bg-secondary hover:shadow-md hover:shadow-black/30 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer shadow-sm"
       >
         <Button variant="outline" size="icon">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
