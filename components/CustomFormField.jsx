@@ -44,6 +44,7 @@ const RenderField= ({field, props}) => {
             type, 
             min, 
             required,
+            inputProps
          } = props;
     
     switch(fieldType){
@@ -63,6 +64,7 @@ const RenderField= ({field, props}) => {
                             type={type === 'password' && showPassword ? 'text' : type}
                             min={min}
                             required={required}
+                            {...inputProps}  // Make sure this is here!
                         />
                     </FormControl>
                     {
@@ -97,6 +99,7 @@ const RenderField= ({field, props}) => {
                     {...field}
                     className="shad-textArea"
                     disabled={props.disabled}
+                    {...inputProps}  // Make sure this is here!
                    />
                 </FormControl>
             )

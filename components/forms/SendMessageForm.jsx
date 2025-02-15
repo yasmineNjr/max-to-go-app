@@ -8,16 +8,36 @@ import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import { FormFieldType } from "@/constants"
 import Button from "../Button"
+import { Captions } from "lucide-react"
+import { useEffect } from "react"
 
 const formSchema = z.object({
-    username: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
+      subject: z.string().min(2, {
+      message: "Subject must be at least 2 characters.",
     }),
   })
 
-const SendMessageForm = () => {
+const SendMessageForm = ({ source, onInputChange }) => {
 
-    const form = useForm();
+  const form = useForm({
+    resolver: zodResolver(formSchema), 
+    defaultValues: {
+      subject: '',
+      message: '',
+    },
+  });
+
+  // Register inputs with useForm
+  const { register, watch } = form;
+  const subject = watch('subject');
+  const message = watch('message');
+
+  // Trigger the callback whenever subject or message changes
+  useEffect(() => {
+  //   console.log('Subject Watch:', subject);
+  // console.log('Message Watch:', message);
+    onInputChange({ subject, message });
+  }, [subject, message, onInputChange]);
 
     const onSubmit = (data) => {
         console.log(data);
@@ -25,8 +45,18 @@ const SendMessageForm = () => {
 
   return (
     <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="font-bold space-y-6 flex flex-1 flex-col w-[95%] lg:w-[75%] mb-5">
-           
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full font-bold space-y-6 flex flex-1 flex-col">
+            <CustomFormField
+              fieldType={FormFieldType.INPUT}
+              control={form.control}
+              name="subject"
+              label="Subject"
+              placeholder="Enter subject..."
+              iconSrc={<Captions />}
+              iconAlt="subject"
+              // Register input
+              inputProps={register('subject')}
+            />
             <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
@@ -34,10 +64,12 @@ const SendMessageForm = () => {
                 label='Message'
                 placeholder='Write your message here...'
             />
-                    
-            <div className="flex flex-1 justify-center items-center w-full mt-6">
+             {source !== 'modal'
+              &&
+              <div className="flex flex-1 justify-center items-center w-full mt-6">
                 <Button styles='w-[100%]' title='Send'/>
-            </div>
+              </div>
+             }       
         </form>
     </Form>
   )

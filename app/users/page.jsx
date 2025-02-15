@@ -28,7 +28,6 @@ const Users = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedRows, setSelectedRows] = useState([]);
-  const [recipients, setRecipients] = useState([]);
 
   const createNoticesHandler = () => {
     router.push('/users/create-notices')
@@ -60,7 +59,7 @@ const Users = () => {
         img: {user}
       }));
 
-      // console.log('Data:', response.data.data.companies);
+      console.log('Data:', response.data.data.companies);
       // console.log('Data:');
       // setData(response.data.data.companies)
       setData(modifiedData)
@@ -75,24 +74,6 @@ const Users = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  // useEffect(() => {
-  //     // Extract emails from selectedRows and store them in recipients array
-  //     const emails = selectedRows.map(row => row.email);
-  //     setRecipients(emails);
-  //     // console.log("Recipients:", emails);
-  // }, [selectedRows]);
-
-  const subject = "Your Subject Here";
-  const body = "Hello,\n\nThis is your message body.\n\nBest regards,";
-
-  const handleSendEmail = () => {
-    const emails = selectedRows.map(row => row.email); // Calculate recipients here
-    // const mailtoLink = `mailto:${recipients.join(",")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const mailtoLink = `mailto:${emails.join(",")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-    // console.log(subject)
-  };
 
   const commandsLst = [
     { commandIcon: <UserRoundPlus size={16}/> , commandText:'Create a new user', clickHandler: () => router.push('/users/create-user')  },
@@ -127,8 +108,7 @@ const Users = () => {
                 <UserDataTable data={filteredData} 
                                 columns={userColumns(fetchData, setSelectedRows, selectedRows)} 
                                 setSelectedRows={setSelectedRows} 
-                                selectedRows={selectedRows}
-                                onClickSend={handleSendEmail}/>
+                                selectedRows={selectedRows}/>
                 :
                 <div className='flex items-center justify-center h-64 text-foreground'>No Companies found.</div>
         }

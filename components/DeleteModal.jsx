@@ -97,7 +97,7 @@ const DeleteModal = ({ title, buttonTxt, actionTxt, text, icon, style, companyId
                     <div className='flex flex-row items-center justify-center gap-8 w-full'>
                      
                       <Button variant='none' disabled={loading}
-                              className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-gray-500 font-bold h-[25px] text-foreground outline-none rounded-xl`}
+                              className={`mt-5 w-[50%] flex flex-row items-center justify-center gap-2 py-4 px-6 bg-gray-500 font-bold h-[25px] text-foreground outline-none rounded-xl border-border`}
                               onClick={() => setOpen(false)}>
                           Cancel
                       </Button>
