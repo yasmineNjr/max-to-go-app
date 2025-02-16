@@ -59,7 +59,7 @@ const Users = () => {
         img: {user}
       }));
 
-      console.log('Data:', response.data.data.companies);
+      // console.log('Data:', response.data.data.companies);
       // console.log('Data:');
       // setData(response.data.data.companies)
       setData(modifiedData)
